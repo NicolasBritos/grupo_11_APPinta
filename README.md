@@ -20,7 +20,6 @@ La idea que planteamos, es la de crear una página WEB Responsive, apuntado prin
 
 Las páginas WEB que utilizamos como referencia tanto en funcionalidades como en temática, son las siguientes:
 
-https://growlerscc.com.ar/reservas/
 
 https://www.cervezaantares.com/
 
