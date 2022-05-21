@@ -1,6 +1,6 @@
 # grupo_11_APPinta
 
-                                                                        APPinta
+                                                    APPinta
                                                                    
 ## Sobre el Team:
 
