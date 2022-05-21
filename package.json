@@ -1,0 +1,28 @@
+{
+  "name": "grupo_11_appinta",
+  "version": "1.0.0",
+  "description": "APPinta",
+  "main": "App.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon App.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alejandrosoares/grupo_11_APPinta.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alejandrosoares/grupo_11_APPinta/issues"
+  },
+  "homepage": "https://github.com/alejandrosoares/grupo_11_APPinta#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
