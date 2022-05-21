@@ -1,7 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600;700&display=swap');
 @import url('reset.css');
+
+:root {
+    /* colors */
+    --green: #C2C5AA;
+    --black: #292B2D;
+    --white: white;
+
+    /* measures */
+    --max-width: 800px;
+    --border-radius: 10px;
+
+    /* font */
+    --sm: 12px;
+    --md: 14px;
+    --lg: 18px;
+    --xl: 22px;
+
+}
 
 html {
     font-family: 'Quicksand', sans-serif;
 }
 
+body {
+    width: 100vw;
+    height: 100vh;
+    color: white;
+}
+
+main {
+    background-color: var(--black);
+    height: 100%;
+    opacity: .8;
+}
