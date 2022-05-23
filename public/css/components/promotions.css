@@ -53,9 +53,17 @@
 /* medium */
 @media (min-width: 768px) {
     .promotions {
-        max-width: calc(var(--max-width) / 2);
+        max-width: calc(var(--max-width) - 100px);
+        margin-left: auto;
+        margin-right: auto;
     }
     .promotions__img img {
         max-width: 150px;
+    }
+}
+
+@media (min-width: 820px)  {
+    .promotions {
+        max-width: var(--max-width);
     }
 }
