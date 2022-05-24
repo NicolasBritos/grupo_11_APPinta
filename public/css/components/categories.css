@@ -3,6 +3,14 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items:stretch;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.categories__title {
+    width: 100%;
+    padding-left: 24px;
+    margin-bottom: 4px;
 }
 
 .categories__item {

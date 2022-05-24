@@ -6,6 +6,7 @@
     --green: #C2C5AA;
     --black: #292B2D;
     --white: white;
+    ---green-action: #28a745;
 
     /* measures */
     --max-width: 800px;

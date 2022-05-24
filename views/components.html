@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components/header-user.css">
     <link rel="stylesheet" href="css/components/promotions.css">
     <link rel="stylesheet" href="css/components/categories.css">
     <title>APPINTA</title>
@@ -12,7 +13,13 @@
 <body style="background-image: url('img/background.webp');">
     <main>
         <h1>Componentes de la pagina</h1>
-        <p>Promociones</p>
+        <section class="header-user">
+                <h2>Hola Alejandro!</h2>
+                <h3>
+                    No te quedes sin un lugar! Podés reservar tu mesa para vos y tus amig@s desde aquí. Te esperamos!
+                </h3>
+                <button>Reservar</button>
+        </section>
         <section class="promotions">
             <div class="promotions__img">
                 <img src="img/promotions/pizzas.png" alt="Img promoción">
@@ -23,8 +30,10 @@
                 <button>Ver promociones</button>
             </div>
         </section>
-        <p>Categories</p>
         <section class="categories">
+            <div class="categories__title">
+                <p>Nuestros productos</p>
+            </div>
             <div class="categories__item">
                 <img src="img/categories/cervezas.jpg" alt="Imagen categoria">
                 <p>Cervezas</p>
