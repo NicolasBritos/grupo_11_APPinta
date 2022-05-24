@@ -3,14 +3,16 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items:stretch;
-    margin-top: 16px;
-    margin-bottom: 16px;
+    margin: 16px auto;
+    max-width: var(--max-width);
+
 }
 
 .categories__title {
     width: 100%;
     padding-left: 24px;
     margin-bottom: 4px;
+    text-align: center;
 }
 
 .categories__item {
@@ -34,4 +36,10 @@
     padding: 2px 3px;
     border-radius: 5px;
     font-weight: 600;
+}
+
+@media (min-width: 768px) {
+    .categories__title p {
+        font-size: var(--lg);
+    }
 }
