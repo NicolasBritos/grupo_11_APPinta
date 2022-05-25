@@ -13,5 +13,9 @@ app.listen(3000, () => {
 })
 
 app.get('/', (req, res) => {
-    res.sendFile(templatePath('components'))
+    res.sendFile(templatePath('homeLogin'))
+})
+
+app.get('/home', (req, res) => {
+    res.sendFile(templatePath('home'))
 })

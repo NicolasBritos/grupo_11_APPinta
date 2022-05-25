@@ -16,6 +16,7 @@
     justify-content: center;
     align-items: center;
 }
+
 .promotions__img img {
     max-width: 100px;
     height: auto;
@@ -25,27 +26,31 @@
 .promotions__info {
     padding: 12px;
 }
+
 .promotions__info h2 {
     font-size: var(--lg);
-    color: black;
+    color: var(--black);
     font-weight: 700;
     margin-bottom: 4px;
 }
+
 .promotions__info h3 {
     font-size: var(--md);
-    color: black;
+    color: var(--black);
     font-weight: 600;
     margin-bottom: 8px;
 }
+
 .promotions__info button {
     width: 100%;
     padding: 8px 6px;
-    background-color: black;
+    background-color: var(--black);
     color: var(--white);
     border: none;
     border-radius: var(--border-radius);
     cursor: pointer;
 }
+
 .promotions__info button:hover {
     cursor: pointer;
 }

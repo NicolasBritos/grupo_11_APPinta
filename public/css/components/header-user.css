@@ -8,20 +8,22 @@
 
 .header-user h2 {
     font-size: var(--xl);
-    color: black;
+    color: var(--black);
     font-weight: 700;
     margin-bottom: 8px;
 }
+
 .header-user h3 {
     font-size: var(--md);
-    color: black;
+    color: var(--black);
     font-weight: 600;
     margin-bottom: 8px;
 }
+
 .header-user button {
     width: 100%;
     padding: 8px 6px;
-    background-color: var(---green-action);
+    background-color: var(--green-action);
     color: var(--white);
     border: none;
     border-radius: var(--border-radius);
@@ -29,6 +31,7 @@
     font-weight: 600;
     cursor: pointer;
 }
+
 .header-user button:hover {
     cursor: pointer;
 }
@@ -38,6 +41,12 @@
 @media (min-width: 768px) {
     .header-user {
         max-width: calc(var(--max-width) - 100px);
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .header-user button {
+        max-width: 400px;
+        display: block;
         margin-left: auto;
         margin-right: auto;
     }
