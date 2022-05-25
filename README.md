@@ -1,12 +1,12 @@
 # grupo_11_APPinta
 
-                                                                        APPinta
+                                                    APPinta
                                                                    
-Sobre el Team:
+## Sobre el Team:
 
 Nuestro grupo (nro 11), está conformado por 5 integrantes, Britos Nicolas Gonzalo, Diaz Carla, Gianotti Francisco, Lujan Emmanuel y Soares Alejandro. Actualmente, todos somos compañeros de trabajo en una Fintech con sede en Posadas-Misiones.
 
-El proyecto: 
+## El proyecto: 
 
 Nuestra temática se basa en un intento de mejorar el servicio y la experiencia de asistir a un Bar de cerveza artesanal, tomando como ejemplo los problemas que suelen verse a diario en dichos lugares a la hora de realizar reservas de mesas puntualmente.
 La idea que planteamos, es la de crear una página WEB Responsive, apuntado principalmente a su uso en dispositivos móviles. En la misma, se implementarían varias funcionalidades, como ser:
@@ -30,8 +30,18 @@ https://www.cervezapatagonia.com.ar/microcerveceria
 https://www.stellaartois.com.ar/#variedades
 
 
-Público Objetivo:
+## Público Objetivo:
 
 Toda persona mayor de 18 años con deseos de disfrutar un momento de relajación tanto en grupo como en solitario, sin preocuparse de llegar temprano a un Bar y quedarse con la sed de pasar un buen momento.
+
+## Correr el proyecto
+1) Clonar proyecto e instalar las dependencias
+```
+npm install
+```
+2) Ejecutar nodemon
+```
+npm start
+```
 
 

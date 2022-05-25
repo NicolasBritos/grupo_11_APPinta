@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600;700&display=swap');
+@import url('reset.css');
+@import url('components/header.css');
+@import url('components/footer.css');
+
+:root {
+    /* colors */
+    --green: #C2C5AA;
+    --black: #292B2D;
+    --white: white;
+    --green-action: #28a745;
+    --black: black;
+    --red: red;
+
+    /* measures */
+    --max-width: 800px;
+    --border-radius: 10px;
+
+    /* font */
+    --sm: 12px;
+    --md: 14px;
+    --lg: 18px;
+    --xl: 22px;
+}
+
+html {
+    font-family: 'Quicksand', sans-serif;
+}
+
+body {    
+    background-image: url('../img/background.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    width: 100vw;
+    height: 100vh;
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+}
+
+body:before {
+    content: "";
+    width: 100%;
+    min-height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: var(--black);
+    opacity: .4;
+    z-index: 1;
+} 
+
+body > * {
+    position: relative;
+    z-index: 10;
+}
+
+main {
+    flex-grow: 1;
+}
+
+.d-none {
+    display: none;
+}
+
+

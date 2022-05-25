@@ -1,0 +1,86 @@
+.header {
+    height: 60px;
+    display: flex;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.header__title,
+.header__opt {
+    display: flex;
+    align-items: center;
+    width: 50%;
+}
+
+
+/*  TITLE */
+.header__title {
+    justify-content: start;
+}
+
+.header__title a {
+    text-decoration: none;
+}
+
+.header__title h1 {
+    color: var(--white);
+}
+
+
+/* OPTIONS */
+.header__opt {
+    justify-content: end;
+}
+
+.header__opt i {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 24px;
+}
+
+.opt__cart,
+.opt__account {
+    width: 50px;
+    height: 30px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.opt__cart div {
+    background-color: var(--red);
+    color: var(--white);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: -10px;
+    right: 4px;
+}
+
+
+/* SIGNIN Y SIGNUP */
+.opt__signin,
+.opt__signup {
+    width: 100px;
+    height: 30px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--md);
+}
+
+.opt__signin a,
+.opt__signup a {
+    color: var(--white);
+}
+
+.opt__signin:hover a,
+.opt__signup:hover a {
+    color: var(--green-action);
+}
