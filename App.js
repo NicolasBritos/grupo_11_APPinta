@@ -20,7 +20,25 @@ app.get('/home', (req, res) => {
     res.sendFile(templatePath('home'))
 })
 
-<<<<<<< HEAD
+app.get('/products', (req, res) => {
+    res.sendFile(templatePath('products'))
+})
+
+app.get('/product', (req, res) => {
+    res.sendFile(templatePath('product'))
+})
+
 app.get('/cart', (req, res) => {
     res.sendFile(templatePath('productCart'))
+<<<<<<< HEAD
+=======
+})
+
+app.get('/register', (req, res) => {
+    res.sendFile(templatePath('register'))
+})
+
+app.get('/login', (req, res) => {
+    res.sendFile(templatePath('login'))
+>>>>>>> d481c24f4cb2aa8bed0ea8fe0d82a8e491cfc5d2
 })

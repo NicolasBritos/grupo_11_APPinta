@@ -11,17 +11,25 @@
     <link rel="stylesheet" href="css/components/promotions.css">
     <link rel="stylesheet" href="css/components/categories.css">
     <link rel="stylesheet" href="css/components/register.css">
-    
+    <link rel="icon" href="img/title/beer.png">
     <title>
-       Registro
+       Registro | PintaBar
     </title>
 </head>
 <body>
      <header class="header">
-            <div class="header__title">
-                <a href=""><h1>PintaBar</h1></a>
+        <div class="header__title">
+            <a href="/"><h1>PintaBar</h1></a>
+        </div>
+        <div class="header__opt">
+            <div class="opt__signin">
+                <a href="/login">Ingresar</a>
             </div>
-          </header>
+            <div class="opt__signup">
+                <a href="/register">Registrarme</a> 
+            </div>
+        </div>
+    </header>
     <section class="header-user2">
         <h2>Bienvenid@
          <img src="img/title/beer.png" alt="Img beer"></h2>
@@ -36,9 +44,9 @@
         <input class="controls" type="date" name="fechanac" id="fechanac">
         <input class="controls" type="email" name="correo" id="correo" placeholder="Ingrese su Correo">
         <input class="controls" type="password" name="correo" id="correo" placeholder="Ingrese su Contraseña"><br>
-        <input class="custom-radio-checkbox__input" type="radio" value="m" >Mayor de 18 años<br><br>
+        <input class="custom-radio-checkbox__input" type="radio" value="m" >Mayor de 18 años <br>
+        <a href="/login" class="Login">Ingresar</a>
         <input class="botons" type="submit" value="Registrarse">
-    
       </section>
 
       <footer class="footer">

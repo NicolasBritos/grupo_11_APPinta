@@ -1,4 +1,4 @@
-.form-register {
+.Login {
     width: 400px;
     background: var(--green);
     padding: 25px;
@@ -8,6 +8,7 @@
     font-family: 'calibri';
     color: var(--black);
     box-shadow: 7px 13px 37px #000;
+    text-align: center;
   }
   
     .controls {
@@ -22,7 +23,7 @@
     color: var(--black);
   }
   
-   .form-register .botons {
+   .Login .botons {
     width: 100%;
     padding: 16px;
     background-color: var(--black);
@@ -39,9 +40,8 @@
     margin: 10px;
     padding: 10px;
 }
-
-a.Login {
-    display: block;
+.Login a{
+    display: inline-flex;
     font-family: calibri;
     font-size: 14px;
     margin-top: 5px;
@@ -49,10 +49,8 @@ a.Login {
     text-decoration: none;
     line-height: 20px;
     color: blue;
-    text-align: center;
 }
-
-a.Login:hover {
+.Login a:hover{
     color: black;
 }
 
@@ -61,6 +59,7 @@ a.Login:hover {
         max-width: calc(var(--max-width) - 100px);
         margin-left: auto;
         margin-right: auto;
+        text-align: center;
     }
  }
 
@@ -82,13 +81,3 @@ a.Login:hover {
     font-weight: 700;
     margin-bottom: 7px;
 }
-
-.custom-radio-checkbox {
-    display: inline-flex;
-    align-items: center;
-    cursor: pointer;
-    font-family: calibri;
-    font-size: 18px;
-}
-
-    
