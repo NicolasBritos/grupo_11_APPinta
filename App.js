@@ -20,7 +20,10 @@ app.get('/home', (req, res) => {
     res.sendFile(templatePath('home'))
 })
 
-
 app.get('/products', (req, res) => {
     res.sendFile(templatePath('products'))
+})
+
+app.get('/product', (req, res) => {
+    res.sendFile(templatePath('product'))
 })
