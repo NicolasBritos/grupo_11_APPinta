@@ -19,3 +19,8 @@ app.get('/', (req, res) => {
 app.get('/home', (req, res) => {
     res.sendFile(templatePath('home'))
 })
+
+
+app.get('/products', (req, res) => {
+    res.sendFile(templatePath('products'))
+})
