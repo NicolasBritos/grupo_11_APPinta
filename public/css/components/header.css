@@ -48,6 +48,11 @@
     justify-content: center;
 }
 
+.opt__cart > a {
+    color: var(--white) !important;
+    text-decoration: none;
+}
+
 .opt__cart div {
     background-color: var(--red);
     color: var(--white);
