@@ -19,3 +19,7 @@ app.get('/', (req, res) => {
 app.get('/home', (req, res) => {
     res.sendFile(templatePath('home'))
 })
+
+app.get('/cart', (req, res) => {
+    res.sendFile(templatePath('productCart'))
+})
