@@ -4,6 +4,11 @@ main{
     width:100vw;
 }
 
+button{
+    cursor:pointer;
+
+}
+
 .section-selected{
    margin:auto;
    padding: 15px;
