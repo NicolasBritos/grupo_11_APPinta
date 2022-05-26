@@ -24,6 +24,7 @@
 
 .products__item img {
     width: 140px;
+    height: 140px;
     border-radius: var(--border-radius);
 }
 
