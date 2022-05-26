@@ -26,6 +26,7 @@ app.get('/products', (req, res) => {
 
 app.get('/product', (req, res) => {
     res.sendFile(templatePath('product'))
+})
 
 app.get('/cart', (req, res) => {
     res.sendFile(templatePath('productCart'))
