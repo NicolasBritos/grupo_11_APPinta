@@ -19,3 +19,7 @@ app.get('/', (req, res) => {
 app.get('/home', (req, res) => {
     res.sendFile(templatePath('home'))
 })
+
+app.get('/register', (req, res) => {
+    res.sendFile(templatePath('register'))
+})
