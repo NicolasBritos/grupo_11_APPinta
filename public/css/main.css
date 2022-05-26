@@ -6,7 +6,7 @@
 :root {
     /* colors */
     --green: #C2C5AA;
-    --black: #292B2D;
+    --gray: #292B2D;
     --white: white;
     --green-action: #28a745;
     --black: black;
@@ -64,5 +64,4 @@ main {
 .d-none {
     display: none;
 }
-
 

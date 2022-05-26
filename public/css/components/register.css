@@ -1,0 +1,94 @@
+.form-register {
+    width: 400px;
+    background: var(--green);
+    padding: 25px;
+    margin: auto;
+    margin-top: 10px;
+    border-radius: var(--border-radius);
+    font-family: 'calibri';
+    color: var(--black);
+    box-shadow: 7px 13px 37px #000;
+  }
+  
+    .controls {
+    width: 100%;
+    background: var(--green);
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 4px;
+    border: 1px solid var(--black);
+    font-family: 'calibri';
+    font-size: 18px;
+    color: var(--black);
+  }
+  
+   .form-register .botons {
+    width: 100%;
+    padding: 16px;
+    background-color: var(--black);
+    color: var(--white);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+  }
+
+  .header-user2 {
+    background-color: var(--green);
+    max-width: var(--max-width);
+    border-radius: var(--border-radius);
+    margin: 10px;
+    padding: 10px;
+}
+
+a.Login {
+    display: block;
+    font-family: calibri;
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-decoration: none;
+    line-height: 20px;
+    color: blue;
+    text-align: center;
+}
+
+a.Login:hover {
+    color: black;
+}
+
+@media (min-width: 768px) {
+    .header-user2 {
+        max-width: calc(var(--max-width) - 100px);
+        margin-left: auto;
+        margin-right: auto;
+    }
+ }
+
+@media (min-width: 820px)  {
+    .header-user2 {
+        max-width: var(--max-width);
+    }
+}
+.header-user2 h2 {
+    font-size: var(--xl);
+    color: var(--black);
+    font-weight: 700;
+    margin-bottom: 7px;
+}
+
+.header-user2 h4 {
+    font-size: var(--md);
+    color: var(--black);
+    font-weight: 700;
+    margin-bottom: 7px;
+}
+
+.custom-radio-checkbox {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    font-family: calibri;
+    font-size: 18px;
+}
+
+    

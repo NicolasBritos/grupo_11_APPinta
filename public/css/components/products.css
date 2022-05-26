@@ -22,8 +22,17 @@
     margin: 4px;
 }
 
+
 .products__item img {
     width: 140px;
+
+.products__item a {
+    text-decoration: none;
+}
+
+.products__item img {
+    width: 140px;
+    height: 140px;
     border-radius: var(--border-radius);
 }
 
