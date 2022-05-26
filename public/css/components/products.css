@@ -22,6 +22,10 @@
     margin: 4px;
 }
 
+
+.products__item img {
+    width: 140px;
+
 .products__item a {
     text-decoration: none;
 }
