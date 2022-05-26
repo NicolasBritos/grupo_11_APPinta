@@ -20,6 +20,11 @@ app.get('/home', (req, res) => {
     res.sendFile(templatePath('home'))
 })
 
+<<<<<<< HEAD
 app.get('/cart', (req, res) => {
     res.sendFile(templatePath('productCart'))
+=======
+app.get('/register', (req, res) => {
+    res.sendFile(templatePath('register'))
+>>>>>>> d0397cfa0bc7b49e4e6bfd3faab80574a1aa3fc2
 })
