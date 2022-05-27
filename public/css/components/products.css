@@ -20,11 +20,12 @@
     position: relative;
     padding-bottom: 24px;
     margin: 4px;
+    width: 140px;
 }
-
 
 .products__item img {
     width: 140px;
+}
 
 .products__item a {
     text-decoration: none;
@@ -33,7 +34,8 @@
 .products__item img {
     width: 140px;
     height: 140px;
-    border-radius: var(--border-radius);
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
 }
 
 .item__info {
