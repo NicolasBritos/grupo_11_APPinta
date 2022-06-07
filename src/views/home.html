@@ -5,12 +5,12 @@
     <link rel="icon" href="img/title/beer.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="fonts/bootstrap-icons.css">
+    <link rel="stylesheet" href="../fonts/bootstrap-icons.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/components/header-user.css">
     <link rel="stylesheet" href="css/components/promotions.css">
     <link rel="stylesheet" href="css/components/categories.css">
-    <link rel="icon" href="img/title/beer.png">
+    <link rel="icon" href="../img/title/beer.png">
     <title>
         Home | PintaBar
     </title>
@@ -21,20 +21,17 @@
             <a href="/"><h1>PintaBar</h1></a>
         </div>
         <div class="header__opt">
-            <div class="opt__cart">
-                <a href="/cart">
-                    <i class="bi bi-cart2"></i>
-                    <div>4</div>
-                </a>
+            <div class="opt__signin">
+                <a href="/user/login">Ingresar</a>
             </div>
-            <div class="opt__account">
-                <i class="bi bi-person-circle"></i>
+            <div class="opt__signup">
+                <a href="/user/register">Registrarme</a> 
             </div>
         </div>
     </header>
     <main>
         <section class="header-user">
-                <h2>Hola Alejandro!</h2>
+                <h2>Bienvenid@</h2>
                 <h3>
                     No te quedes sin un lugar! Podés reservar tu mesa para vos y tus amig@s desde aquí. 
                     Te esperamos! 
@@ -45,11 +42,13 @@
         <section class="promotions">
             <div class="promotions__img">
                 <img src="img/promotions/pizzas.png" alt="Img promoción">
+                <button class="left"><i class="bi bi-arrow-left"></i></button>
+                <button class="right"><i class="bi bi-arrow-right"></i></button>
             </div>
             <div class="promotions__info">
                 <h2>50% OFF</h2>
                 <h3>Pizza y pastas</h3>
-                <button>Ver promociones</button>
+                <a href="#">Ver promociones</a>
             </div>
         </section>
         <section class="categories">

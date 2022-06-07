@@ -15,16 +15,38 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .promotions__img img {
     max-width: 100px;
     height: auto;
 }
+.promotions__img button {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    font-size: var(--xl);
+    border: none;
+}
 
+.promotions__img button.left {
+    left: 5px;
+}
+
+.promotions__img button.right {
+    right: 5px;
+}
+
+.promotions__img button:hover {
+    font-size: calc(var(--xl) * 1.2);
+}
 
 .promotions__info {
     padding: 12px;
+    position: relative;
 }
 
 .promotions__info h2 {
@@ -41,18 +63,13 @@
     margin-bottom: 8px;
 }
 
-.promotions__info button {
-    width: 100%;
+.promotions__info a {
     padding: 8px 6px;
-    background-color: var(--black);
-    color: var(--white);
-    border: none;
-    border-radius: var(--border-radius);
-    cursor: pointer;
-}
-
-.promotions__info button:hover {
-    cursor: pointer;
+    color: var(--green-action);
+    font-size: 500;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
 }
 
 
