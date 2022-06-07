@@ -1,11 +1,9 @@
-const { templatePath } = require('../../helpers/templatePath')
-
 const userController = {
     register: (req, res) => {
-        res.sendFile(templatePath('register'))
+        res.render('register')
     },
     login: (req, res) => {
-        res.sendFile(templatePath('login'))
+        res.render('login')
     }
 }
 
