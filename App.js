@@ -1,43 +1,19 @@
 const path = require('path')
 const express = require('express')
-const { templatePath } = require('./helpers/templatePath')
-const log = console.log
-const publicPath = path.resolve(__dirname, 'public')
+const port = process.env.PORT || 3000
+const routers = require('./src/routers/index')
 
 const app = express()
 
-app.use(express.static(publicPath))
+app.use('/', routers)
 
-app.listen(3000, () => {
-    log('Run server')
-})
+/* STATIC FILES */
+app.use(express.static(path.resolve(__dirname, 'public')))
 
-app.get('/', (req, res) => {
-    res.sendFile(templatePath('homeLogin'))
-})
+/* TEMPLATE ENGINE */
+app.set('view engine', 'ejs')
+app.set('views', path.join(__dirname, './src/views'));
 
-app.get('/home', (req, res) => {
-    res.sendFile(templatePath('home'))
-})
-
-
-app.get('/productView', (req, res) => {
-    res.sendFile(templatePath('productView'))
-})
-
-app.get('/product', (req, res) => {
-    res.sendFile(templatePath('product'))
-})
-
-app.get('/cart', (req, res) => {
-    res.sendFile(templatePath('productCart'))
-})
-
-app.get('/register', (req, res) => {
-    res.sendFile(templatePath('register'))
-})
-
-app.get('/login', (req, res) => {
-    res.sendFile(templatePath('login'))
-
+app.listen(port, () => {
+    console.log('Run server')
 })
