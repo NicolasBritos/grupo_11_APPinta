@@ -1,14 +1,17 @@
+const getViewPath = view => `products/${view}`
+
 const productController = {
     products: (req, res) => {
         let id = req.params.id
         if (id === undefined) {
-            res.render('productView')
+            res.render(getViewPath('productView'))
         } else {
-            res.render('product')
+            res.render(getViewPath('product'))
         }
     },
     cart: (req, res) => {
-        res.render('productCart')
+        console.log('Dentro de products cart')
+        res.render(getViewPath('productCart'))
     }
 }
 
