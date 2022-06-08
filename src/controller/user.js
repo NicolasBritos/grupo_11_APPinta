@@ -2,8 +2,11 @@ const userController = {
     register: (req, res) => {
         res.render('register')
     },
-    login: (req, res) => {
+    getLogin: (req, res) => {
         res.render('login')
+    },
+    postLogin: (req, res) => {
+        res.redirect('/home')
     }
 }
 
