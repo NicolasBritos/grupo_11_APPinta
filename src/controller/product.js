@@ -1,4 +1,5 @@
 const getViewPath = view => `products/${view}`
+const loadJsonFile = require('../../helpers/loadJsonFile')
 
 const productController = {
     getAll: (req, res) => {
@@ -9,7 +10,9 @@ const productController = {
         res.render(getViewPath('product'))
     },
     create: (req, res) => {
-        res.render(getViewPath('create'))
+        const categories = loadJsonFile('categories.json')
+        const context = {categories}
+        res.render(getViewPath('create'), context)
     }
 }
 
