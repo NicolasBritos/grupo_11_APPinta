@@ -45,7 +45,7 @@
                 <% categories.forEach( category => { %>
                     <div class="categories__item">
                         <label for="">
-                            <input type="radio" name="category" value="c1"> <%= category.title %> 
+                            <input type="radio" name="category" value="<%= category.id %>"> <%= category.title %> 
                         </label>
                     </div>
                 <% }) %>
