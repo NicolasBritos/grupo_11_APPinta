@@ -8,6 +8,7 @@ const app = express()
 app.use('/', routers)
 
 /* STATIC FILES */
+console.log(path.resolve(__dirname, 'public'))
 app.use(express.static(path.resolve(__dirname, 'public')))
 
 /* TEMPLATE ENGINE */
