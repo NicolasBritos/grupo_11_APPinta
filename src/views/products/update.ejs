@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="fonts/bootstrap-icons.css">
-    <link rel="stylesheet" href="/css/main.css">
+
+    <%- include('../partials/head') %>
+
     <link rel="stylesheet" href="/css/components/login.css">
     <link rel="stylesheet" href="/css/components/formProduct.css">
-    <link rel="icon" href="../img/title/beer.png">
     <title>
         Cerveza 437 ml | PintaBar
     </title>
@@ -24,7 +21,7 @@
         </section>
         <form class="Login" method="POST" action="/products/22/update">
             <div class="product__img">
-                <img src="/img/products/beer.webp" alt="Imagen categoria">
+                <img src="/img/categories/drinks/beer.webp" alt="Imagen producto">
                 <label for="product-img">Nueva imagen:</label>
                 <input type="file" name="img" id="product-img">
             </div>
@@ -51,10 +48,8 @@
             <input class="botons" type="submit" value="Actualizar producto">
         </form>
     </main>
-    <footer class="footer">
-        <section>
-            <p> Copyright &copy; 2022 Appinta S.R.L.</p>
-        </section>
-    </footer>
+
+    <%- include('../partials/footer') %>
+
 </body>
 </html>
