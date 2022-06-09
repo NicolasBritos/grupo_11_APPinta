@@ -1,9 +1,17 @@
+const getViewPath = view => `user/${view}`
+
 const userController = {
-    register: (req, res) => {
-        res.render('register')
+    getRegister: (req, res) => {
+        res.render(getViewPath('register'))
     },
-    login: (req, res) => {
-        res.render('login')
+    postRegister: (req, res) => {
+        res.redirect('/home')
+    },
+    getLogin: (req, res) => {
+        res.render(getViewPath('login'))
+    },
+    postLogin: (req, res) => {
+        res.redirect('/home')
     }
 }
 

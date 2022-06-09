@@ -37,17 +37,17 @@
            Formulario de registro
         </h4>
     </section>
-    <section class="form-register">
-        <input class="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese su Nombre">
-        <input class="controls" type="text" name="apellidos" id="apellidos" placeholder="Ingrese su Apellido">
-        <input class="controls" type="text" name ="dni" id="dni" placeholder="Ingrese DNI">
-        <input class="controls" type="date" name="fechanac" id="fechanac">
-        <input class="controls" type="email" name="correo" id="correo" placeholder="Ingrese su Correo">
-        <input class="controls" type="password" name="correo" id="correo" placeholder="Ingrese su Contraseña"><br>
+    <form class="form-register" method="POST" action="/user/register">
+        <input class="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese su Nombre" minlength="2" required>
+        <input class="controls" type="text" name="apellidos" id="apellidos" placeholder="Ingrese su Apellido" minlength="2" required>
+        <input class="controls" type="text" name ="dni" id="dni" placeholder="Ingrese DNI" minlength="8" required>
+        <input class="controls" type="date" name="fechanac" id="fechanac" required>
+        <input class="controls" type="email" name="correo" id="correo" placeholder="Ingrese su Correo" minlength="6" required>
+        <input class="controls" type="password" name="correo" id="correo" placeholder="Ingrese su Contraseña" minlength="6" required><br>
         <input class="custom-radio-checkbox__input" type="radio" value="m" >Mayor de 18 años <br>
-        <a href="/login" class="Login">Ingresar</a>
+        <a href="/user/login" class="Login">Ingresar</a>
         <input class="botons" type="submit" value="Registrarse">
-      </section>
+    </form>
 
       <footer class="footer">
         <section>

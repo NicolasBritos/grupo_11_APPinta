@@ -1,9 +1,15 @@
+const loadJsonFile = require('../../helpers/loadJsonFile')
+
 const homeController = {
-    homeLogin: (req, res) => {
-        res.render('homeLogin')
+    homeLogged: (req, res) => {
+        const categories = loadJsonFile('categories.json')
+        const context = {categories}
+        res.render('homeLogged', context)
     },
     home: (req, res) => {
-        res.render('home')
+        const categories = loadJsonFile('categories.json')
+        const context = {categories}
+        res.render('home', context)
     }
 }
 

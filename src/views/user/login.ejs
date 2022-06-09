@@ -7,17 +7,18 @@
     <link rel="stylesheet" href="../fonts/bootstrap-icons.css">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/components/promotions.css">
+    <link rel="stylesheet" href="../css/components/header-user.css">
     <link rel="stylesheet" href="../css/components/categories.css">
-    <link rel="stylesheet" href="../css/components/product.css">
+    <link rel="stylesheet" href="../css/components/login.css">
     <link rel="icon" href="../img/title/beer.png">
     <title>
-        Cerveza 437 ml | PintaBar
+        Login | PintaBar
     </title>
 </head>
 <body>
-    <header class="header">
+     <header class="header">
         <div class="header__title">
-            <a href="/"><h1>PintaBar</h1></a>
+            <a href="/home"><h1>PintaBar</h1></a>
         </div>
         <div class="header__opt">
             <div class="opt__signin">
@@ -28,21 +29,23 @@
             </div>
         </div>
     </header>
-    <main>
-        <section class="product">
-            <div class="product__img">
-                <img src="img/products/beer.webp" alt="Imagen categoria">
-            </div>
-            <div class="product__detail">
-                <p class="name">Cerveza 437 ml</p>
-                <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <p class="price">$ 500.<span>00</span></p>
-                <button class="detail__buy">Comprar</button>
-                <button class="detail__add">Agregar al carrito</button>
-            </div>
-        </section>
-    </main>
-    <footer class="footer">
+    <section class="header-user2">
+        <h2>Bienvenid@
+         <img src="../img/title/beer.png" alt="Img beer"></h2>
+        <h4>
+           Login
+        </h4>
+    </section>
+    <form class="Login" method="POST" action="/user/login">
+        <input class="controls" type="email" placeholder="Ingrese su Correo" minlength="4" required>
+        <input class="controls" type="password" placeholder="Ingrese su Contraseña" minlength="6" required>
+        <a href="/user/forgot-password">¿Olvidaste tu contraseña?</a>
+        <a>|</a>
+        <a href="/user/register">Crear una cuenta</a>
+        <input class="botons" type="submit" value="Iniciar Sesión">
+    </form>
+
+      <footer class="footer">
         <section>
             <p> Copyright &copy; 2022 Appinta S.R.L.</p>
         </section>

@@ -1,0 +1,11 @@
+<section class="categories">
+    <div class="categories__title">
+        <p>Nuestros productos</p>
+    </div>
+    <% categories.forEach( category => { %>
+    <div class="categories__item">
+        <img src="<%= category.img %>" alt="Imagen categoria">
+        <p><%= category.title %></p>
+    </div>
+    <% }) %>
+</section>
