@@ -1,17 +1,23 @@
 const getViewPath = view => `products/${view}`
+const loadJsonFile = require('../../helpers/loadJsonFile')
 
 const productController = {
-    products: (req, res) => {
-        let id = req.params.id
-        if (id === undefined) {
-            res.render(getViewPath('productView'))
-        } else {
-            res.render(getViewPath('product'))
-        }
+    getAll: (req, res) => {
+        res.render(getViewPath('productView'))
     },
-    cart: (req, res) => {
-        console.log('Dentro de products cart')
-        res.render(getViewPath('productCart'))
+    getById: (req, res) => {
+        let id = req.params.id
+        res.render(getViewPath('product'))
+    },
+    create: (req, res) => {
+        const categories = loadJsonFile('categories.json')
+        const context = {categories}
+        res.render(getViewPath('create'), context)
+    },
+    update: (req, res) => {
+        const categories = loadJsonFile('categories.json')
+        const context = {categories}
+        res.render(getViewPath('update'), context)
     }
 }
 

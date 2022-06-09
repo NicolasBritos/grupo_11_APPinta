@@ -1,25 +1,31 @@
 [
     {
+        "id": 1,
         "title": "Cervezas",
         "img": "img/categories/cervezas.jpg"
     },
     {
+        "id": 2,
         "title": "Pizzas",
         "img": "img/categories/pizzas.jpeg"
     },
     {
+        "id": 3,
         "title": "Pollos",
         "img": "img/categories/pollo.jpg"
     },
     {
+        "id": 4,
         "title": "Picadas",
         "img": "img/categories/picadas.webp"
     },
     {
+        "id": 5,
         "title": "Vinos",
         "img": "img/categories/vinos.jpg"
     },
     {
+        "id": 6,
         "title": "Jugos",
         "img": "img/categories/jugos.webp"
     }
