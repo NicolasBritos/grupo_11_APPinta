@@ -17,27 +17,33 @@ main {
   box-shadow: 7px 13px 37px #000;
 }
 
-.controls {
-  width: 100%;
-  background: var(--green);
-  padding: 10px;
-  border-radius: 4px;
-  margin-bottom: 4px;
-  border: 1px solid var(--black);
-  font-family: "calibri";
-  font-size: 18px;
-  color: var(--black);
-}
+ .controls {
+    margin-top:10px;
+    margin-bottom:10px;
+    width: 100%;
+    background: var(--green);
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid var(--black);
+    font-family: 'calibri';
+    font-size: 18px;
+    color: var(--black);
+  }
 
+ .checkbox{
+   zoom:1.5;
+  }
+  
 .form-register .botons {
-  width: 100%;
-  padding: 16px;
-  background-color: var(--black);
-  color: var(--white);
-  border: none;
-  border-radius: var(--border-radius);
-  cursor: pointer;
-}
+    font-size:20px;
+    width: 100%;
+    padding: 16px;
+    background-color: var(--black);
+    color: var(--white);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+  }
 
 .header-user2 {
   background-color: var(--green);
@@ -48,15 +54,15 @@ main {
 }
 
 a.Login {
-  display: block;
-  font-family: calibri;
-  font-size: 14px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  text-decoration: none;
-  line-height: 20px;
-  color: blue;
-  text-align: center;
+    display: block;
+    font-family: calibri;
+    font-size: 18px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-decoration: none;
+    line-height: 20px;
+    color: blue;
+    text-align: center;
 }
 
 a.Login:hover {
