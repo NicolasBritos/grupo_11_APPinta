@@ -4,30 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../fonts/bootstrap-icons.css">
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/components/login.css">
+    <link rel="stylesheet" href="fonts/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components/login.css">
     <link rel="icon" href="../img/title/beer.png">
     <title>
-        Home | PintaBar 
+        Cerveza 437 ml | PintaBar
     </title>
 </head>
 <body>
-
+    
     <%- include('../partials/headerLogged') %>
 
     <main>
         <section class="header-user2">
-            <h2>Crear producto</h2>
-            <h4>Complete los siguientes campos</h4>
+            <h2>Actualizar producto</h2>
+            <h4>Modifica los siguientes campos</h4>
         </section>
-        <form class="Login" method="POST" action="/user/login">
-            <input class="controls" type="text" placeholder="Tituto" name="title" required>
-            <input class="controls" type="number" placeholder="Precio" name="price" required>
-            <textarea class="controls" name="description" id="" cols="30" rows="10" placeholder="Descripción"></textarea>
+        <form class="form" method="POST" action="/products/22/update">
+            <input class="controls" type="text" placeholder="Tituto" name="title" value="Cerveza 437 ml" required>
+            <input class="controls" type="number" placeholder="Precio" name="price"  value="$ 500.00" required>
+            <textarea class="controls" name="description" id="" cols="30" rows="10" placeholder="Descripción">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </textarea>
             <div class="product__img">
                 <label for="product-img">Imagen:</label>
                 <input type="file" name="img" id="product-img">
+                <img src="../img/products/beer.webp" alt="Imagen categoria">
             </div>
             <div class="product__categories">
                 <p>Categorias:</p>
@@ -40,10 +42,9 @@
                 <% }) %>
             </div>
             
-            <input class="botons" type="submit" value="Crear producto">
+            <input class="botons" type="submit" value="Actualizar producto">
         </form>
     </main>
-    
     <footer class="footer">
         <section>
             <p> Copyright &copy; 2022 Appinta S.R.L.</p>

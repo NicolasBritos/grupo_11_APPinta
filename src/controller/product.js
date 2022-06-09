@@ -13,6 +13,11 @@ const productController = {
         const categories = loadJsonFile('categories.json')
         const context = {categories}
         res.render(getViewPath('create'), context)
+    },
+    update: (req, res) => {
+        const categories = loadJsonFile('categories.json')
+        const context = {categories}
+        res.render(getViewPath('update'), context)
     }
 }
 

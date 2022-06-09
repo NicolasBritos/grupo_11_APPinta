@@ -9,6 +9,9 @@ routers.get('/', productController.getAll)
 */
 routers.get('/create', productController.create)
 
+routers.get('/:id/update', productController.update)
+
 routers.get('/:id', productController.getById)
+
 
 module.exports = routers
