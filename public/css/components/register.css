@@ -11,18 +11,24 @@
   }
   
     .controls {
+    margin-top:10px;
+    margin-bottom:10px;
     width: 100%;
     background: var(--green);
     padding: 10px;
     border-radius: 4px;
-    margin-bottom: 4px;
     border: 1px solid var(--black);
     font-family: 'calibri';
     font-size: 18px;
     color: var(--black);
-  }
+   }
+
+   .checkbox{
+   zoom:1.5;
+   }
   
    .form-register .botons {
+    font-size:20px;
     width: 100%;
     padding: 16px;
     background-color: var(--black);
@@ -43,7 +49,7 @@
 a.Login {
     display: block;
     font-family: calibri;
-    font-size: 14px;
+    font-size: 18px;
     margin-top: 5px;
     margin-bottom: 5px;
     text-decoration: none;
