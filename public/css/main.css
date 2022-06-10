@@ -39,9 +39,10 @@ body {
     color: var(--white);
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
 }
 
-body:before {
+body::before {
     content: "";
     position: absolute;
     left: 0;
