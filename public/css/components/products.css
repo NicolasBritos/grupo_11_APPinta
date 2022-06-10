@@ -23,6 +23,15 @@
     width: 140px;
 }
 
+.products__title p {
+    background-color: var(--green);
+    padding: 4px 8px;
+    display: inline-block;
+    color: var(--black);
+    border-radius: var(--border-radius);
+    font-weight: 600;
+}
+
 .products__item img {
     width: 140px;
 }

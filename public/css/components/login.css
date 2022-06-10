@@ -24,6 +24,7 @@
 }
 
 .Login .botons {
+  font-size:20px;
   width: 100%;
   padding: 16px;
   background-color: var(--black);
@@ -73,3 +74,13 @@
   color: black;
 }
 
+.remember{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  padding:8px;
+}
+
+.remember input{
+  margin-right: 5px;
+}
