@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "name": "Alejandro",
+    "surname": "Soares",
+    "email": "soaresalejandro94@gmail.com",
+    "password": "ale123",
+    "role": "user",
+    "avatar": ""
+  },
+  {
+    "id": 2,
+    "name": "Fran",
+    "surname": "Gionatti",
+    "email": "soaresalejandro94@gmail.com",
+    "password": "ale123",
+    "role": "user",
+    "avatar": ""
+  },
+  {
+    "id": 3,
+    "name": "Carla",
+    "surname": "Diaz",
+    "email": "carlix.di@gmail.com",
+    "password": "calix123",
+    "role": "user",
+    "avatar": "default-avatar.jpg"
+  }
+]
