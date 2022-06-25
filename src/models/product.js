@@ -1,6 +1,6 @@
 const Model = require('./model.js')
 const PRODUCT_DB = 'product.json'
-
+const { ID_NOT_FOUND_MSG } = require('./modelMessages')
 const NOT_IMG = 'img-not-found.jpg';
 
 class ProductModel extends Model {
@@ -43,6 +43,23 @@ class ProductModel extends Model {
 
         // Remove id
         delete fields.id
+    }
+
+    /**
+     * Busca un producto mediante el id
+     * @param {int} id: id a buscar 
+     * @return {Object} response
+     * {
+     *  error: objeto con mensaje de error si ocurrio algun error, sino null,
+     *  product: objeto product o null si no se encontro el objecto mediante el id
+     * }
+     */
+    findById = id => {
+        const product = this._findById(id)
+        return {
+            error: product? null: {message: ID_NOT_FOUND_MSG},
+            product:  product? product: null
+        }
     }
     
     /**
@@ -155,7 +172,7 @@ class ProductModel extends Model {
 
     /** Retorna objeto con las categorias como claves
      * y la lista de productos filtrados por categories como valores 
-     * @return {Object} result
+     * @return {Object} response
      * */ 
     getAllByCategories = () => {
         

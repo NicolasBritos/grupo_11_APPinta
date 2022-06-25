@@ -56,6 +56,23 @@ class UserModel extends Model {
     }
 
     /**
+     * Busca un usuario mediante el id
+     * @param {int} id: id a buscar 
+     * @return {Object} response
+     * {
+     *  error: objeto con mensaje de error si ocurrio algun error, sino null,
+     *  product: objeto product o null si no se encontro el objecto mediante el id
+     * }
+     */
+     findById = id => {
+        const user = this._findById(id)
+        return {
+            error: user? null: {message: ID_NOT_FOUND_MSG},
+            user:  user? this._clearUserObj(user): null
+        }
+    }
+
+    /**
      * Busca un usuario por email
      * @param {String} email 
      * @return {Object} user: si el usuario fue encontrado

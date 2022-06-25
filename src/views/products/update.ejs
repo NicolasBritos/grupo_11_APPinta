@@ -21,11 +21,11 @@
         </section>
         <form class="Login" method="POST" action="/products/<%= product.id %>/update?_method=PUT">
             <div class="product__img">
-                <img src="" alt="Imagen producto">
+                <img src="<%= product.image %>" alt="Imagen producto">
                 <label for="product-img">Nueva imagen:</label>
                 <input type="file" name="image" id="product-img">
             </div>
-            <input class="controls" type="text" placeholder="Tituto" name="title" value="<%= product.title %>" required>
+            <input class="controls" type="text" placeholder="Tituto" name="title" value="<%= product.name %>" required>
             <input class="controls" type="number" placeholder="Precio" name="price"  value="<%= product.price %>" required>
             <textarea class="controls" name="description" id="" cols="30" rows="10" placeholder="Descripción"><%= product.description %></textarea>
             
@@ -34,10 +34,10 @@
                 <% for (let i=0; i < categories.length; i++) { %>
                     <div class="categories__item">
                         <label for="">
-                            <% if (i === 0) { %>
-                            <input type="radio" name="category" value="<%= categories[i].id %>" checked> <%= categories[i].title %> 
+                            <% if (categories[i] === product.category) { %>
+                            <input type="radio" name="category" value="<%= categories[i] %>" checked> <%= categories[i] %> 
                             <% } else { %>
-                                <input type="radio" name="category" value="<%= categories[i].id %>"> <%= categories[i].title %> 
+                                <input type="radio" name="category" value="<%= categories[i] %>"> <%= categories[i] %> 
                             <% } %>
                         </label>
                     </div>

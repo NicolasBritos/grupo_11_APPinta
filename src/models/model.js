@@ -34,6 +34,16 @@ class Model {
         this._ID = lastItem.id
     }
 
+    /**
+     * Busca un item mediante el id
+     * @param {int} id: id a buscar 
+     * @return obj or null
+     */
+    _findById = id => {
+        id = parseInt(id)
+        return this.data.find(item => item.id === id) || null
+    }
+
     load = () => {
         this.data = require(this.filePath)
     }
@@ -45,12 +55,9 @@ class Model {
 
     getAll = () => {
         return this.data
-    } 
-
-    findById = id => {
-        id = parseInt(id)
-        return this.data.find(item => item.id === id) || null
     }
+    
+    
 
     findByAttr = (attr, value) => {
         return this.data.filter(item => item[attr] === value)

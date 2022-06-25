@@ -1,37 +1,55 @@
 const productModel = require('../models/product')
 const getViewPath = view => `products/${view}`
 
+
 const productController = {
+
     getAll: (req, res) => {
-        res.render(getViewPath('productView'))
+        const errMsg = req.query.errorMsg;
+        const decodedErrorMsg = decodeURIComponent(errMsg)
+        const locals = {
+            error: errMsg? {message: decodedErrorMsg}: null
+        }
+        res.render(getViewPath('productView'), locals)
     },
+
     getById: (req, res) => {
-        let id = parseInt(req.params.id)
-        res.render(getViewPath('product'))
+        const response = productModel.findById(req.params.id)
+        if (!response.error) {
+            const locals = {
+                product: response.product
+            }
+            res.render(getViewPath('product'), locals)
+        } else {
+            const encodedMsg = encodeURIComponent(response.error.message)
+            res.redirect(`/products?errorMsg=${encodedMsg}`)
+        }
     },
+
     create: (req, res) => {
         const context = {
             categories: productModel.getCategories()
         }
         res.render(getViewPath('create'), context)
     },
+
     getUpdate: (req, res) => {
-        const product = productModel.findById(req.params.id)
-        const context = {
-            categories: productModel.getCategories(), 
-            product: product
-        }
+        const response = productModel.findById(req.params.id)
+        if (!response.error) {
 
-        const result = productModel.update()
-
-        if (product.error) {
-            const context = {
+            console.log(productModel.getCategories())
+            
+            const locals = {
                 categories: productModel.getCategories(), 
-                result: result
-            }  
+                product: response.product
+            }
+            res.render(getViewPath('update'), locals)
+        } else {
+            const encodedMsg = encodeURIComponent(response.error.message)
+            res.redirect(`/products?errorMsg=${encodedMsg}`)
         }
-        res.render(getViewPath('update'), context)
     },
+
     postUpdate: (req, res) => {
         const id  = parseInt(req.params.id)
 

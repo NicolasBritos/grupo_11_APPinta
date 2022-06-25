@@ -15,7 +15,7 @@
     "price": 450,
     "descripcion": "Cerveza  deliciosa",
     "category": "Cerveza",
-    "img": "img/categories/drinks/CervezaPatagoniaAbrazodeOsoLata473ml.webp"
+    "image": "/img/categories/drinks/CervezaPatagoniaAbrazodeOsoLata473ml.webp"
   },
   {
     "id": 3,
@@ -23,7 +23,7 @@
     "price": 290,
     "score": 7,
     "descripcion": "Lorem",
-    "category": "Cerveza",
-    "img": "img/categories/drinks/Patagonia_BohemianPilsener_410ml_1000x1000px.webp"
+    "category": "Pizzas",
+    "image": "/img/categories/drinks/Patagonia_BohemianPilsener_410ml_1000x1000px.webp"
   }
 ]
