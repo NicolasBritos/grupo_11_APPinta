@@ -5,8 +5,8 @@
     "surname": "Soares",
     "email": "soaresalejandro94@gmail.com",
     "password": "ale123",
-    "role": "user",
-    "avatar": ""
+    "role": 1,
+    "avatar": "default-avatar.jpg"
   },
   {
     "id": 2,
@@ -14,16 +14,7 @@
     "surname": "Gionatti",
     "email": "soaresalejandro94@gmail.com",
     "password": "ale123",
-    "role": "user",
-    "avatar": ""
-  },
-  {
-    "id": 3,
-    "name": "Carla",
-    "surname": "Diaz",
-    "email": "carlix.di@gmail.com",
-    "password": "calix123",
-    "role": "user",
+    "role": 2,
     "avatar": "default-avatar.jpg"
   }
 ]

@@ -1,10 +1,5 @@
+const productModel = require('../models/product')
 const getViewPath = view => `products/${view}`
-const loadJsonFile = require('../../helpers/loadJsonFile')
-
-const findById = id => {
-    const products = loadJsonFile('products.json')
-    return products.find( product =>  product.id === id)
-}
 
 const productController = {
     getAll: (req, res) => {
@@ -15,38 +10,35 @@ const productController = {
         res.render(getViewPath('product'))
     },
     create: (req, res) => {
-        const categories = loadJsonFile('categories.json')
-        const context = {categories}
+        const context = {
+            categories: productModel.getCategories()
+        }
         res.render(getViewPath('create'), context)
     },
     getUpdate: (req, res) => {
-        const id  = parseInt(req.params.id)
-        const categories = loadJsonFile('categories.json')
-        const product = findById(id) || null
+        const product = productModel.findById(req.params.id)
+        const context = {
+            categories: productModel.getCategories(), 
+            product: product
+        }
 
-        console.log(product.price)
-        console.log(product.title)
-        console.log(product.description)
+        const result = productModel.update()
 
-        const context = {categories, product}
+        if (product.error) {
+            const context = {
+                categories: productModel.getCategories(), 
+                result: result
+            }  
+        }
         res.render(getViewPath('update'), context)
     },
     postUpdate: (req, res) => {
         const id  = parseInt(req.params.id)
-        const categories = loadJsonFile('categories.json')
-        const product = findById(id) || null
-        
-        console.log('body ', req.body)
 
-        // update product
-        product.title = req.body.title
-        product.price = req.body.price
-        product.description = req.body.description
-
-        console.log('Cambios en el producto')
-        console.log(product)
-
-        const context = {categories, product}
+        const context = {
+            categories: productModel.getCategories(), 
+            product: null
+        }
         res.render(getViewPath('update'), context)
     }
 }

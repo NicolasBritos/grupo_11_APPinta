@@ -35,14 +35,12 @@ class Model {
     }
 
     load = () => {
-        const jsonDb = fs.readFileSync(this.filePath)
-        this.data = JSON.parse(jsonDb)
+        this.data = require(this.filePath)
     }
 
     save = () => {
         const data = JSON.stringify(this.data, null, 2)
         fs.writeFileSync(this.filePath, data)
-        this.load()
     }
 
     getAll = () => {

@@ -67,3 +67,20 @@ main {
     display: none;
 }
 
+.form__error-msg {
+    color: #dc3545 !important;
+    font: 12px;
+    margin-bottom: 14px;
+    text-align: center;
+}
+
+
+.form__file-img {
+    display: block;
+    width: 100%;
+    margin-bottom: 8px;
+}
+.form__file-img input {
+    margin-top: 2px;
+
+}

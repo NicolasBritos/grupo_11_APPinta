@@ -10,6 +10,9 @@
     <title>
         Login | PintaBar
     </title>
+    <style>
+        
+    </style>
 </head>
 <body>
     <%- include('../partials/header') %>
@@ -22,8 +25,13 @@
         </h4>
     </section>
     <form class="Login" method="POST" action="/user/login">
-        <input class="controls" type="email" placeholder="Ingrese su Correo" minlength="4" required>
-        <input class="controls" type="password" placeholder="Ingrese su Contraseña" minlength="6" required>
+        <% if (locals.hasOwnProperty('error') 
+                && locals.error !== null) { %>
+            <p class="form__error-msg"><%= locals.error.message %></p>
+        <% }%>
+        <input class="controls" type="email" name="email" placeholder="Ingrese su Correo" minlength="4" 
+        value="<%= locals.body? locals.body.email: '' %>"required>
+        <input class="controls" type="password" name="password" placeholder="Ingrese su Contraseña" minlength="6" required>
         <a href="/user/forgot-password">¿Olvidaste tu contraseña?</a>
         <a>|</a>
         <a href="/user/register">Crear una cuenta</a>

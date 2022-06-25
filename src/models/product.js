@@ -47,35 +47,46 @@ class ProductModel extends Model {
     
     /**
      * Crear un producto
-     * @param id (int): id del producto
-     * @param fields  (Object): con campos a actualizar
-     * @return product (Object): si se pudo agregar
+     * @param {req.body} fields: objeto con los campos del form
+     * @param {req.file} file: objeto con el file
+     * @return {Object} response
+     * {
+     *   error: con objeto error o null si no se produjo ningun error
+     *   product: Con objeto product o null si se produjo un error
+     * }
      */
     create = (fields, file) => {
         fields.image = file? file.filename: undefined 
-        let newProduct = {id: this._getID()}
         this._normalizeFields(fields)
         this._createImgField(fields)
-        Model.loadFieldsInObj(newProduct, fields, this.validFields)
+        const newProduct = Model.loadFieldsInObj({id: this._getID()}, fields, this.validFields)
         this.data.push(newProduct)
         this.save()
-        return newProduct
+        return {
+            error: null,
+            product: newProduct
+        }
     }
 
     /**
      * Actualiza un producto
-     * @param id (int): id del producto
-     * @param fields  (Object): con campos a actualizar
-     * @param file (Object): con la imagen a agregar
-     * @return product (Object): si se pudo agregar
-     * @return objError (Object): objeto con descripcion del error
+     * @param {int} id: id del producto
+     * @param {req.body} fields: con campos a actualizar
+     * @param {req.file} file: con la imagen a agregar
+     * @return {Object} response
+     * {
+     *   error: con objeto error o null si no se produjo ningun error
+     *   product: Con objeto product o null si se produjo un error
+     * }
      */
     update = (id, fields, file) => {
         const product = this.findById(id)
 
-        if (product) return {
-            error: true,
-            message: 'No se encontro el ID'
+        if (!product) return {
+            error: {
+                message: 'No se encontro el ID'
+            }, 
+            product: null
         }
 
         fields.image = file? file.filename: undefined 
@@ -83,14 +94,20 @@ class ProductModel extends Model {
         this._normalizeFields(fields)
         Model.loadFieldsInObj(product, fields, this.validFields)
         this.save()
-        return product
+        return {
+            error: null,
+            product
+        }
     }
     
     /**
      * Elimina un producto
-     * @param id (int)
-     * @return true (boolean)
-     * @return objError (Object): objeto con descripcion del error
+     * @param {int} id 
+     * @return {Object} response
+     * {
+     *   error: con objeto error o null si no se produjo ningun error
+     *   index: Indice del producto eliminado
+     * }
      */
     remove = id => {
         const idx = this.findIndexOfId(id)
@@ -98,19 +115,24 @@ class ProductModel extends Model {
         console.log('idx ' + idx)
 
         if (!idx) return {
-            error: true,
-            message: 'No se encontro el ID'
+            error: {
+                message: 'No se encontro el ID'
+            },
+            index: null
         }
 
         this.data.splice(idx, 1)
         this.save()
-        return true
+        return {
+            error: null,
+            index: idx
+        }
     }
 
     /**
      * Busca los producto en base a la categoria pasada como parametro
-     * @param category (string) 
-     * @return (Array)
+     * @param {String} category (string) 
+     * @return {Array}: Lista con los productos coincidentes con la categoria
      */
     findByCategory = category => {
         return this.data.filter(item => item.category === category)
@@ -118,13 +140,14 @@ class ProductModel extends Model {
 
     /**
      * Retorna la lista de categorias existentes
-     * @return categories (Array)
+     * @return {Array} categories: Lista de categorias
     */
     getCategories = () => {
         const categories = []
         for (let product of this.data) {
-            if (!categories.includes(product.category)) {
-                categories.push(product.category)
+            let category = product.category
+            if (!categories.includes(category) && category !== "") {
+                categories.push(category)
             }
         }
         return categories
@@ -132,7 +155,7 @@ class ProductModel extends Model {
 
     /** Retorna objeto con las categorias como claves
      * y la lista de productos filtrados por categories como valores 
-     * @return result (Object)
+     * @return {Object} result
      * */ 
     getAllByCategories = () => {
         
@@ -147,8 +170,8 @@ class ProductModel extends Model {
 
     /**
      * Busca un producto por el atributo name
-     * @param toSearch (String)
-     * @returns (Array)
+     * @param {String} toSearch
+     * @return {Array}: Lista con los productos cuyo name son coincidentes con toSearch
      */
     searchByName = toSearch => {
         if (toSearch === null) return this.data
