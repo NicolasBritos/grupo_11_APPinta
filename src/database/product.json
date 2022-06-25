@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "name": "Cerveza WEISSE",
+    "price": 430,
+    "score": 5,
+    "description": "Lorem",
+    "category": "Cerveza",
+    "image": "/img/categories/drinks/beer.webp"
+  },
+  {
+    "id": 2,
+    "name": "Cerveza OSO",
+    "score": 7,
+    "price": 450,
+    "descripcion": "Cerveza  deliciosa",
+    "category": "Cerveza",
+    "image": "/img/categories/drinks/CervezaPatagoniaAbrazodeOsoLata473ml.webp"
+  },
+  {
+    "id": 3,
+    "name": "Patagonia Vera IPA",
+    "price": 290,
+    "score": 7,
+    "descripcion": "Lorem",
+    "category": "Pizzas",
+    "image": "/img/categories/drinks/Patagonia_BohemianPilsener_410ml_1000x1000px.webp"
+  }
+]

@@ -67,3 +67,33 @@ main {
     display: none;
 }
 
+.form__file-img {
+    display: block;
+    width: 100%;
+    margin-bottom: 8px;
+}
+.form__file-img input {
+    margin-top: 2px;
+
+}
+
+
+/* ERRORS */
+.form__error-msg {
+    color: #dc3545 !important;
+    font: 12px;
+    margin-bottom: 14px;
+    text-align: center;
+}
+
+.errors {
+    max-width: calc(var(--max-width) / 2);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 12px 24px;
+    border-radius: var(--border-radius);
+}
+
+.errors p {
+    text-align: center;
+}

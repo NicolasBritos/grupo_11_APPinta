@@ -1,22 +1,62 @@
+const productModel = require('../models/product')
 const getViewPath = view => `products/${view}`
-const loadJsonFile = require('../../helpers/loadJsonFile')
+
 
 const productController = {
+
     getAll: (req, res) => {
-        res.render(getViewPath('productView'))
+        const errMsg = req.query.errorMsg;
+        const decodedErrorMsg = decodeURIComponent(errMsg)
+        const locals = {
+            error: errMsg? {message: decodedErrorMsg}: null
+        }
+        res.render(getViewPath('productView'), locals)
     },
+
     getById: (req, res) => {
-        let id = req.params.id
-        res.render(getViewPath('product'))
+        const response = productModel.findById(req.params.id)
+        if (!response.error) {
+            const locals = {
+                product: response.product
+            }
+            res.render(getViewPath('product'), locals)
+        } else {
+            const encodedMsg = encodeURIComponent(response.error.message)
+            res.redirect(`/products?errorMsg=${encodedMsg}`)
+        }
     },
+
     create: (req, res) => {
-        const categories = loadJsonFile('categories.json')
-        const context = {categories}
+        const context = {
+            categories: productModel.getCategories()
+        }
         res.render(getViewPath('create'), context)
     },
-    update: (req, res) => {
-        const categories = loadJsonFile('categories.json')
-        const context = {categories}
+
+    getUpdate: (req, res) => {
+        const response = productModel.findById(req.params.id)
+        if (!response.error) {
+
+            console.log(productModel.getCategories())
+            
+            const locals = {
+                categories: productModel.getCategories(), 
+                product: response.product
+            }
+            res.render(getViewPath('update'), locals)
+        } else {
+            const encodedMsg = encodeURIComponent(response.error.message)
+            res.redirect(`/products?errorMsg=${encodedMsg}`)
+        }
+    },
+
+    postUpdate: (req, res) => {
+        const id  = parseInt(req.params.id)
+
+        const context = {
+            categories: productModel.getCategories(), 
+            product: null
+        }
         res.render(getViewPath('update'), context)
     }
 }

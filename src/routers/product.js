@@ -9,7 +9,9 @@ routers.get('/', productController.getAll)
 */
 
 
-routers.get('/:id/update', productController.update)
+routers.get('/:id/update', productController.getUpdate)
+
+routers.put('/:id/update', productController.postUpdate)
 
 routers.get('/create', productController.create)
 

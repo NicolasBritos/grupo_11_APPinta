@@ -16,6 +16,12 @@
     <%- include('../partials/header') %>
 
     <main>
+        <% if (locals.error) { %>
+            <section class="errors" style="background-color: red;">
+                <p><%= error.message %></p>
+            </section>
+        <% } %>    
+
         <%- include('../partials/promotions') %>
 
         <section class="products">
