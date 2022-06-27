@@ -2,14 +2,31 @@ const productModel = require('../models/product')
 const getViewPath = view => `products/${view}`
 
 
+const setError = (locals, query) => {
+    const errMsg = query.errorMsg;
+    const decodedErrorMsg = decodeURIComponent(errMsg)
+    locals.error = errMsg? {message: decodedErrorMsg}: null
+}
+
+const setProducts = (locals, query) => {
+    const category = query.category
+    let products; 
+
+    if (category) {
+        locals.products = productModel.findByCategory(category)
+        locals.category = category
+    } else {
+        locals.products = productModel.getAll()
+        locals.category = null
+    }
+}
+
 const productController = {
 
     getAll: (req, res) => {
-        const errMsg = req.query.errorMsg;
-        const decodedErrorMsg = decodeURIComponent(errMsg)
-        const locals = {
-            error: errMsg? {message: decodedErrorMsg}: null
-        }
+        const locals = {}
+        setError(locals, req.query)
+        setProducts(locals, req.query)
         res.render(getViewPath('productView'), locals)
     },
 

@@ -1,3 +1,13 @@
+.result-msg {
+    background-color: var(--white);
+    color: var(--black);
+    max-width: 300px;
+    padding: 15px;
+    border-radius: var(--border-radius);
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .products {
     display: flex;
     flex-wrap: wrap;
@@ -47,6 +57,14 @@
     border-top-right-radius: var(--border-radius);
 }
 
+.products__item .name {
+    color: var(--black);
+}
+
+.products__item .name:hover {
+    color: var(--green-action);
+}
+
 .item__info {
     color: var(--black);
     padding: 8px;
@@ -70,3 +88,4 @@
     bottom: 10px;
     right: 10px;
 }
+
