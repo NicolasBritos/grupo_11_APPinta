@@ -5,7 +5,7 @@
     "price": 430,
     "score": 5,
     "description": "Lorem",
-    "category": "Cerveza",
+    "category": "Cervezas",
     "image": "/img/categories/drinks/beer.webp"
   },
   {
@@ -14,7 +14,7 @@
     "score": 7,
     "price": 450,
     "descripcion": "Cerveza  deliciosa",
-    "category": "Cerveza",
+    "category": "Cervezas",
     "image": "/img/categories/drinks/CervezaPatagoniaAbrazodeOsoLata473ml.webp"
   },
   {

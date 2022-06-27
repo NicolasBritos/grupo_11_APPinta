@@ -1,0 +1,14 @@
+[
+    {
+      "id": 1,
+      "title": "Cervezas",
+      "slugTitle": "Cervezas",
+      "image": "/img/categories/cervezas.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Pizzas",
+      "slugTitle": "Pizzas",
+      "image": "/img/categories/pizzas.jpeg"
+    }
+]
