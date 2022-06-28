@@ -13,7 +13,34 @@
     "name": "Fran",
     "surname": "Gionatti",
     "email": "soaresalejandro94@gmail.com",
-    "password": "ale123",
+    "password": "fran123",
+    "role": 2,
+    "avatar": "default-avatar.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Carla",
+    "surname": "Diaz",
+    "email": "carla.diaz@gmail.com",
+    "password": "carla123",
+    "role": 2,
+    "avatar": "default-avatar.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Nico",
+    "surname": "Britos",
+    "email": "nico.britos@gmail.com",
+    "password": "nico123",
+    "role": 2,
+    "avatar": "default-avatar.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Emma",
+    "surname": "Lujan",
+    "email": "emma.lujan@gmail.com",
+    "password": "emma123",
     "role": 2,
     "avatar": "default-avatar.jpg"
   }
