@@ -29,7 +29,9 @@
                 <div class="detail__ops"> 
                     <a href="/products/create">Nuevo</a>
                     <a href="/products/<%= product.id %>/update">Modificar</a>
-                    <a href="">Eliminar</a>
+                    <form action="/products/<%= product.id %>/delete?_method=DELETE" method="POST">
+                        <button type="submit" class="btn-delete">Eliminar</button>
+                    </form>
                 </div>
             </div>
         </section>

@@ -3,18 +3,15 @@ const routers = express.Router()
 const productController = require('../controller/product')
 
 routers.get('/', productController.getAll)
-/*
-    si se coloca /create en el nav toma el controlle de /:id
-    Como se puede especificar que :id es una numero??
-*/
 
+routers.get('/create', productController.create)
+
+routers.get('/:id', productController.getById)
 
 routers.get('/:id/update', productController.getUpdate)
 
 routers.put('/:id/update', productController.postUpdate)
 
-routers.get('/create', productController.create)
-
-routers.get('/:id', productController.getById)
+routers.delete('/:id/delete', productController.remove)
 
 module.exports = routers
