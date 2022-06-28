@@ -1,29 +1,197 @@
 [
   {
     "id": 1,
-    "name": "Cerveza WEISSE",
+    "name": "Cerveza Patagonia",
+    "score": 10,
     "price": 430,
-    "score": 5,
-    "description": "Lorem",
+    "description": "Cerveza ISIDRA",
     "category": "Cervezas",
-    "image": "/img/categories/drinks/beer.webp"
+    "image": "/img/products/PackIsidrax24Latas473ml.webp"
   },
   {
     "id": 2,
-    "name": "Cerveza OSO",
-    "score": 7,
+    "name": "Cerveza Patagonia",
+    "score": 9,
     "price": 450,
-    "descripcion": "Cerveza  deliciosa",
+    "descripcion": "Cerveza abrazo de oso",
     "category": "Cervezas",
-    "image": "/img/categories/drinks/CervezaPatagoniaAbrazodeOsoLata473ml.webp"
+    "image": "/img/products/CervezaPatagoniaAbrazodeOsoLata473ml.webp"
   },
   {
     "id": 3,
-    "name": "Patagonia Vera IPA",
+    "name": "Cerveza Heineken",
+    "score": 8,
+    "price": 450,
+    "descripcion": "Cerveza  deliciosa",
+    "category": "Cervezas",
+    "image": "/img/products/heineken.png"
+  },
+  {
+    "id": 4,
+    "name": "Cerveza Patagonia",
+    "score": 7,
+    "price": 450,
+    "descripcion": "Cerveza IPA rubia",
+    "category": "Cervezas",
+    "image": "/img/products/preview-full-Patagonia_Ipa_con_Sauco_1000_x_2048_accd2e0c-d6ed-4494-9b17-ab454a3585dc.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Cerveza Patagonia",
+    "score": 7,
+    "price": 450,
+    "descripcion": "Cerveza  Bohemian Pilsener",
+    "category": "Cervezas",
+    "image": "/img/products/Patagonia_BohemianPilsener_410ml_1000x1000px.webp"
+  },
+  {
+    "id": 6,
+    "name": "Cerveza Patagonia",
+    "score": 7,
+    "price": 450,
+    "descripcion": "Cerveza Amber Lager",
+    "category": "Cervezas",
+    "image": "/img/products/Patagonia_AmberLager_410ml_1000x1000px.webp"
+  },
+  {
+    "id": 7,
+    "name": "Pizza peperoni",
     "price": 290,
     "score": 7,
-    "descripcion": "Lorem",
+    "descripcion": "Variedades de pizzas a tu gusto",
     "category": "Pizzas",
-    "image": "/img/categories/drinks/Patagonia_BohemianPilsener_410ml_1000x1000px.webp"
+    "image": "/img/products/pizza-pepperoni.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Pizza rucula",
+    "price": 900,
+    "score": 7,
+    "descripcion": "Variedades de pizzas a tu gusto",
+    "category": "Pizzas",
+    "image": "/img/products/pizza-rucula.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Pizza con huevo",
+    "price": 800,
+    "score": 7,
+    "descripcion": "Variedades de pizzas a tu gusto",
+    "category": "Pizzas",
+    "image": "/img/products/pizza-huevo.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Pollo con ensaladas y papas",
+    "price": 600,
+    "score": 7,
+    "descripcion": "Pollo recien cocinado fresquito",
+    "category": "Pollos",
+    "image": "/img/products/Roast_Chicken.jpg"
+  },
+  {
+    "id": 11,
+    "name": "Picadas varias",
+    "price": 700,
+    "score": 7,
+    "descripcion": "Todo tipo de picada",
+    "category": "Picadas",
+    "image": "/img/products/picadavariada.png"
+  },
+  {
+    "id": 12,
+    "name": "Picadas original",
+    "price": 700,
+    "score": 7,
+    "descripcion": "Picadas original",
+    "category": "Picadas",
+    "image": "/img/products/santi-cheese-2.jpg"
+  },
+  {
+    "id": 13,
+    "name": "Vino Dada",
+    "price": 800,
+    "score": 7,
+    "descripcion": "Vino Tinto",
+    "category": "Vinos",
+    "image": "/img/products/botella_vino_-a.jpg"
+  },
+  {
+    "id": 14,
+    "name": "Vino Toro Viejo",
+    "price": 500,
+    "score": 7,
+    "descripcion": "Vino Tinto",
+    "category": "Vinos",
+    "image": "/img/products/vino-toro-viejo-tinto-700-ml.jpg"
+  },
+  {
+    "id": 15,
+    "name": "Vino Leyenda",
+    "price": 1000,
+    "score": 7,
+    "descripcion": "Vino Blanco",
+    "category": "Vinos",
+    "image": "/img/products/vino-blanco.webp"
+  },
+  {
+    "id": 16,
+    "name": "Jugo natural naranja",
+    "price": 400,
+    "score": 7,
+    "descripcion": "Naturales",
+    "category": "Jugos",
+    "image": "/img/products/jugo-naranja.webp"
+  },
+  {
+    "id": 17,
+    "name": "Jugo natural naranja-kiwi",
+    "price": 400,
+    "score": 7,
+    "descripcion": "Naturales",
+    "category": "Jugos",
+    "image": "/img/products/jugo-kiwi-naranja-jpg"
+  },
+  {
+    "id": 18,
+    "name": "Jugo natural anana",
+    "price": 400,
+    "score": 8,
+    "descripcion": "Naturales",
+    "category": "Jugos",
+    "image": "/img/products/anana.jpg"
+  },
+  {
+    "id": 19,
+    "name": "Jugo natural limon",
+    "price": 400,
+    "score": 7,
+    "descripcion": "Naturales",
+    "category": "Jugos",
+    "image": "/img/products/limon.jpg"
+  },
+  {
+    "id": 20,
+    "name": "Jugo natural sandia",
+    "price": 400,
+    "score": 8,
+    "descripcion": "Naturales",
+    "category": "Jugos",
+    "image": "/img/sandiazumo1.jpg"
+  },
+  {
+    "id": 21,
+    "price": 22,
+    "description": "afaf",
+    "image": "img-not-found.jpg",
+    "score": null
+  },
+  {
+    "id": 22,
+    "price": 11,
+    "description": "dadaw",
+    "category": "Cervezas",
+    "image": "1656459277586.jpg",
+    "score": null
   }
 ]
