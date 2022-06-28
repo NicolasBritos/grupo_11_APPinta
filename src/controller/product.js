@@ -1,16 +1,33 @@
 const productModel = require('../models/product')
 const getViewPath = view => `products/${view}`
 
-
-const setError = (locals, query) => {
+/** Setea los mensaje de exito o error que vienen desde los parametros 
+ * GET para mostrar en las vistas
+ * @param {*} locals 
+ * @param {*} query 
+ */
+const setMsg = (locals, query) => {
     const errMsg = query.errorMsg;
-    const decodedErrorMsg = decodeURIComponent(errMsg)
-    locals.error = errMsg? {message: decodedErrorMsg}: null
+    const succesMsg = query.successMsg;
+    locals.msg = null 
+
+    if (errMsg) {
+        locals.msg = {
+            message: decodeURIComponent(errMsg),
+            type: 'error'
+        }
+    } 
+
+    if (succesMsg) {
+        locals.msg = {
+            message: decodeURIComponent(succesMsg),
+            type: 'success'
+        }
+    } 
 }
 
 const setProducts = (locals, query) => {
     const category = query.category
-    let products; 
 
     if (category) {
         locals.products = productModel.findByCategory(category)
@@ -25,7 +42,7 @@ const productController = {
 
     getAll: (req, res) => {
         const locals = {}
-        setError(locals, req.query)
+        setMsg(locals, req.query)
         setProducts(locals, req.query)
         res.render(getViewPath('productView'), locals)
     },
@@ -75,6 +92,18 @@ const productController = {
             product: null
         }
         res.render(getViewPath('update'), context)
+    },
+
+    remove: (req, res) => {
+        const response = productModel.remove(req.params.id)
+        if (!response.error) {
+            const successMessage = 'El producto ha sido eliminado'
+            const encodedMsg = encodeURIComponent(successMessage)
+            res.redirect(`/products?successMsg=${encodedMsg}`)
+        } else {
+            console.log('Todo salio bien')
+            res.redirect('/products')
+        }
     }
 }
 

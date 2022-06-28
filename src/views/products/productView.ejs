@@ -16,9 +16,9 @@
     <%- include('../partials/header') %>
 
     <main>
-        <% if (locals.error) { %>
-            <section class="errors" style="background-color: red;">
-                <p><%= error.message %></p>
+        <% if (locals.msg) { %>
+            <section class="messages msg-<%= msg.type %>">
+                <p><%= msg.message %></p>
             </section>
         <% } %> 
         
@@ -47,6 +47,25 @@
             <% } %>
         <% } %>
 
+        <section class="products">
+            <div class="products__title">
+                <p>Nuestros productos</p>
+            </div>
+
+            <% for (let product of products) { %>
+                <div class="products__item">
+                    <img src="<%= product.image %>" alt="Imagen categoria">
+                    <div class="item__info">
+                        <a href="/products/<%= product.id %>" class="name"><%= product.name %></a>
+                        <p class="price">$ <%= product.price %>.<span>00</span></p>
+                    </div>
+                    <button class="item__add">+</button>
+                </div>
+            <% } %>
+            
+        </section>
+        
+        <!--
         <section class="products">
             <div class="products__title">
                 <p>Nuestras Birras Artesanales</p>
@@ -185,6 +204,8 @@
                 <button class="item__add">+</button>
             </div>
         </section>
+
+        -->
 
         <%- include('../partials/promotions') %>
         

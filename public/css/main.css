@@ -11,7 +11,7 @@
     --white: white;
     --green-action: #28a745;
     --black: black;
-    --red: red;
+    --red: #dc3545;
 
     /* measures */
     --max-width: 800px;
@@ -86,7 +86,7 @@ main {
     text-align: center;
 }
 
-.errors {
+.messages {
     max-width: calc(var(--max-width) / 2);
     margin-left: auto;
     margin-right: auto;
@@ -94,6 +94,15 @@ main {
     border-radius: var(--border-radius);
 }
 
-.errors p {
+.messages p {
     text-align: center;
 }
+
+.msg-error {
+    background-color: var(--red);
+}
+
+.msg-success {
+    background-color: var(--green-action);
+}
+

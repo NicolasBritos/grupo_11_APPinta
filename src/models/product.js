@@ -127,8 +127,9 @@ class ProductModel extends Model {
      * }
      */
     remove = id => {
-        const idx = this.findIndexOfId(id)
-        console.log('id ' + id)
+        const productId = parseInt(id)
+        const idx = this.findIndexOfId(productId)
+        console.log('id ' + productId)
         console.log('idx ' + idx)
 
         if (!idx) return {
