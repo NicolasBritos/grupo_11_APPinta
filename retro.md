@@ -56,3 +56,28 @@ Hacer menos:
 Dejar de hacer:
 
 *
+
+
+Sprint 4
+
+Comenzar a hacer:
+
+*Organizar controladores.
+
+*Organizar rutas
+
+*Informe del sprint del jira.
+
+Hacer más:
+
+*Reuniones grupales.
+
+Continuar haciendo:
+
+*Mejoras visuales.
+
+Hacer menos:
+
+Dejar de hacer:
+
+*Sprint a ultimo momento
