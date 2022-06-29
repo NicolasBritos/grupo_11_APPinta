@@ -64,7 +64,6 @@ const productController = {
     create: (req, res) => {
         const categories = categoryModel.getAll()
         const locals = {categories}
-    //    console.log(categories)
         res.render(getViewPath('create'), locals)
        
 	},
@@ -75,27 +74,22 @@ const productController = {
         if (!response.error) {
             res.redirect('/products')
         } else { 
-            const categories =categoryModel.getAll()
-            console.log(categories)
+            const categories = categoryModel.getAll()
             const locals = {
                 error: response.error,
-                body: req.body
+                body: req.body,
+                categories
             }
             res.render(getViewPath('create'), locals) 
         }
-		
 	},
   
-
     getUpdate: (req, res) => {
         const response = productModel.findById(req.params.id)
         if (!response.error) {
-
-            console.log(productModel.getCategories())
-            
             const locals = {
-                categories: productModel.getCategories(), 
-                product: response.product
+                product: response.product,
+                categories: categoryModel.getAll()
             }
             res.render(getViewPath('update'), locals)
         } else {
@@ -105,19 +99,27 @@ const productController = {
     },
 
     postUpdate: (req, res) => {
-        const id  = parseInt(req.params.id)
-
-        const context = {
-            categories: productModel.getCategories(), 
-            product: null
+        const id = req.params.id
+		const response = productModel.update(id, req.body, req.file)
+        if (!response.error) {
+            const successMessage = 'El producto ha sido actualizado.'
+            const encodedMsg = encodeURIComponent(successMessage)
+            res.redirect(`/products?successMsg=${encodedMsg}`)
+        } else { 
+            const categories =categoryModel.getAll()
+            const locals = {
+                error: response.error,
+                product: req.body,
+                categories
+            }
+            res.render(getViewPath('create'), locals) 
         }
-        res.render(getViewPath('update'), context)
     },
 
     remove: (req, res) => {
         const response = productModel.remove(req.params.id)
         if (!response.error) {
-            const successMessage = 'El producto ha sido eliminado'
+            const successMessage = 'El producto ha sido eliminado.'
             const encodedMsg = encodeURIComponent(successMessage)
             res.redirect(`/products?successMsg=${encodedMsg}`)
         } else {

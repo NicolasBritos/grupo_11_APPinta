@@ -64,12 +64,13 @@
   },
   {
     "id": 8,
-    "name": "Pizza rucula",
-    "price": 900,
-    "score": 7,
+    "name": "Pizza rucula ",
+    "price": 1200,
+    "score": null,
     "descripcion": "Variedades de pizzas a tu gusto",
     "category": "Pizzas",
-    "image": "pizza-rucula.jpg"
+    "image": "pizza-rucula.jpg",
+    "description": ""
   },
   {
     "id": 9,

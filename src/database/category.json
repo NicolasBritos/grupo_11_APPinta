@@ -10,5 +10,29 @@
       "title": "Pizzas",
       "slugTitle": "Pizzas",
       "image": "/img/categories/pizzas.jpeg"
+    },
+    {
+      "id": 3,
+      "title": "Picadas",
+      "slugTitle": "Picadas",
+      "image": "/img/categories/picadas.webp"
+    },
+    {
+      "id": 4,
+      "title": "Vinos",
+      "slugTitle": "Vinos",
+      "image": "/img/categories/vinos.jpg"
+    },
+    {
+      "id": 5,
+      "title": "Jugos",
+      "slugTitle": "Jugos",
+      "image": "/img/categories/jugos.webp"
+    },
+    {
+      "id": 6,
+      "title": "Pollos",
+      "slugTitle": "Pollos",
+      "image": "/img/categories/pollo.jpg"
     }
 ]

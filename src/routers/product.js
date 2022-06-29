@@ -26,7 +26,7 @@ routers.get('/:id', productController.getById)
 
 routers.get('/:id/update', productController.getUpdate)
 
-routers.put('/:id/update', productController.postUpdate)
+routers.put('/:id/update', upload.single('image'), productController.postUpdate)
 
 routers.delete('/:id/delete', productController.remove)
 
