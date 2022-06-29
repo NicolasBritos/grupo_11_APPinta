@@ -11,7 +11,7 @@
     --white: white;
     --green-action: #28a745;
     --black: black;
-    --red: red;
+    --red: #dc3545;
 
     /* measures */
     --max-width: 800px;
@@ -65,5 +65,44 @@ main {
 
 .d-none {
     display: none;
+}
+
+.form__file-img {
+    display: block;
+    width: 100%;
+    margin-bottom: 8px;
+}
+.form__file-img input {
+    margin-top: 2px;
+
+}
+
+
+/* ERRORS */
+.form__error-msg {
+    color: #dc3545 !important;
+    font: 12px;
+    margin-bottom: 14px;
+    text-align: center;
+}
+
+.messages {
+    max-width: calc(var(--max-width) / 2);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 12px 24px;
+    border-radius: var(--border-radius);
+}
+
+.messages p {
+    text-align: center;
+}
+
+.msg-error {
+    background-color: var(--red);
+}
+
+.msg-success {
+    background-color: var(--green-action);
 }
 

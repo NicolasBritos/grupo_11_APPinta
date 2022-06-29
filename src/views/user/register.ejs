@@ -11,6 +11,10 @@
     <title>
        Registro | PintaBar
     </title>
+
+    <style>
+    
+    </style>
 </head>
 <body>
     <%- include('../partials/header') %>
@@ -23,14 +27,24 @@
            Formulario de registro
         </h4>
     </section>
-    <form class="form-register" method="POST" action="/user/register">
-        <input class="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese su Nombre" minlength="2" required>
-        <input class="controls" type="text" name="apellidos" id="apellidos" placeholder="Ingrese su Apellido" minlength="2" required>
-        <input class="controls" type="text" name ="dni" id="dni" placeholder="Ingrese DNI" minlength="8" required>
-        <input class="controls" type="date" name="fechanac" id="fechanac" required>
-        <input class="controls" type="email" name="correo" id="correo" placeholder="Ingrese su Correo" minlength="6" required>
-        <input class="controls" type="password" name="correo" id="correo" placeholder="Ingrese su Contraseña" minlength="6" required><br>
-        <input class= "checkbox" type="checkbox">Mayor de 18 años<br>
+    <form class="form-register" method="POST" action="/user/register" enctype="multipart/form-data">
+        <% if (locals.hasOwnProperty('error') 
+            && locals.error !== null) { %>
+                <p class="form__error-msg">
+                    <%= locals.error.message %>
+                </p>
+        <% }%>
+        <input class="controls" type="text" name="name" id="name" placeholder="Ingrese su Nombre" minlength="2" 
+        value="<%= locals.body? locals.body.name: '' %>" required>
+        <input class="controls" type="text" name="surname" id="surname" placeholder="Ingrese su Apellido" minlength="2" 
+        value="<%= locals.body? locals.body.surname: '' %>" required>
+        <input class="controls" type="email" name="email" id="email" placeholder="Ingrese su Correo" minlength="6" 
+        value="<%= locals.body? locals.body.email: '' %>" required>
+        <input class="controls" type="password" name="password" id="password" placeholder="Ingrese su Contraseña" minlength="6" required><br>
+        <label for="avatar" class="form__file-img">Avatar:<br>
+            <input type="file" name="avatar" id="avatar" accept=".png, .jpg, .jpeg">
+        </label>
+        <input class= "checkbox" type="checkbox" required> Mayor de 18 años<br>
         <a href="/user/login" class="Login">Ingresar</a>
         <input class="botons" type="submit" value="Registrarse">
     </form>

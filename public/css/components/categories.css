@@ -15,16 +15,22 @@
     text-align: center;
 }
 
-.categories__title p {
+.categories__title a {
     background-color: var(--green);
     padding: 4px 8px;
     display: inline-block;
     color: var(--black);
     border-radius: var(--border-radius);
     font-weight: 600;
+    text-decoration: none;
+}
+
+.categories__title a:hover {
+    color: var(--green-action);
 }
 
 .categories__item {
+    display: block;
     margin: 4px;
     border-radius: var(--border-radius);
     position: relative;
@@ -46,6 +52,11 @@
     padding: 2px 3px;
     border-radius: 5px;
     font-weight: 600;
+    color: var(--white);
+}
+
+.categories__item:hover p {
+    color: var(--green-action)
 }
 
 @media (min-width: 768px) {

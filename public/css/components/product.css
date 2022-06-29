@@ -1,5 +1,5 @@
 .product {
-    max-width: calc(var(--max-width) - 300px);
+    max-width: calc(var(--max-width) - 400px);
     margin-left: auto;
     margin-right: auto;
     background-color: var(--white);
@@ -30,6 +30,33 @@
 
 .product__detail p {
     margin-bottom: 4px;
+}
+
+.detail__ops {
+    padding-top: 8px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn-delete {
+    background-color: transparent;
+    border: none;
+    text-decoration: underline;
+    font-size: 16px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.detail__ops a,
+.detail__ops button {
+    color: var(--black);
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+}
+
+.btn-delete:hover,
+.detail__ops a:hover {
+    color: var(--green-action);
 }
 
 .product__detail p.description {

@@ -16,20 +16,61 @@
     <%- include('../partials/header') %>
 
     <main>
-        <%- include('../partials/promotions') %>
+        <% if (locals.msg) { %>
+            <section class="messages msg-<%= msg.type %>">
+                <p><%= msg.message %></p>
+            </section>
+        <% } %> 
+        
+        <% if (category) { %>
+            <% if (products.length === 0) { %>
+                <section class="result-msg">
+                    <p>No encontramos esta categoría :(</p>
+                </section>
+            <% } else { %>
+                <section class="products">
+                    <div class="products__title">
+                        <p>Nuestras <%= category %></p>
+                    </div>
+        
+                    <%for (let product of products) { %>
+                        <div class="products__item">
+                            <img src="/img/products/<%= product.image %>" alt="Imagen categoria">
+                            <div class="item__info">
+                                <a href="/products/<%= product.id %>" class="name"><%= product.name %></a>
+                                <p class="price">$ <%= product.price %>.<span>00</span></p>
+                            </div>
+                            <button class="item__add">+</button>
+                        </div>
+                    <% } %>
+                </section>       
+            <% } %>
+        <% } %>
 
+        <section class="products">
+            <div class="products__title">
+                <p>Nuestros productos</p>
+            </div>
+
+            <% for (let product of products) { %>
+                <div class="products__item">
+                    <img src="/img/products/<%= product.image %>" alt="Imagen categoria">
+                    <div class="item__info">
+                        <a href="/products/<%= product.id %>" class="name"><%= product.name %></a>
+                        <p class="price">$ <%= product.price %>.<span>00</span></p>
+                    </div>
+                    <button class="item__add">+</button>
+                </div>
+            <% } %>
+            
+        </section>
+        
+        <!--
         <section class="products">
             <div class="products__title">
                 <p>Nuestras Birras Artesanales</p>
             </div>
-            <div class="products__item">
-                <img src="img/categories/drinks/pinta-img.jpg" alt="Imagen categoria">
-                <div class="item__info">
-                    <p class="description">Cerveza IPA </p>
-                    <p class="price">$ 380.<span>00</span></p>
-                </div>
-                <button class="item__add">+</button>
-            </div>
+
             <div class="products__item">
                 <img src="img/categories/drinks/pinta-img.jpg" alt="Imagen categoria">
                 <div class="item__info">
@@ -126,7 +167,6 @@
             </div>
         </section>
 
-
         <section class="products">
             <div class="products__title">
                 <p>Birras Artesanales - Argentinas</p>
@@ -164,6 +204,11 @@
                 <button class="item__add">+</button>
             </div>
         </section>
+
+        -->
+
+        <%- include('../partials/promotions') %>
+        
     </main>
 
      <%- include('../partials/footer') %>

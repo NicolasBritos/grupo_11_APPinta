@@ -19,25 +19,31 @@
             <h2>Crear producto</h2>
             <h4>Complete los siguientes campos</h4>
         </section>
-        <form class="Login" method="POST" action="/products/create">
-            <input class="controls" type="text" placeholder="Tituto" name="title" required>
-            <input class="controls" type="number" placeholder="Precio" name="price" required>
-            <textarea class="controls" name="description" id="" cols="30" rows="10" placeholder="Descripción"></textarea>
+        <form class="Login" method="POST" action="/products/create" enctype="multipart/form-data">
+            <input class="controls" type="text" placeholder="Tituto" name="name"  
+            value="<%= locals.body? locals.body.name: '' %>" required>
+            
+            <input class="controls" type="number" placeholder="Precio" name="price" 
+            value="<%= locals.body? locals.body.name: '' %>" required>
+            <textarea class="controls" name="description" id="" cols="30" rows="10" placeholder="Descripción" ></textarea>
             <div class="product__img">
                 <label for="product-img">Imagen:</label>
-                <input type="file" name="img" id="product-img">
+                <input type="file" name="image" id="product-img">
             </div>
             <div class="product__categories">
                 <p>Categorias:</p>
-                <% categories.forEach( category => { %>
-                    <div class="categories__item">
-                        <label for="">
-                            <input type="radio" name="category" value="<%= category.id %>"> <%= category.title %> 
+                <%for(let category of categories){ %>
+                          <div class="categories__item">
+                        <label for=""> <% if (locals.body) { %>
+                            <% if (locals.body.category === category.slugTitle) { %>
+                            <input type="radio" name="category"  value="<%= category.slugTitle %>" checked> <%= category.title %>
+                            <% } %>
+                        <% } %>
+                        <input type="radio" name="category" value="<%= category.slugTitle %>"> <%= category.title %>
                         </label>
                     </div>
-                <% }) %>
+                <% } %>
             </div>
-            
             <input class="botons" type="submit" value="Crear producto">
         </form>
     </main>

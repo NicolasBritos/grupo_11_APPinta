@@ -19,27 +19,29 @@
             <h2>Actualizar producto</h2>
             <h4>Modifica los siguientes campos</h4>
         </section>
-        <form class="Login" method="POST" action="/products/22/update">
+        <form class="Login" method="POST" action="/products/<%= product.id %>/update?_method=PUT" enctype="multipart/form-data">
             <div class="product__img">
-                <img src="/img/categories/drinks/beer.webp" alt="Imagen producto">
+                <img src="/img/products/<%= product.image %>" alt="Imagen producto">
                 <label for="product-img">Nueva imagen:</label>
-                <input type="file" name="img" id="product-img">
+                <input type="file" name="image" id="product-img">
             </div>
-            <input class="controls" type="text" placeholder="Tituto" name="title" value="Cerveza 437 ml" required>
-            <input class="controls" type="number" placeholder="Precio" name="price"  value="$ 500.00" required>
-            <textarea class="controls" name="description" id="" cols="30" rows="10" placeholder="Descripción">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </textarea>
+            <input class="controls" type="text" placeholder="Tituto" name="name" value="<%= product.name %>" required>
+            <input class="controls" type="number" placeholder="Precio" name="price"  value="<%= product.price %>" required>
+            <textarea class="controls" name="description" id="" cols="30" rows="10" placeholder="Descripción"><%= product.description %></textarea>
             
             <div class="product__categories">
                 <p>Categorias:</p>
-                <% for (let i=0; i < categories.length; i++) { %>
-                    <div class="categories__item">
-                        <label for="">
-                            <% if (i === 0) { %>
-                            <input type="radio" name="category" value="<%= categories[i].id %>" checked> <%= categories[i].title %> 
-                            <% } else { %>
-                                <input type="radio" name="category" value="<%= categories[i].id %>"> <%= categories[i].title %> 
+                <% for(let category of categories){ %>
+                          <div class="categories__item">
+                        <label for=""> 
+                            <% if (locals.product) { %>
+                                <% if (locals.product.category === category.slugTitle) { %>
+                                <input type="radio" name="category"  value="<%= category.slugTitle %>" checked> <%= category.title %>
+                                <% } else { %>
+                                <input type="radio" name="category" value="<%= category.slugTitle %>"> <%= category.title %>
+                                <% } %>
                             <% } %>
+                       
                         </label>
                     </div>
                 <% } %>

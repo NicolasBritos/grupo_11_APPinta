@@ -1,11 +1,11 @@
 <section class="categories">
     <div class="categories__title">
-        <p>Nuestros productos</p>
+        <a href="/products">Nuestros productos</a>
     </div>
     <% categories.forEach( category => { %>
-    <div class="categories__item">
-        <img src="<%= category.img %>" alt="Imagen categoria">
+    <a href="products?category=<%= category.slugTitle %>" class="categories__item">
+        <img src="<%= category.image %>" alt="Imagen categoria">
         <p><%= category.title %></p>
-    </div>
+    </a>
     <% }) %>
 </section>

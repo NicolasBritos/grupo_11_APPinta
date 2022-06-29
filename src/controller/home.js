@@ -1,15 +1,17 @@
-const loadJsonFile = require('../../helpers/loadJsonFile')
+const categoryModel = require('../models/category')
 
 const homeController = {
+
     homeLogged: (req, res) => {
-        const categories = loadJsonFile('categories.json')
-        const context = {categories}
-        res.render('homeLogged', context)
+        const categories = categoryModel.getAll()
+        const locals = {categories}
+        res.render('homeLogged', locals)
     },
+    
     home: (req, res) => {
-        const categories = loadJsonFile('categories.json')
-        const context = {categories}
-        res.render('home', context)
+        const categories = categoryModel.getAll()
+        const locals = {categories}
+        res.render('home', locals)
     }
 }
 

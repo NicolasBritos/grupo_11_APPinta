@@ -2,13 +2,16 @@ const path = require('path')
 const express = require('express')
 const port = process.env.PORT || 3000
 const routers = require('./src/routers/index')
+const methodOverride = require('method-override')
 
 const app = express()
 
+app.use(express.urlencoded({extended: false}))
+app.use(express.json())
+app.use(methodOverride('_method'))
 app.use('/', routers)
 
 /* STATIC FILES */
-console.log(path.resolve(__dirname, 'public'))
 app.use(express.static(path.resolve(__dirname, 'public')))
 
 /* TEMPLATE ENGINE */
