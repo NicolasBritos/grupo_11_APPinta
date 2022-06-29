@@ -58,7 +58,7 @@ class ProductModel extends Model {
         const product = this._findById(id)
         return {
             error: product? null: {message: ID_NOT_FOUND_MSG},
-            product:  product? product: null
+            product: product? product: null
         }
     }
     
@@ -97,16 +97,14 @@ class ProductModel extends Model {
      * }
      */
     update = (id, fields, file) => {
-        const product = this.findById(id)
+        console.log('Update')
+        let product = null
+        const productId = parseInt(id)
+        const result = this.findById(productId)
+        if (result.error) return result
 
-        if (!product) return {
-            error: {
-                message: 'No se encontro el ID'
-            }, 
-            product: null
-        }
-
-        fields.image = file? file.filename: undefined 
+        product = result.product
+        fields.image = file? file.filename: undefined
         this._updateImgField(product, fields)
         this._normalizeFields(fields)
         Model.loadFieldsInObj(product, fields, this.validFields)
@@ -134,7 +132,7 @@ class ProductModel extends Model {
 
         if (!idx) return {
             error: {
-                message: 'No se encontro el ID'
+                message: ID_NOT_FOUND_MSG
             },
             index: null
         }
