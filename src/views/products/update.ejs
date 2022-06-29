@@ -21,7 +21,7 @@
         </section>
         <form class="Login" method="POST" action="/products/<%= product.id %>/update?_method=PUT">
             <div class="product__img">
-                <img src="<%= product.image %>" alt="Imagen producto">
+                <img src="/img/products/<%= product.image %>" alt="Imagen producto">
                 <label for="product-img">Nueva imagen:</label>
                 <input type="file" name="image" id="product-img">
             </div>

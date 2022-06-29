@@ -1,5 +1,6 @@
 const productModel = require('../models/product')
 const getViewPath = view => `products/${view}`
+const categoryModel = require('../models/category')
 
 /** Setea los mensaje de exito o error que vienen desde los parametros 
  * GET para mostrar en las vistas
@@ -61,11 +62,30 @@ const productController = {
     },
 
     create: (req, res) => {
-        const context = {
-            categories: productModel.getCategories()
+        const categories = categoryModel.getAll()
+        const locals = {categories}
+    //    console.log(categories)
+        res.render(getViewPath('create'), locals)
+       
+	},
+    postCreate: (req, res) => {
+        const body = req.body
+        const file = req.file
+		const response = productModel.create(body,file)
+        if (!response.error) {
+            res.redirect('/products')
+        } else { 
+            const categories =categoryModel.getAll()
+            console.log(categories)
+            const locals = {
+                error: response.error,
+                body: req.body
+            }
+            res.render(getViewPath('create'), locals) 
         }
-        res.render(getViewPath('create'), context)
-    },
+		
+	},
+  
 
     getUpdate: (req, res) => {
         const response = productModel.findById(req.params.id)
