@@ -1,3 +1,4 @@
+const { validationResult } = require('express-validator');
 const userModel = require('../models/user')
 const getViewPath = view => `user/${view}`
 
@@ -9,15 +10,18 @@ const userController = {
 
     postRegister: (req, res) => {
         const response = userModel.register(req.body , req.file)
-        if (!response.error) {
-            res.redirect('/user/login')
-        } else {
-            const locals = {
-                error: response.error,
-                body: req.body
-            }
-            res.render(getViewPath('register'), locals) 
+        const resultValidation = validationResult(req);
+       // return res.send(resultValidation.mapped())
+        if (resultValidation.errors.length >0) {
+            
+            return res.render((getViewPath('register')),{
+                errors : resultValidation.mapped(),
+                oldData : req.body
+            });
+        }else{
+             res.redirect('/user/login')
         }
+      
     },
 
     getLogin: (req, res) => {
