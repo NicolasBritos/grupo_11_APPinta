@@ -16,7 +16,11 @@
 
     <main>
         <section class="header-user">
-                <h2>Bienvenid@</h2>
+                <% if (locals.isLogged) { %>
+                    <h2>Hola <%= locals.userLogged.name %></h2>
+                <% } else { %>
+                    <h2>Bienvenid@</h2>
+                <% } %> 
                 <h3>
                     No te quedes sin un lugar! Podés reservar tu mesa para vos y tus amig@s desde aquí. 
                     Te esperamos! 
