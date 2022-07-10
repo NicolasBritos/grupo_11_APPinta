@@ -109,15 +109,6 @@
     "image": "botella_vino_-a.jpg"
   },
   {
-    "id": 14,
-    "name": "Vino Toro Viejo",
-    "price": 500,
-    "score": 7,
-    "descripcion": "Vino Tinto",
-    "category": "Vinos",
-    "image": "vino-toro-viejo-tinto-700-ml.jpg"
-  },
-  {
     "id": 15,
     "name": "Vino Leyenda",
     "price": 1000,
