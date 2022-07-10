@@ -18,15 +18,6 @@
     "image": "CervezaPatagoniaAbrazodeOsoLata473ml.webp"
   },
   {
-    "id": 3,
-    "name": "Cerveza Heineken",
-    "score": 8,
-    "price": 450,
-    "descripcion": "Cerveza  deliciosa",
-    "category": "Cervezas",
-    "image": "heineken.png"
-  },
-  {
     "id": 4,
     "name": "Cerveza Patagonia",
     "score": 7,

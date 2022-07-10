@@ -1,6 +1,7 @@
 const express = require('express')
 const routers = express.Router()
 const productController = require('../controller/product')
+const authMiddleware = require('../middlewares/authMiddleware')
 const multer = require('multer')
 const path = require('path')
 
@@ -18,16 +19,16 @@ const upload = multer({ storage })
 
 routers.get('/', productController.getAll)
 
-routers.get('/create', productController.create)
+routers.get('/create', authMiddleware, productController.create)
 
-routers.post('/create', upload.single('image'), productController.postCreate)
+routers.post('/create', authMiddleware, upload.single('image'), productController.postCreate)
 
 routers.get('/:id', productController.getById)
 
-routers.get('/:id/update', productController.getUpdate)
+routers.get('/:id/update', authMiddleware, productController.getUpdate)
 
-routers.put('/:id/update', upload.single('image'), productController.postUpdate)
+routers.put('/:id/update', authMiddleware, upload.single('image'), productController.postUpdate)
 
-routers.delete('/:id/delete', productController.remove)
+routers.delete('/:id/delete', authMiddleware, productController.remove)
 
 module.exports = routers
