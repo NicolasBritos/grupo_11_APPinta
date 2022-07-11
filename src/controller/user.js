@@ -21,14 +21,22 @@ const userController = {
     },
 
     getLogin: (req, res) => {
-        res.render(getViewPath('login'))
+        const nextUrl = req.query.next
+        const context = {
+            nextUrl: nextUrl? nextUrl: null
+        }
+        res.render(getViewPath('login'), context)
     },
 
     postLogin: (req, res) => {
         const body = req.body
         const response = userModel.login(body.email, body.password)
         if (!response.error) {
-            res.redirect('/home')
+            const nextUrl = req.query.next
+            // redireccion next page
+            req.session.userLogged = response.user
+            if (nextUrl) return res.redirect(nextUrl)
+            return res.redirect('/')
         } else {
             const locals = {
                 error: response.error,

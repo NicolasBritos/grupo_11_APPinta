@@ -1,7 +1,11 @@
 const authMiddleware = (req, res, next) => {
    
     if (!req.session.userLogged) {
-        return res.redirect('/user/login')
+        let url = '/user/login'
+
+        if (req.method === 'GET') url = `${url}?next=${req.originalUrl}`
+        
+        return res.redirect(url)
     }
     next()
 }

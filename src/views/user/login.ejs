@@ -24,7 +24,11 @@
            Login
         </h4>
     </section>
-    <form class="Login" method="POST" action="/user/login">
+    <% if (locals.nextUrl) { %>
+    <form class="Login" method="POST" action="/user/login?next=<%= locals.nextUrl %>">
+    <% } else { %>
+        <form class="Login" method="POST" action="/user/login">
+    <% }%>
         <% if (locals.hasOwnProperty('error') 
                 && locals.error !== null) { %>
             <p class="form__error-msg"><%= locals.error.message %></p>
