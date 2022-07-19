@@ -11,28 +11,20 @@ const userController = {
     postRegister: (req, res) => {
         const response = userModel.register(req.body , req.file)
         const resultValidation = validationResult(req);
-           if (resultValidation.errors.length >0) {
-                   
+           if (resultValidation.errors.length >0 || response.error) {
+            
+            console.log(resultValidation.errors);
+
+            // BORRADO DE LAS IMAGENES CUANDO ALGO SALE MAL
             return res.render((getViewPath('register')),{
                 errors : resultValidation.mapped(),
-                oldData : req.body
+                oldData : req.body,
+                errorForm: response.error? response.error.message: null
             });
 
-        }/*        
-        let userJS = userModel.findByEmail('email');
+        }
 
-		if (userJS) {
-			return res.render((getViewPath('register')), {
-				errors: {
-					email: {
-						msg: 'Este email ya está registrado'
-					}
-				},
-				oldData: req.body
-			});
-		}*/else{
-            res.redirect('/user/login');
-        }  
+        res.redirect('/user/login'); 
     },
 
     getLogin: (req, res) => {

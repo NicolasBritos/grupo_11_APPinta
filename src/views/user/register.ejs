@@ -32,7 +32,12 @@
             </section>
           
             <form class="form-register" method="POST" action="/user/register" enctype="multipart/form-data">
-               
+                        <% if(locals.errorForm){ %>
+                            <p class="form__error-msg">
+                                <%= errorForm %>
+                            </p>
+                        <% } %>
+                        
                         <input class="controls <%= locals.errors && errors.name ? 'is-invalid': null %>" type="text" name="name" id="name" placeholder="Ingrese su Nombre"
                         value ="<%= locals.oldData ? oldData.name : null %>">
                         

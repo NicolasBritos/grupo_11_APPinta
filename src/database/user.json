@@ -43,5 +43,14 @@
     "password": "emma123",
     "role": 2,
     "avatar": "default-avatar.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Ale",
+    "surname": "Soares",
+    "email": "soaresalejandro4@gmail.com",
+    "password": "ale123",
+    "avatar": "1658259274679.jpg",
+    "role": 2
   }
 ]
