@@ -24,6 +24,8 @@ class UserModel extends Model {
        if (!fields.avatar) fields.avatar = user.avatar
     }
 
+    
+
     /**
      * Remueve el campo password de una copia del objeto user
      * @param {Object} user
@@ -71,6 +73,8 @@ class UserModel extends Model {
             user:  user? this._clearUserObj(user): null
         }
     }
+
+    
 
     /**
      * Busca un usuario por email

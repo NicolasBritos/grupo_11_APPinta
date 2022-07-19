@@ -13,6 +13,7 @@ app.use(session({
     saveUninitialized: true
 }))
 
+
 /* MIDDLEWARE */
 app.use(express.urlencoded({extended: false}))
 app.use(express.json())

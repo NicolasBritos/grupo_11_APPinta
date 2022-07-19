@@ -11,21 +11,33 @@ const userController = {
     postRegister: (req, res) => {
         const response = userModel.register(req.body , req.file)
         const resultValidation = validationResult(req);
-       // return res.send(resultValidation.mapped())
-        if (resultValidation.errors.length >0) {
-            
+           if (resultValidation.errors.length >0) {
+                   
             return res.render((getViewPath('register')),{
                 errors : resultValidation.mapped(),
                 oldData : req.body
             });
-        }else{
-             res.redirect('/user/login')
-        }
-      
+
+        }/*        
+        let userJS = userModel.findByEmail('email');
+
+		if (userJS) {
+			return res.render((getViewPath('register')), {
+				errors: {
+					email: {
+						msg: 'Este email ya está registrado'
+					}
+				},
+				oldData: req.body
+			});
+		}*/else{
+            res.redirect('/user/login');
+        }  
     },
 
     getLogin: (req, res) => {
         const nextUrl = req.query.next
+        
         const context = {
             nextUrl: nextUrl? nextUrl: null
         }
@@ -48,7 +60,9 @@ const userController = {
             }
             res.render(getViewPath('login'), locals)
         }
-    }
+    },
+   
+    
 }
 
 module.exports = userController
