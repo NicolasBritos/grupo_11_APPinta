@@ -1,7 +1,7 @@
 const { validationResult } = require('express-validator');
 const userModel = require('../models/user')
 const getViewPath = view => `user/${view}`
-const removeAvatar = require('../../helpers/removeAvatar')
+const removeAvatar = require('../helpers/removeAvatar')
 
 const userController = {
 
