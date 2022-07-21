@@ -81,3 +81,27 @@ Hacer menos:
 Dejar de hacer:
 
 *Sprint a ultimo momento
+
+
+Sprint 5
+
+Comenzar a hacer:
+
+*Mejorar la interfaz grafica
+
+*Dedicar tiempo en común para revisar el estado del sprint.
+
+Hacer más:
+
+*Reuniones grupales.
+
+*Establecer criterios grupalse de como manejar errores y demás.
+
+Continuar haciendo:
+
+*Mejoras en el backend
+
+Hacer menos:
+
+Dejar de hacer:
+
