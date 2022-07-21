@@ -52,5 +52,14 @@
     "password": "ale123",
     "avatar": "1658259274679.jpg",
     "role": 2
+  },
+  {
+    "id": 7,
+    "name": "Alejandro",
+    "surname": "Soares",
+    "email": "soaresalejano94@gmail.com",
+    "password": "ale123",
+    "avatar": "1658443651118.jpg",
+    "role": 2
   }
 ]
