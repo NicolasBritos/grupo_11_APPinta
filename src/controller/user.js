@@ -43,7 +43,9 @@ const userController = {
             const nextUrl = req.query.next
             // redireccion next page
             req.session.userLogged = response.user
+            
             if (nextUrl) return res.redirect(nextUrl)
+
             return res.redirect('/')
         } else {
             const locals = {
