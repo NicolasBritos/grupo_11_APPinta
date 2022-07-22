@@ -29,13 +29,28 @@
     <% } else { %>
         <form class="Login" method="POST" action="/user/login">
     <% }%>
+    <% if(locals.errorForm){ %>
+        <p class="form__error-msg">
+            <%= errorForm %>
+        </p>
+    <% } %>
         <% if (locals.hasOwnProperty('error') 
                 && locals.error !== null) { %>
             <p class="form__error-msg"><%= locals.error.message %></p>
         <% }%>
-        <input class="controls" type="email" name="email" placeholder="Ingrese su Correo" minlength="4" 
-        value="<%= locals.body? locals.body.email: '' %>"required>
-        <input class="controls" type="password" name="password" placeholder="Ingrese su Contraseña" minlength="6" required>
+        <input class="controls <%= locals.errors && errors.email ? 'is-invalid': null %>" type="email" name="email" placeholder="Ingrese su Correo"  
+        value="<%= locals.oldData ? oldData.email : null %>">
+        <% if(locals.errors && errors.email){ %>
+            <p class="form__error-msg">
+                <%= errors.email.msg %>
+            </p>
+        <% } %>
+        <input class="controls <%= locals.errors && errors.password ? 'is-invalid': null %>" type="password" name="password" placeholder="Ingrese su Contraseña" >
+        <% if(locals.errors && errors.password){ %>
+            <p class="form__error-msg">
+                <%= errors.password.msg %>
+            </p>
+        <% } %>
         <a href="/user/forgot-password">¿Olvidaste tu contraseña?</a>
         <a>|</a>
         <a href="/user/register">Crear una cuenta</a>
