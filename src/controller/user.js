@@ -43,10 +43,14 @@ const userController = {
             const nextUrl = req.query.next
             // redireccion next page
             req.session.userLogged = response.user
+            if (body.remember === 'on') {
+                res.cookie('email', user.email, {maxAge: 60 * 60 * 1000})
+            }
+            return res.redirect('/')
             
             if (nextUrl) return res.redirect(nextUrl)
-
-            return res.redirect('/')
+              
+            
         } else {
             const locals = {
                 error: response.error,
