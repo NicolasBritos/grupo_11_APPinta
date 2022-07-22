@@ -18,15 +18,6 @@
     "image": "CervezaPatagoniaAbrazodeOsoLata473ml.webp"
   },
   {
-    "id": 3,
-    "name": "Cerveza Heineken",
-    "score": 8,
-    "price": 450,
-    "descripcion": "Cerveza  deliciosa",
-    "category": "Cervezas",
-    "image": "heineken.png"
-  },
-  {
     "id": 4,
     "name": "Cerveza Patagonia",
     "score": 7,
@@ -116,15 +107,6 @@
     "descripcion": "Vino Tinto",
     "category": "Vinos",
     "image": "botella_vino_-a.jpg"
-  },
-  {
-    "id": 14,
-    "name": "Vino Toro Viejo",
-    "price": 500,
-    "score": 7,
-    "descripcion": "Vino Tinto",
-    "category": "Vinos",
-    "image": "vino-toro-viejo-tinto-700-ml.jpg"
   },
   {
     "id": 15,

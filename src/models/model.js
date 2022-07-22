@@ -1,6 +1,6 @@
 const path = require('path')
 const fs = require('fs')
-const getKeys = require('../../helpers/getKeys')
+const getKeys = require('../helpers/getKeys')
 
 class Model {
 

@@ -1,56 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    
+
     <%- include('../partials/head') %>
 
-    <link rel="stylesheet" href="../css/components/header-user.css">
-    <link rel="stylesheet" href="../css/components/promotions.css">
-    <link rel="stylesheet" href="../css/components/categories.css">
-    <link rel="stylesheet" href="../css/components/register.css">
-    <title>
-       Registro | PintaBar
-    </title>
+        <link rel="stylesheet" href="../css/components/header-user.css">
+        <link rel="stylesheet" href="../css/components/promotions.css">
+        <link rel="stylesheet" href="../css/components/categories.css">
+        <link rel="stylesheet" href="../css/components/register.css">
+        <title>
+            Registro | PintaBar
+        </title>
 
-    <style>
-    
-    </style>
+        <style>
+
+        </style>
 </head>
+
 <body>
     <%- include('../partials/header') %>
 
-    <main>
-    <section class="header-user2">
-        <h2>Bienvenid@
-         <img src="../img/title/beer.png" alt="Img beer"></h2>
-        <h4>
-           Formulario de registro
-        </h4>
-    </section>
-    <form class="form-register" method="POST" action="/user/register" enctype="multipart/form-data">
-        <% if (locals.hasOwnProperty('error') 
-            && locals.error !== null) { %>
-                <p class="form__error-msg">
-                    <%= locals.error.message %>
-                </p>
-        <% }%>
-        <input class="controls" type="text" name="name" id="name" placeholder="Ingrese su Nombre" minlength="2" 
-        value="<%= locals.body? locals.body.name: '' %>" required>
-        <input class="controls" type="text" name="surname" id="surname" placeholder="Ingrese su Apellido" minlength="2" 
-        value="<%= locals.body? locals.body.surname: '' %>" required>
-        <input class="controls" type="email" name="email" id="email" placeholder="Ingrese su Correo" minlength="6" 
-        value="<%= locals.body? locals.body.email: '' %>" required>
-        <input class="controls" type="password" name="password" id="password" placeholder="Ingrese su Contraseña" minlength="6" required><br>
-        <label for="avatar" class="form__file-img">Avatar:<br>
-            <input type="file" name="avatar" id="avatar" accept=".png, .jpg, .jpeg">
-        </label>
-        <input class= "checkbox" type="checkbox" required> Mayor de 18 años<br>
-        <a href="/user/login" class="Login">Ingresar</a>
-        <input class="botons" type="submit" value="Registrarse">
-    </form>
-    </main>
+        <main>
+            <section class="header-user2">
+                <h2>Bienvenid@
+                    <img src="../img/title/beer.png" alt="Img beer">
+                </h2>
+                <h4>
+                    Formulario de registro
+                </h4>
+            </section>
+          
+            <form class="form-register" method="POST" action="/user/register" enctype="multipart/form-data">
+                        <% if(locals.errorForm){ %>
+                            <p class="form__error-msg">
+                                <%= errorForm %>
+                            </p>
+                        <% } %>
+                        
+                        <input class="controls <%= locals.errors && errors.name ? 'is-invalid': null %>" type="text" name="name" id="name" placeholder="Ingrese su Nombre"
+                        value ="<%= locals.oldData ? oldData.name : null %>">
+                        
+                        <% if(locals.errors && errors.name){ %>
+                            <p class="form__error-msg">
+                                <%= errors.name.msg %>
+                            </p>
+                        <% } %>
+                        <input class="controls <%= locals.errors && errors.surname ? 'is-invalid': null %>" type="text" name="surname" id="surname"
+                            placeholder="Ingrese su Apellido" minlength="2" value ="<%= locals.oldData ? oldData.surname : null %>">
+                            <% if(locals.errors && errors.surname){ %>
+                                <p class="form__error-msg">
+                                    <%= errors.surname.msg %>
+                                </p>
+                            <% } %>
+                        <input class="controls <%= locals.errors && errors.email ? 'is-invalid': null %>" type="email" name="email" id="email" placeholder="Ingrese su Correo" 
+                        value ="<%= locals.oldData ? oldData.email : null %>">
+                        <% if(locals.errors && errors.email){ %>
+                            <p class="form__error-msg">
+                                <%= errors.email.msg %>
+                            </p>
+                        <% } %>
+                        <input class="controls <%= locals.errors && errors.password ? 'is-invalid': null %>" type="password" name="password" id="password" placeholder="Ingrese su Contraseña"
+                        value ="<%= locals.oldData ? oldData.password : null %>"> <br>
+                        <% if(locals.errors && errors.password){ %>
+                            <p class="form__error-msg">
+                                <%= errors.password.msg %>
+                            </p>
+                        <% } %>
+                        <label for="avatar" class="form__file-img">Avatar:<br>
+                            <input type="file" name="avatar" id="avatar" accept=".png, .jpg, .jpeg">
+                            <% if(locals.errors && errors.avatar){ %>
+                                <p class="form__error-msg">
+                                    <%= errors.avatar.msg %>
+                                </p>
+                            <% } %>
+                        </label>
+                        <input class="checkbox" type="checkbox"> Mayor de 18 años<br>
+                        <a href="/user/login" class="Login">Ingresar</a>
+                        <input class="botons" type="submit" value="Registrarse">
+            </form>
+        </main>
 
-    <%- include('../partials/footer') %>
+        <%- include('../partials/footer') %>
 
 </body>
+
 </html>

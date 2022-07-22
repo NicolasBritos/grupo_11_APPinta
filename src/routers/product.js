@@ -1,33 +1,22 @@
 const express = require('express')
 const routers = express.Router()
 const productController = require('../controller/product')
-const multer = require('multer')
-const path = require('path')
+const authMiddleware = require('../middlewares/authMiddleware')
+const uploadImgMiddleware = require('../middlewares/uploadImgMiddleware')
 
-const storage = multer.diskStorage({
-    destination: function(req, file, cb) {
-      let filePath = path.join(__dirname, '../../public/img/products')
-      cb(null, filePath)
-    },
-    filename: function(req, file, cb) {
-        let fileName = Date.now() + path.extname(file.originalname)
-      cb(null, fileName)
-    }
-})
-const upload = multer({ storage })
 
 routers.get('/', productController.getAll)
 
-routers.get('/create', productController.create)
+routers.get('/create', authMiddleware, productController.create)
 
-routers.post('/create', upload.single('image'), productController.postCreate)
+routers.post('/create', authMiddleware, uploadImgMiddleware.single('image'), productController.postCreate)
 
 routers.get('/:id', productController.getById)
 
-routers.get('/:id/update', productController.getUpdate)
+routers.get('/:id/update', authMiddleware, productController.getUpdate)
 
-routers.put('/:id/update', upload.single('image'), productController.postUpdate)
+routers.put('/:id/update', authMiddleware, uploadImgMiddleware.single('image'), productController.postUpdate)
 
-routers.delete('/:id/delete', productController.remove)
+routers.delete('/:id/delete', authMiddleware, productController.remove)
 
 module.exports = routers

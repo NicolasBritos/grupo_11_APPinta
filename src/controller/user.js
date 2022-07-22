@@ -1,5 +1,7 @@
+const { validationResult } = require('express-validator');
 const userModel = require('../models/user')
 const getViewPath = view => `user/${view}`
+const removeAvatar = require('../helpers/removeAvatar')
 
 const userController = {
 
@@ -8,35 +10,54 @@ const userController = {
     },
 
     postRegister: (req, res) => {
-        const response = userModel.register(req.body , req.file)
-        if (!response.error) {
-            res.redirect('/user/login')
-        } else {
-            const locals = {
-                error: response.error,
-                body: req.body
-            }
-            res.render(getViewPath('register'), locals) 
+        const response = userModel.register(req.body, req.file)
+        const resultValidation = validationResult(req);
+           if (resultValidation.errors.length > 0 || response.error) {
+            
+            if(req.file ) removeAvatar(req.file.filename)
+            
+            return res.render((getViewPath('register')),{
+                errors : resultValidation.mapped(),
+                oldData : req.body,
+                errorForm: response.error? response.error.message: null
+            });
+
         }
+
+        res.redirect('/user/login');
     },
 
     getLogin: (req, res) => {
-        res.render(getViewPath('login'))
+        const nextUrl = req.query.next
+
+        const context = {
+            nextUrl: nextUrl ? nextUrl : null
+        }
+        res.render(getViewPath('login'), context)
     },
 
     postLogin: (req, res) => {
         const body = req.body
         const response = userModel.login(body.email, body.password)
-        if (!response.error) {
-            res.redirect('/home')
+        const resultValidation = validationResult(req);
+        if (resultValidation.errors.length > 0 || response.error) {
+            return res.render((getViewPath('login')), {
+                errors: resultValidation.mapped(),
+                oldData: req.body,
+                errorForm: response.error ? response.error.message : null
+            });
         } else {
-            const locals = {
-                error: response.error,
-                body
-            }
-            res.render(getViewPath('login'), locals)
+            const nextUrl = req.query.next
+            // redireccion next page
+            req.session.userLogged = response.user
+            
+            if (nextUrl) return res.redirect(nextUrl)
+
+            return res.redirect('/')
         }
-    }
+    },
+
+
 }
 
 module.exports = userController

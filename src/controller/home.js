@@ -1,16 +1,19 @@
 const categoryModel = require('../models/category')
 
 const homeController = {
-
-    homeLogged: (req, res) => {
-        const categories = categoryModel.getAll()
-        const locals = {categories}
-        res.render('homeLogged', locals)
-    },
     
     home: (req, res) => {
         const categories = categoryModel.getAll()
-        const locals = {categories}
+        const locals = {}
+        if (req.session.userLogged) {
+            locals.userLogged = req.session.userLogged
+            locals.isLogged = true
+        } else {
+            locals.userLogged = null
+            locals.isLogged = false
+        }
+
+        locals.categories = categories
         res.render('home', locals)
     }
 }
