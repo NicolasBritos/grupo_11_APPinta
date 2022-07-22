@@ -5,6 +5,8 @@ const routers = require('./src/routers/index')
 const methodOverride = require('method-override')
 const session = require('express-session')
 const app = express()
+const cookies = require('cookie-parser')
+
 
 /* SESSION AND COOKIES */
 app.use(session({
@@ -12,6 +14,8 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }))
+
+app.use(cookies())
 
 
 /* MIDDLEWARE */
