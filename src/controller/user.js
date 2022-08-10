@@ -10,7 +10,7 @@ const userController = {
     },
 
     postRegister: (req, res) => {
-        const response = userModel.register(req.body , req.file)
+        const response = userModel.register(req.body, req.file)
         const resultValidation = validationResult(req);
            if (resultValidation.errors.length > 0 || response.error) {
             
@@ -24,14 +24,14 @@ const userController = {
 
         }
 
-        res.redirect('/user/login'); 
+        res.redirect('/user/login');
     },
 
     getLogin: (req, res) => {
         const nextUrl = req.query.next
-        
+
         const context = {
-            nextUrl: nextUrl? nextUrl: null
+            nextUrl: nextUrl ? nextUrl : null
         }
         res.render(getViewPath('login'), context)
     },
@@ -39,7 +39,14 @@ const userController = {
     postLogin: (req, res) => {
         const body = req.body
         const response = userModel.login(body.email, body.password)
-        if (!response.error) {
+        const resultValidation = validationResult(req);
+        if (resultValidation.errors.length > 0 || response.error) {
+            return res.render((getViewPath('login')), {
+                errors: resultValidation.mapped(),
+                oldData: req.body,
+                errorForm: response.error ? response.error.message : null
+            });
+        } else {
             const nextUrl = req.query.next
             // redireccion next page
             req.session.userLogged = response.user
@@ -51,16 +58,9 @@ const userController = {
             if (nextUrl) return res.redirect(nextUrl)
               
             
-        } else {
-            const locals = {
-                error: response.error,
-                body
-            }
-            res.render(getViewPath('login'), locals)
-        }
-    },
-   
-    
+        }    },
+
+
 }
 
 module.exports = userController

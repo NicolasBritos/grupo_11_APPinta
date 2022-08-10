@@ -6,6 +6,8 @@ const methodOverride = require('method-override')
 const session = require('express-session')
 const cookies = require('cookie-parser')
 const app = express()
+const cookies = require('cookie-parser')
+
 
 /* SESSION AND COOKIES */
 app.use(session({
@@ -13,6 +15,8 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }))
+
+app.use(cookies())
 
 
 /* MIDDLEWARE */
@@ -32,4 +36,9 @@ app.listen(port, () => {
 })
 
 app.use('/', routers)
+<<<<<<< HEAD
 app.use(cookies())
+=======
+
+
+>>>>>>> 0afd09588bb02fb74db2a2095be552a6b414ceed

@@ -1,3 +1,4 @@
+const bcrypt = require('bcryptjs')
 const Model = require('./model.js')
 const USER_DB = 'user.json'
 const { INVALID_LOGIN_MSG, ACCOUNT_ALREADY_EXIST_MSG } = require('./modelMessages')
@@ -146,6 +147,7 @@ class UserModel extends Model {
         fields.avatar = file? file.filename: ""
         this._normalizeFields(fields)
         this._createImgField(fields)
+        this._encryptPassword(fields)
         Model.loadFieldsInObj(newUser, fields, this.validFields)
         this.data.push(newUser)
         this.save()
@@ -153,6 +155,21 @@ class UserModel extends Model {
             error: null,
             user: this._clearUserObj(newUser)
         }
+    }
+
+    /* Encriptacion de Password */
+    _encryptPassword = (fields) => {
+        const SALT = 10
+        const original = fields.password
+        fields.password = bcrypt.hashSync(original, SALT)
+    }
+
+    _checkPassword = (email, password) => {
+        const user = this._findByEmail(email)
+        if (user && bcrypt.compareSync(password, user.password)) {
+            return true
+        }
+        return false
     }
 
 }
