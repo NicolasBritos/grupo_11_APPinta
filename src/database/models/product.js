@@ -36,8 +36,8 @@ module.exports = (sequelize) => {
         defaultValue: 0
       },
       img: {
-        type: DataTypes.STRING(500),
-        defaultValue: ""
+        type: DataTypes.STRING(300),
+        defaultValue: "img-not-found.jpg"
       }
     }
   );
