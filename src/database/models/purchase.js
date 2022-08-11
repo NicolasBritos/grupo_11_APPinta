@@ -19,6 +19,9 @@ module.exports = (sequelize) => {
         defaultValue: 1,
         field: "payment_status"
       }
+    }, {
+      tableName: "PURCHASE",
+      timestamps: false
     }
   );
 

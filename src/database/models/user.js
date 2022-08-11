@@ -39,6 +39,9 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         defaultValue: "default-avatar.jpg"
       }
+    }, {
+      tableName: "USER",
+      timestamps: false
     }
   );
 

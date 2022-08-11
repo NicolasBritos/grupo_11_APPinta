@@ -18,6 +18,9 @@ module.exports = (sequelize) => {
         type: DataTypes.DECIMAL(7, 2),
         allowNull: false,
       }
+    }, {
+      tableName: "CART",
+      timestamps: false
     }
   );
 

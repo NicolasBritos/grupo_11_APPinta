@@ -18,7 +18,8 @@ module.exports = (sequelize) => {
         allowNull: false,
       }
     }, {
-        tableName: "PAYMENT_METHOD"
+        tableName: "PAYMENT_METHOD",
+        timestamps: false
     }
   );
 

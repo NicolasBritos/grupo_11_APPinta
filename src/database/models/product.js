@@ -39,6 +39,9 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         defaultValue: "img-not-found.jpg"
       }
+    }, {
+      tableName: "PRODUCT",
+      timestamps: false
     }
   );
 
