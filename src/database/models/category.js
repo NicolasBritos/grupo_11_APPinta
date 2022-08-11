@@ -13,6 +13,9 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING(50),
         allowNull: false,
       }
+    }, {
+      tableName: "CATEGORY",
+      timestamps: false
     }
   );
 

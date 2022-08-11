@@ -1,9 +1,10 @@
 module.exports = {
   "development": {
     "username": "root",
-    "password": "",
-    "database": "",
+    "password": "admin123",
+    "database": "appinta_db",
     "host": "127.0.0.1",
+    "port": 3307,
     "dialect": "mysql"
   },
   "test": {
