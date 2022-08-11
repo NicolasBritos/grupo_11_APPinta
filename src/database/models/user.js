@@ -34,6 +34,10 @@ module.exports = (sequelize) => {
         type: DataTypes.SMALLINT,
         allowNull: false,
         defaultValue: 2
+      },
+      avatar: {
+        type: DataTypes.STRING,
+        defaultValue: "default-avatar.jpg"
       }
     }
   );
