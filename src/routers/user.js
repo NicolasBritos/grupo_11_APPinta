@@ -10,9 +10,6 @@ const guestMiddleware = require('../middlewares/guestMiddleware')
 routers.get('/login', guestMiddleware, userController.getLogin)
 routers.post('/login', validationsLogin, userController.postLogin)
 
-
-
-
 /* REGISTER */
 routers.get('/register', guestMiddleware, userController.getRegister)
 routers.post('/register', uploadAvatarMiddleware.single('avatar'),validationsRegister, userController.postRegister)

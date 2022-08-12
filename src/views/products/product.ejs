@@ -26,6 +26,7 @@
                 <p class="price">$ <%= product.price %><span>00</span></p>
                 <button class="detail__buy">Comprar</button>
                 <button class="detail__add">Agregar al carrito</button>
+                <% if (locals.isLogged) { %>
                 <div class="detail__ops"> 
                     <a href="/products/create">Nuevo</a>
                     <a href="/products/<%= product.id %>/update">Modificar</a>
@@ -33,6 +34,7 @@
                         <button type="submit" class="btn-delete">Eliminar</button>
                     </form>
                 </div>
+                <% } %>
             </div>
         </section>
     </main>
