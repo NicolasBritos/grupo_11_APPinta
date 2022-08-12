@@ -48,10 +48,11 @@
     "id": 7,
     "name": "Pizza peperoni",
     "price": 290,
-    "score": 7,
+    "score": null,
     "descripcion": "Variedades de pizzas a tu gusto",
-    "category": "Pizzas",
-    "image": "pizza-pepperoni.jpg"
+    "category": "Picadas",
+    "image": "pizza-pepperoni.jpg",
+    "description": ""
   },
   {
     "id": 8,
@@ -85,10 +86,11 @@
     "id": 11,
     "name": "Picadas varias",
     "price": 700,
-    "score": 7,
+    "score": null,
     "descripcion": "Todo tipo de picada",
     "category": "Picadas",
-    "image": "picadavariada.png"
+    "image": "picadavariada.png",
+    "description": ""
   },
   {
     "id": 12,
@@ -110,12 +112,13 @@
   },
   {
     "id": 15,
-    "name": "Vino Leyenda",
+    "name": "Vino Leyenda 890 ml",
     "price": 1000,
-    "score": 7,
+    "score": null,
     "descripcion": "Vino Blanco",
     "category": "Vinos",
-    "image": "vino-blanco.webp"
+    "image": "vino-blanco.webp",
+    "description": ""
   },
   {
     "id": 16,
@@ -155,11 +158,12 @@
   },
   {
     "id": 20,
-    "name": "Jugo natural sandia",
+    "name": "Jugo natural Sandia",
     "price": 400,
-    "score": 8,
+    "score": null,
     "descripcion": "Naturales",
     "category": "Jugos",
-    "image": "sandiazumo1.jpg"
+    "image": "sandiazumo1.jpg",
+    "description": ""
   }
 ]

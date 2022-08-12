@@ -39,7 +39,8 @@ const userController = {
     postLogin: (req, res) => {
         const body = req.body
         const response = userModel.login(body.email, body.password)
-        const resultValidation = validationResult(req);
+        const resultValidation = validationResult(req)
+        
         if (resultValidation.errors.length > 0 || response.error) {
             return res.render((getViewPath('login')), {
                 errors: resultValidation.mapped(),
@@ -50,15 +51,18 @@ const userController = {
             const nextUrl = req.query.next
             // redireccion next page
             req.session.userLogged = response.user
+            console.log(body)
+            
             if (body.remember === 'on') {
-                res.cookie('email', user.email, {maxAge: 60 * 60 * 1000})
+                res.cookie('email', response.user.email, {maxAge: 60 * 60 * 1000})
             }
-            return res.redirect('/')
             
             if (nextUrl) return res.redirect(nextUrl)
-              
-            
-        }    },
+
+            return res.redirect('/') 
+        } 
+    },   
+          
 
 
 }
