@@ -12,10 +12,12 @@ module.exports = (sequelize) => {
       title: {
         type: DataTypes.STRING(50),
         allowNull: false,
-      }
+      },
     }, {
       tableName: "CATEGORY",
-      timestamps: false
+      timestamps: true,
+      createdAt: 'created_at',
+      updatedAt: 'updated_at'
     }
   );
 
