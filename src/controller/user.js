@@ -63,8 +63,11 @@ const userController = {
             return res.redirect('/')
         }
     },
-
-
+    logout: (req, res) => {
+        req.session.destroy()
+        res.clearCookie('email')
+        res.redirect('/')
+    }
 }
 
 module.exports = userController
