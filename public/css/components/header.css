@@ -2,6 +2,7 @@
     height: 60px;
     display: flex;
     padding: 12px;
+    z-index: 100 !important;
 }
 
 .header__title,
@@ -40,12 +41,85 @@
 
 .opt__cart,
 .opt__account {
-    width: 50px;
-    height: 30px;
     position: relative;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
+
+.opt__cart {
+    width: 50px;
+    height: 30px;
+}
+
+.opt__account {
+    width: 36px;
+    height: 36px;
+    background-color: transparent;
+    color: white;
+    border-radius: 50%;
+    border: none;
+    position: relative;
+    cursor: pointer;
+}
+
+.account__options {
+    background-color: white;
+    width: 120px;
+    position: absolute;
+    bottom: -80px;
+    right: 4px;
+    color: var(--black);
+    padding: 8px 4px;
+    border-radius: 4px;
+    padding-left: 6px;
+    display: none;
+}
+
+.account__options::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 4px;
+    background-color: var(--white);
+    width: 20px;
+    height: 20px;
+    transform: rotate(45deg);
+    z-index: 90 !important;
+}
+
+.account__options.show {
+    display: block !important;
+}
+
+.account__options ul {
+    list-style: none;
+}
+
+.account__options ul li a {
+    display: block;
+    width: 100%;
+    text-align: left;
+    text-decoration: none;
+    padding: 6px;
+    color: var(--black);
+    border-bottom: 1px solid #eeeeee;
+}
+
+.account__options a.last {
+    border-bottom: none;
+}
+
+.account__options a:hover {
+    color: #28a745 !important;
+    z-index: 20;
+}
+
+.account__options a i {
+    font-size: 16px;
+    display: inline;
+}
+
 
 .opt__cart > a {
     color: var(--white) !important;
@@ -88,3 +162,4 @@
 .opt__signup:hover a {
     color: var(--green-action);
 }
+
