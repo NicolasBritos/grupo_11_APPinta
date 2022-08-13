@@ -10,16 +10,13 @@ module.exports = [
   body('avatar').custom((value, {req}) =>{
     let file = req.file;
     let accept = ['.jpg','.png','.gif'];
-   
-    if (!file){
-      throw new Error ('Ingresa una imagen');
-    }else{
+    
+    if (file) {
       let fileExtension = path.extname(file.originalname);
       if(!accept.includes(fileExtension)){
         throw new Error (`Las extenciones permitidas son ${accept.join(', ')}`);
       }
-    }
-  
+    }  
     return true;
   })
 ];
