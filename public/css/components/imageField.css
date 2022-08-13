@@ -1,0 +1,49 @@
+.form__avatar-field {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.field-wrapper {
+    border: 1px solid var(--black);
+    width: 82px;
+    height: 82px;
+    border-radius: 50%;
+    position: relative;
+    
+}
+div#image-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 120px;
+}
+
+div#image-avatar i {
+    font-size: 60px;
+}
+
+#fakeButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    background-color: var(--black);
+    color: var(--white);
+    border-radius: 50%;
+    border: none;
+    position: absolute;
+    top: 0px;
+    right: -5px;
+}
+#avatar {
+    display: none;
+}
