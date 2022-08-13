@@ -103,6 +103,9 @@
     </main>
 
     <%- include('./partials/footer') %>
+    <% if (locals.isLogged) { %>
+        <%- include('./partials/scriptsLogged') %>
+    <% } %> 
 
 </body>
 
