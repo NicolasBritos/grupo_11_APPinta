@@ -87,12 +87,8 @@ const userController = {
     },
 
     postEdit: (req, res) => {
-        console.log('\n post edit user')
         const resultValidation = validationResult(req)
         const user = req.session.userLogged
-        
-        console.log(user)
-        console.log(resultValidation.errors.length)
 
         if (resultValidation.errors.length === 0) {
             const response = userModel.update(user.id, req.body, req.file)
@@ -105,6 +101,17 @@ const userController = {
             user,
             errorForm: null
         });
+    },
+
+    delete: (req, res) => {
+        const user = req.session.userLogged
+        const response = userModel.remove(user.id);
+
+        if (response.error) {
+            return res.redirect('/user/edit')
+        }
+
+        return res.redirect('/user/logout');
     }
 }
 

@@ -22,6 +22,8 @@ routers.post('/edit', authMiddleware, uploadAvatarMiddleware.single('avatar'), v
 
 routers.get('/logout', authMiddleware, userController.logout)
 
+routers.delete('/delete', authMiddleware, userController.delete)
+
 /* FORGOT PASSWORD */
 routers.use('/forgot-password', require('./forgotPassword'))
 
