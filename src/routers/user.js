@@ -15,6 +15,10 @@ routers.post('/login', validationsLogin, userController.postLogin)
 routers.get('/register', guestMiddleware, userController.getRegister)
 routers.post('/register', uploadAvatarMiddleware.single('avatar'),validationsRegister, userController.postRegister)
 
+/* EDIT PROFILE */
+routers.get('/edit', authMiddleware, userController.getEdit)
+routers.post('/edit', uploadAvatarMiddleware.single('avatar'), validationsRegister, userController.postRegister)
+
 routers.get('/logout', authMiddleware, userController.logout)
 
 /* FORGOT PASSWORD */

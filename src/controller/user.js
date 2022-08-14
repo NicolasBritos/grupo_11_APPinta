@@ -63,10 +63,20 @@ const userController = {
             return res.redirect('/')
         }
     },
+
     logout: (req, res) => {
         req.session.destroy()
         res.clearCookie('email')
         res.redirect('/')
+    },
+
+    getEdit: (req, res) => {
+        const user = req.session.userLogged
+        res.render(getViewPath('edit'), {user})
+    },
+
+    postEdit: (req, res) => {
+
     }
 }
 
