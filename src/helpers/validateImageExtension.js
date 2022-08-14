@@ -2,7 +2,7 @@ const path = require("path");
 
 const validateImageExtension = (value, { req }) => {
   let file = req.file;
-  let accept = [".jpg", ".png", ".gif"];
+  let accept = [".jpg", ".png", ".jpeg"];
 
   if (file) {
     let fileExtension = path.extname(file.originalname);
