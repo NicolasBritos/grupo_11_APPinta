@@ -87,7 +87,24 @@ const userController = {
     },
 
     postEdit: (req, res) => {
+        console.log('\n post edit user')
+        const resultValidation = validationResult(req)
+        const user = req.session.userLogged
+        
+        console.log(user)
+        console.log(resultValidation.errors.length)
 
+        if (resultValidation.errors.length === 0) {
+            const response = userModel.update(user.id, req.body, req.file)
+            req.session.userLogged = response.user
+            return res.redirect('/user/edit')
+        }
+
+        return res.render((getViewPath('edit')), {
+            errors : resultValidation.mapped(),
+            user,
+            errorForm: null
+        });
     }
 }
 
