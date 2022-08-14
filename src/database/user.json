@@ -16,14 +16,5 @@
     "password": "$2a$10$Wt.H2RIwWKjL1tpYw/IMAuUsVwQ08//4m.5ZtMJWgFerEHwqvKsDW",
     "avatar": "1658877602493.jpg",
     "role": 2
-  },
-  {
-    "id": 10,
-    "name": "fdasfads",
-    "surname": "fasdfads",
-    "email": "fdasfads@gmail.com",
-    "password": "$2a$10$6sOTALgFZrDTMVlOmqtqkuKzZOduG7vjIEdidroIOQ4pGNEfkB.Km",
-    "avatar": "1660437854625.pdf",
-    "role": 2
   }
 ]
