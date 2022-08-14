@@ -116,36 +116,6 @@ class ProductModel extends Model {
     }
     
     /**
-     * Elimina un producto
-     * @param {int} id 
-     * @return {Object} response
-     * {
-     *   error: con objeto error o null si no se produjo ningun error
-     *   index: Indice del producto eliminado
-     * }
-     */
-    remove = id => {
-        const productId = parseInt(id)
-        const idx = this.findIndexOfId(productId)
-        console.log('id ' + productId)
-        console.log('idx ' + idx)
-
-        if (!idx) return {
-            error: {
-                message: ID_NOT_FOUND_MSG
-            },
-            index: null
-        }
-
-        this.data.splice(idx, 1)
-        this.save()
-        return {
-            error: null,
-            index: idx
-        }
-    }
-
-    /**
      * Busca los producto en base a la categoria pasada como parametro
      * @param {String} category (string) 
      * @return {Array}: Lista con los productos coincidentes con la categoria
