@@ -24,5 +24,12 @@ module.exports = (sequelize) => {
     }
   );
 
+  model.associate = (models) => {
+    model.belongsTo(models.User, {
+      as: "user",
+      foreignKey: 'user_id'
+    })
+  }
+
   return model;
 };

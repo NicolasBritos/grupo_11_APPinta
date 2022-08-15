@@ -47,5 +47,14 @@ module.exports = (sequelize) => {
     }
   );
 
+  model.associate = (models) => {
+    model.hasOne(models.Cart, {
+      as: "cart",
+      foreignKey: "user_id",
+      onDelete: 'CASCADE',
+      onUpdate: 'CASCADE' // Que vendria a ser onUpdate
+    })
+  }
+
   return model;
 };
