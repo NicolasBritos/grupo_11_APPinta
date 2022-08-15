@@ -10,9 +10,15 @@
                     <div>4</div>
                 </a>
             </div>
-            <div class="opt__account">
+            <button class="opt__account">
                 <i class="bi bi-person-circle"></i>
-            </div>
+                <div class="account__options">
+                    <ul>
+                        <li><a href="/user/edit"><i class="bi bi-person-fill"></i> Cuenta</a></li>
+                        <li><a href="/user/logout" class="last"><i class="bi bi-box-arrow-right"></i> Cerrar sesión</a></li>
+                    </ul>
+                </div>
+            </button>
         <% } else { %>
             <div class="opt__signin">
                 <a href="/user/login">Ingresar</a>

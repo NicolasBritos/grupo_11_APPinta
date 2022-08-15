@@ -64,7 +64,7 @@ main {
 }
 
 .d-none {
-    display: none;
+    display: none !important;
 }
 
 .form__file-img {

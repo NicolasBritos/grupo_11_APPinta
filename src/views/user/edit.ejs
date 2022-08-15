@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <%- include('../partials/head') %>
+
+    <link rel="stylesheet" href="../css/components/header-user.css">
+    <link rel="stylesheet" href="../css/components/promotions.css">
+    <link rel="stylesheet" href="../css/components/categories.css">
+    <link rel="stylesheet" href="../css/components/register.css">
+    <link rel="stylesheet" href="../css/form.css">
+    <link rel="stylesheet" href="../css/components/imageField.css">
+    <style>
+
+        .form-register {
+            margin-bottom: 0;
+        }
+        .form-delete-account {
+
+        }
+        .form-delete-account button {
+            background-color: transparent;
+            color: var(--red);
+            border: none;
+        }
+    </style>
+    <title>
+        Mi cuenta | PintaBar
+    </title>
+</head>
+
+<body>
+    <%- include('../partials/header') %>
+
+        <main>
+            <section class="header-user2">
+                <h2>Mi cuenta</h2>
+            </section>
+          
+            <form class="form-register" method="POST" action="/user/edit" enctype="multipart/form-data">
+
+                <% if(locals.errorForm){ %>
+                    <p class="form__error-msg">
+                        <%= errorForm %>
+                    </p>
+                <% } %>
+
+                <div class="form__avatar-field">
+                    
+                    <div class="field-wrapper">
+                        <div id="image-avatar">
+                        </div>
+                        <img class="d-none" id="image" src="/img/users/<%= user.avatar %>" alt="Avatar">
+                        <span id="fakeButton"><i class="bi bi-camera"></i></span>
+                        <span id="revertButton" class="d-none"><i class="bi bi-x"></i></span>
+                        <input type="file" name="avatar" id="avatar">
+                    </div>
+
+                    <% if(locals.errors && errors.avatar){ %>
+                        <div class="avatar-field__message">
+                            <p class="form__error-msg">
+                                <%= errors.avatar.msg %>
+                            </p>
+                        </div>
+                    <% } %>
+                </div>
+              
+                <input class="controls <%= locals.errors && errors.name ? 'is-invalid': null %>" type="text" name="name" id="name" placeholder="Ingrese su Nombre"
+                value ="<%= user.name %>">
+                        
+                <% if(locals.errors && errors.name){ %>
+                    <p class="form__error-msg">
+                        <%= errors.name.msg %>
+                    </p>
+                <% } %>
+
+                <input class="controls <%= locals.errors && errors.surname ? 'is-invalid': null %>" type="text" name="surname" id="surname"
+                    placeholder="Ingrese su Apellido" minlength="2" value ="<%= user.surname %>">
+                <% if(locals.errors && errors.surname){ %>
+                    <p class="form__error-msg">
+                        <%= errors.surname.msg %>
+                    </p>
+                <% } %>
+
+                <input class="controls field-disabled" type="email" name="email" id="email" placeholder="Ingrese su Correo" 
+                value ="<%= user.email %>" readonly disabled>
+                
+                <a class="Login" href="">Cambiar contraseña</a>
+                <input class="botons" type="submit" value="Actualizar">
+            </form>
+
+            <form action="/user/delete?_method=DELETE" method="POST" class="form-delete-account" id="form-delete">
+                <button type="submit">Eliminar mi cuenta</button>
+            </form>
+        </main>
+        <script>
+            const deleteForm = document.getElementById('form-delete');
+
+            function deleteAccount(e) {
+                const confirmMessage =  '¿Desea eliminar su cuenta en APPINTA?';
+                const res = confirm(confirmMessage);
+                if (res) {
+                    return true;
+                }
+
+                e.preventDefault();
+                return false;
+            }
+
+            deleteForm.addEventListener('submit', deleteAccount)
+        </script>
+        <%- include('../partials/footer') %>
+        <script src="/js/imageField.js"></script>
+        <script src="/js/editUser.js"></script>
+        <%- include('../partials/scriptsLogged') %>
+</body>
+
+</html>

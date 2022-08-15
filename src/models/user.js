@@ -7,9 +7,13 @@ const NOT_IMG = 'default-avatar.jpg';
 class UserModel extends Model {
     static _ID = 0
 
-    validFields = [
+    validFieldsCreate = [
         'name', 'surname', 'email',
         'password', 'role', 'avatar'
+    ]
+
+    validFieldsUpdate = [
+        'name', 'surname','avatar'
     ]
 
     constructor(dbFile) {
@@ -24,8 +28,6 @@ class UserModel extends Model {
     _updateImgField = (user, fields) => {
        if (!fields.avatar) fields.avatar = user.avatar
     }
-
-    
 
     /**
      * Remueve el campo password de una copia del objeto user
@@ -67,7 +69,7 @@ class UserModel extends Model {
      *  product: objeto product o null si no se encontro el objecto mediante el id
      * }
      */
-     findById = id => {
+    findById = id => {
         const user = this._findById(id)
         return {
             error: user? null: {message: ID_NOT_FOUND_MSG},
@@ -148,7 +150,7 @@ class UserModel extends Model {
         this._normalizeFields(fields)
         this._createImgField(fields)
         this._encryptPassword(fields)
-        Model.loadFieldsInObj(newUser, fields, this.validFields)
+        Model.loadFieldsInObj(newUser, fields, this.validFieldsCreate)
         this.data.push(newUser)
         this.save()
         return {
@@ -170,6 +172,23 @@ class UserModel extends Model {
             return true
         }
         return false
+    }
+
+    update = (id, fields, file) => {
+        let user = null
+        const userId = parseInt(id)
+        const result = this.findById(userId)
+        if (result.error) return result
+
+        user = result.user
+        fields.avatar = file? file.filename: undefined
+        this._updateImgField(user, fields)
+        Model.loadFieldsInObj(user, fields, this.validFieldsUpdate)
+        this.save()
+        return {
+            error: null,
+            user
+        }
     }
 
 }

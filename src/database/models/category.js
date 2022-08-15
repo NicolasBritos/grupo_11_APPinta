@@ -13,13 +13,24 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING(50),
         allowNull: false,
       },
+      img: {
+        type: DataTypes.STRING,
+        defaultValue: "img-not-found.jpg"
+      }
     }, {
       tableName: "CATEGORY",
       timestamps: true,
       createdAt: 'created_at',
       updatedAt: 'updated_at'
     }
-  );
+  )
 
-  return model;
-};
+  model.associate = (models) => {
+    model.hasMany(models.Product, {
+      as: "products",
+      foreignKey: "category_id",
+    })
+  }
+
+  return model
+}

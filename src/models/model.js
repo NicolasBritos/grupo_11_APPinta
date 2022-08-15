@@ -56,8 +56,6 @@ class Model {
     getAll = () => {
         return this.data
     }
-    
-    
 
     findByAttr = (attr, value) => {
         return this.data.filter(item => item[attr] === value)
@@ -71,6 +69,34 @@ class Model {
             if (item.id === id ) return i
         }
         return null
+    }
+
+    /**
+     * Elimina una item
+     * @param {int} id 
+     * @return {Object} response
+     * {
+     *   error: con objeto error o null si no se produjo ningun error
+     *   index: Indice del item eliminado
+     * }
+     */
+     remove = id => {
+        const productId = parseInt(id)
+        const idx = this.findIndexOfId(productId)
+
+        if (!idx) return {
+            error: {
+                message: ID_NOT_FOUND_MSG
+            },
+            index: null
+        }
+
+        this.data.splice(idx, 1)
+        this.save()
+        return {
+            error: null,
+            index: idx
+        }
     }
 }
 

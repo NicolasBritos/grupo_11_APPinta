@@ -9,13 +9,10 @@
         <link rel="stylesheet" href="../css/components/promotions.css">
         <link rel="stylesheet" href="../css/components/categories.css">
         <link rel="stylesheet" href="../css/components/register.css">
+        <link rel="stylesheet" href="../css/components/imageField.css">
         <title>
             Registro | PintaBar
         </title>
-
-        <style>
-
-        </style>
 </head>
 
 <body>
@@ -32,57 +29,72 @@
             </section>
           
             <form class="form-register" method="POST" action="/user/register" enctype="multipart/form-data">
-                        <% if(locals.errorForm){ %>
+
+                <% if(locals.errorForm){ %>
+                    <p class="form__error-msg">
+                        <%= errorForm %>
+                    </p>
+                <% } %>
+
+                <div class="form__avatar-field">
+                    
+                    <div class="field-wrapper">
+                        <div id="image-avatar">
+                            <i class="bi bi-person-fill"></i>
+                        </div>
+                        <span id="fakeButton"><i class="bi bi-camera"></i></span>
+                        <input type="file" name="avatar" id="avatar">
+                    </div>
+                    <% if(locals.errors && errors.avatar){ %>
+                        <div class="avatar-field__message">
                             <p class="form__error-msg">
-                                <%= errorForm %>
+                                <%= errors.avatar.msg %>
                             </p>
-                        <% } %>
+                        </div>
+                    <% } %>
+                </div>
+              
+                <input class="controls <%= locals.errors && errors.name ? 'is-invalid': null %>" type="text" name="name" id="name" placeholder="Ingrese su Nombre"
+                value ="<%= locals.oldData ? oldData.name : null %>">
                         
-                        <input class="controls <%= locals.errors && errors.name ? 'is-invalid': null %>" type="text" name="name" id="name" placeholder="Ingrese su Nombre"
-                        value ="<%= locals.oldData ? oldData.name : null %>">
-                        
-                        <% if(locals.errors && errors.name){ %>
-                            <p class="form__error-msg">
-                                <%= errors.name.msg %>
-                            </p>
-                        <% } %>
-                        <input class="controls <%= locals.errors && errors.surname ? 'is-invalid': null %>" type="text" name="surname" id="surname"
-                            placeholder="Ingrese su Apellido" minlength="2" value ="<%= locals.oldData ? oldData.surname : null %>">
-                            <% if(locals.errors && errors.surname){ %>
-                                <p class="form__error-msg">
-                                    <%= errors.surname.msg %>
-                                </p>
-                            <% } %>
-                        <input class="controls <%= locals.errors && errors.email ? 'is-invalid': null %>" type="email" name="email" id="email" placeholder="Ingrese su Correo" 
-                        value ="<%= locals.oldData ? oldData.email : null %>">
-                        <% if(locals.errors && errors.email){ %>
-                            <p class="form__error-msg">
-                                <%= errors.email.msg %>
-                            </p>
-                        <% } %>
-                        <input class="controls <%= locals.errors && errors.password ? 'is-invalid': null %>" type="password" name="password" id="password" placeholder="Ingrese su Contraseña"
-                        value ="<%= locals.oldData ? oldData.password : null %>"> <br>
-                        <% if(locals.errors && errors.password){ %>
-                            <p class="form__error-msg">
-                                <%= errors.password.msg %>
-                            </p>
-                        <% } %>
-                        <label for="avatar" class="form__file-img">Avatar:<br>
-                            <input type="file" name="avatar" id="avatar" accept=".png, .jpg, .jpeg">
-                            <% if(locals.errors && errors.avatar){ %>
-                                <p class="form__error-msg">
-                                    <%= errors.avatar.msg %>
-                                </p>
-                            <% } %>
-                        </label>
-                        <input class="checkbox" type="checkbox"> Mayor de 18 años<br>
-                        <a href="/user/login" class="Login">Ingresar</a>
-                        <input class="botons" type="submit" value="Registrarse">
+                <% if(locals.errors && errors.name){ %>
+                    <p class="form__error-msg">
+                        <%= errors.name.msg %>
+                    </p>
+                <% } %>
+
+                <input class="controls <%= locals.errors && errors.surname ? 'is-invalid': null %>" type="text" name="surname" id="surname"
+                    placeholder="Ingrese su Apellido" minlength="2" value ="<%= locals.oldData ? oldData.surname : null %>">
+                <% if(locals.errors && errors.surname){ %>
+                    <p class="form__error-msg">
+                        <%= errors.surname.msg %>
+                    </p>
+                <% } %>
+
+                <input class="controls <%= locals.errors && errors.email ? 'is-invalid': null %>" type="email" name="email" id="email" placeholder="Ingrese su Correo" 
+                value ="<%= locals.oldData ? oldData.email : null %>">
+                <% if(locals.errors && errors.email){ %>
+                    <p class="form__error-msg">
+                        <%= errors.email.msg %>
+                    </p>
+                <% } %>
+
+                <input class="controls <%= locals.errors && errors.password ? 'is-invalid': null %>" type="password" name="password" id="password" placeholder="Ingrese su Contraseña"
+                value =""><br>
+                <% if(locals.errors && errors.password){ %>
+                    <p class="form__error-msg">
+                        <%= errors.password.msg %>
+                    </p>
+                <% } %>
+                
+                <input class="checkbox" type="checkbox" required> Mayor de 18 años<br>
+                <a href="/user/login" class="Login">Ingresar</a>
+                <input class="botons" type="submit" value="Registrarse">
             </form>
         </main>
 
         <%- include('../partials/footer') %>
-
+        <script src="/js/imageField.js"></script>
 </body>
 
 </html>

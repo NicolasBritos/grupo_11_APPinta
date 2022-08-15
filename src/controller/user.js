@@ -10,21 +10,32 @@ const userController = {
     },
 
     postRegister: (req, res) => {
-        const response = userModel.register(req.body, req.file)
-        const resultValidation = validationResult(req);
-           if (resultValidation.errors.length > 0 || response.error) {
-            
-            if(req.file ) removeAvatar(req.file.filename)
-            
-            return res.render((getViewPath('register')),{
-                errors : resultValidation.mapped(),
-                oldData : req.body,
-                errorForm: response.error? response.error.message: null
-            });
+        const resultValidation = validationResult(req)
+    
+        if (resultValidation.errors.length === 0) {
+            const response = userModel.register(req.body, req.file)
 
+            if (response.error) {
+        
+                if(req.file) removeAvatar(req.file.filename)
+                
+                return res.render((getViewPath('register')), {
+                    errors : resultValidation.mapped(),
+                    oldData : req.body,
+                    errorForm: response.error.message
+                });
+            }
+
+            return res.redirect('/user/login');
         }
 
-        res.redirect('/user/login');
+        if(req.file) removeAvatar(req.file.filename)
+
+        return res.render((getViewPath('register')), {
+            errors : resultValidation.mapped(),
+            oldData : req.body,
+            errorForm: null
+        });
     },
 
     getLogin: (req, res) => {
@@ -64,7 +75,44 @@ const userController = {
     },   
           
 
+    logout: (req, res) => {
+        req.session.destroy()
+        res.clearCookie('email')
+        res.redirect('/')
+    },
 
+    getEdit: (req, res) => {
+        const user = req.session.userLogged
+        res.render(getViewPath('edit'), {user})
+    },
+
+    postEdit: (req, res) => {
+        const resultValidation = validationResult(req)
+        const user = req.session.userLogged
+
+        if (resultValidation.errors.length === 0) {
+            const response = userModel.update(user.id, req.body, req.file)
+            req.session.userLogged = response.user
+            return res.redirect('/user/edit')
+        }
+
+        return res.render((getViewPath('edit')), {
+            errors : resultValidation.mapped(),
+            user,
+            errorForm: null
+        });
+    },
+
+    delete: (req, res) => {
+        const user = req.session.userLogged
+        const response = userModel.remove(user.id);
+
+        if (response.error) {
+            return res.redirect('/user/edit')
+        }
+
+        return res.redirect('/user/logout');
+    }
 }
 
 module.exports = userController

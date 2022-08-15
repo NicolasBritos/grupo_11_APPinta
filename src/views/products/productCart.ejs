@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
 
-    <%- include('./partials/head') %>
+    <%- include('../partials/head') %>
     
-    <link rel="stylesheet" href="../css/components/items-list.css">
+    <link rel="stylesheet" href="css/components/items-list.css">
     <title>
         Mi Carrito | PintaBar
     </title>
@@ -12,7 +12,7 @@
 
 <body>
 
-    <%- include('./partials/header') %>
+    <%- include('../partials/header') %>
     
     <main class="main">
         <!--Inicio Main-->
@@ -93,16 +93,15 @@
             </article>
 
             <div class="div-payment">
-                    <h4>Total: $2.830.00</h4>
-
-
+                <h4>Total: $2.830.00</h4>
             </div>
         </section>
-        
-               <!--Fin Main-->
     </main>
 
-    <%- include('./partials/footer') %>
+    <%- include('../partials/footer') %>
+    <% if (locals.isLogged) { %>
+        <%- include('../partials/scriptsLogged') %>
+    <% } %> 
 
 </body>
 

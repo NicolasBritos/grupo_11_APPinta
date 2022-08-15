@@ -22,6 +22,18 @@ module.exports = (sequelize) => {
       updatedAt: 'updated_at'
     }
   );
+  
+  model.associate = (models) => {
+    model.belongsTo(models.User, {
+      as: "user",
+      foreignKey: "user_id"
+    })
 
+    model.belongsTo(models.PaymentMethod, {
+      as: "paymentMethod",
+      foreignKey: "payment_method_id"
+    })
+  }
+  
   return model;
 };

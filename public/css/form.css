@@ -1,0 +1,18 @@
+.field-disabled {
+    opacity: 0.8;
+}
+
+#revertButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    background-color: var(--black);
+    color: var(--white);
+    border-radius: 50%;
+    border: none;
+    position: absolute;
+    bottom: 0px;
+    right: -5px;
+}
