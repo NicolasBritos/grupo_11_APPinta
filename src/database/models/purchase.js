@@ -22,6 +22,13 @@ module.exports = (sequelize) => {
       updatedAt: 'updated_at'
     }
   );
-
+  
+  model.associate = (models) => {
+    model.belongsTo(models.User, {
+      as: "user",
+      foreignKey: "user_id"
+    })
+  }
+  
   return model;
 };
