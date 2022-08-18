@@ -6,8 +6,9 @@ const rememberMeMiddleware = require('./src/middlewares/rememberMeMiddleware')
 const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware')
 const methodOverride = require('method-override')
 const session = require('express-session')
-const app = express()
 const cookies = require('cookie-parser')
+const app = express()
+//const cookies = require('cookie-parser')
 
 
 /* SESSION AND COOKIES */

@@ -62,7 +62,6 @@ const userController = {
             const nextUrl = req.query.next
             // redireccion next page
             req.session.userLogged = response.user
-
             console.log(body)
             
             if (body.remember === 'on') {
@@ -71,9 +70,10 @@ const userController = {
             
             if (nextUrl) return res.redirect(nextUrl)
 
-            return res.redirect('/')
-        }
-    },
+            return res.redirect('/') 
+        } 
+    },   
+          
 
     logout: (req, res) => {
         req.session.destroy()

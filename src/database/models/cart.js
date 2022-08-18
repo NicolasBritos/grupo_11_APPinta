@@ -24,5 +24,20 @@ module.exports = (sequelize) => {
     }
   );
 
+  model.associate = (models) => {
+    model.belongsTo(models.User, {
+      as: "user",
+      foreignKey: 'user_id'
+    })
+
+    model.belongsToMany(models.Product, {
+      as: "products",
+      through: "product_cart",
+      foreignKey: "cart_id",
+      otherKey: "product_id",
+      timestamps: false
+    })
+  }
+
   return model;
 };

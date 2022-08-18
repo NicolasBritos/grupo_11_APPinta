@@ -22,6 +22,13 @@ module.exports = (sequelize) => {
         timestamps: false
     }
   );
+  
+  model.associate = (models) => {
+    model.hasMany(models.Purchase, {
+      as: "purchases",
+      foreignKey: "payment_method_id"
+    })
+  }
 
   return model;
 };
