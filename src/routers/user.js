@@ -17,12 +17,15 @@ routers.get('/register', guestMiddleware, userController.getRegister)
 routers.post('/register', guestMiddleware, uploadAvatarMiddleware.single('avatar'), validationsRegister, userController.postRegister)
 
 /* EDIT PROFILE */
+routers.get('/list', authMiddleware, userController.findAll)
 routers.get('/edit', authMiddleware, userController.getEdit)
 routers.post('/edit', authMiddleware, uploadAvatarMiddleware.single('avatar'), validationsEditUser, userController.postEdit)
 
 routers.get('/logout', authMiddleware, userController.logout)
 
 routers.delete('/delete', authMiddleware, userController.delete)
+
+routers.delete('/admin-delete', authMiddleware, userController.adminDelete)
 
 /* FORGOT PASSWORD */
 routers.use('/forgot-password', require('./forgotPassword'))

@@ -1,7 +1,8 @@
-const { validationResult } = require('express-validator');
+const { validationResult } = require('express-validator')
 const userModel = require('../models/user')
 const getViewPath = view => `user/${view}`
 const removeAvatar = require('../helpers/removeAvatar')
+const db = require('../database/models')
 
 const userController = {
 
@@ -105,14 +106,31 @@ const userController = {
 
     delete: (req, res) => {
         const user = req.session.userLogged
-        const response = userModel.remove(user.id);
-
-        if (response.error) {
-            return res.redirect('/user/edit')
-        }
-
+        const response =db.Usuario.destroy({
+            where: {id: user.id}
+        });
         return res.redirect('/user/logout');
+    },
+
+    adminDelete: (req, res) => {
+        const response =db.Usuario.destroy({
+            where: {id: req}
+        });
+        return res.redirect('/user/list');
+    },
+
+    findAll: (req,res) => {
+        db.User.findAll()
+        .then((usuarios) => {
+            const locals = {usuarios}
+            return res.render(getViewPath('list'), locals)
+        });
+
     }
+
 }
+
+
+
 
 module.exports = userController
