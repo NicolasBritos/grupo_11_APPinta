@@ -76,17 +76,16 @@ const productController = {
         res.render(getViewPath('productView'), locals)
     },
 
-    getById: (req, res) => {
-        const response = productModel.findById(req.params.id)
-        if (!response.error) {
-            const locals = {
-                product: response.product
-            }
-            res.render(getViewPath('product'), locals)
-        } else {
-            const encodedMsg = encodeURIComponent(response.error.message)
-            res.redirect(`/products?errorMsg=${encodedMsg}`)
-        }
+    getById: async (req, res) => {
+        let locals = {};
+
+        await db.Product.findByPk(req.params.id)
+            .then(product => {
+                console.log(locals)
+                locals.product = product
+            })
+        
+        res.render(getViewPath('product'), locals)
     },
 
     create: (req, res) => {
