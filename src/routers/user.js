@@ -18,7 +18,7 @@ routers.post('/register', guestMiddleware, uploadAvatarMiddleware.single('avatar
 
 /* EDIT PROFILE */
 routers.get('/edit', authMiddleware, userController.getEdit)
-routers.put('/edit', authMiddleware, uploadAvatarMiddleware.single('avatar'), validationsEditUser, userController.postEdit)
+routers.put('/edit', authMiddleware, uploadAvatarMiddleware.single('avatar'), validationsEditUser, userController.putEdit)
 
 routers.get('/logout', authMiddleware, userController.logout)
 
