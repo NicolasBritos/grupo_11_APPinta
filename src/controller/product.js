@@ -1,50 +1,78 @@
 const productModel = require('../models/product')
 const getViewPath = view => `products/${view}`
-const categoryModel = require('../models/category')
+const categoryModel = require('../models/category');
+const db = require('../database/models');
 
 /** Setea los mensaje de exito o error que vienen desde los parametros 
  * GET para mostrar en las vistas
  * @param {*} locals 
  * @param {*} query 
  */
-const setMsg = (locals, query) => {
+const getMsg = (query) => {
     const errMsg = query.errorMsg;
     const succesMsg = query.successMsg;
-    locals.msg = null 
+    let msg = null 
 
     if (errMsg) {
-        locals.msg = {
+        msg = {
             message: decodeURIComponent(errMsg),
             type: 'error'
         }
     } 
 
     if (succesMsg) {
-        locals.msg = {
+        msg = {
             message: decodeURIComponent(succesMsg),
             type: 'success'
         }
-    } 
+    }
+
+    return {msg}
 }
 
-const setProducts = (locals, query) => {
-    const category = query.category
+const getProductsAndCategory = async (query) => {
+    const categoryTitle = query.category
+    let productList = null
+    let categoryObj
 
-    if (category) {
-        locals.products = productModel.findByCategory(category)
-        locals.category = category
+    if (categoryTitle) {
+        await db.Category.findOne({
+            where: {
+                title: categoryTitle
+            }
+        })
+            .then(category => categoryObj = category)
+
+        await db.Product.findAll({
+            where: {
+                categoryId: categoryObj.id
+            }
+        })
+            .then(products => {
+                productList = products
+            })
     } else {
-        locals.products = productModel.getAll()
-        locals.category = null
+        await db.Product.findAll()
+            .then(products => {
+                productList = products
+            })
+    }
+
+    return  {
+        category: categoryTitle,
+        products: productList
     }
 }
 
 const productController = {
 
-    getAll: (req, res) => {
-        const locals = {}
-        setMsg(locals, req.query)
-        setProducts(locals, req.query)
+    getAll: async (req, res) => {
+        let locals;
+
+        await getProductsAndCategory(req.query)
+            .then(productsAndCategory => {
+                locals = {...getMsg(req.query), ...productsAndCategory}
+            })
         res.render(getViewPath('productView'), locals)
     },
 

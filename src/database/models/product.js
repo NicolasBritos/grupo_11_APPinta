@@ -39,6 +39,10 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         defaultValue: "img-not-found.jpg",
       },
+      categoryId: {
+        type: DataTypes.INTEGER,
+        field: "category_id",
+      }
     },
     {
       tableName: "PRODUCT",
