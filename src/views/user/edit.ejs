@@ -38,7 +38,7 @@
                 <h2>Mi cuenta</h2>
             </section>
           
-            <form class="form-register" method="POST" action="/user/edit" enctype="multipart/form-data">
+            <form class="form-register" method="POST" action="/user/edit?_method=PUT" enctype="multipart/form-data">
 
                 <% if(locals.errorForm){ %>
                     <p class="form__error-msg">
