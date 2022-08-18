@@ -122,11 +122,11 @@ const userController = {
 
     delete: (req, res) => {
         const user = req.session.userLogged
-        const response = userModel.remove(user.id);
-
-        if (response.error) {
-            return res.redirect('/user/edit')
-        }
+        db.User.destroy({
+            where: {
+                id: user.id
+            }
+        })
 
         return res.redirect('/user/logout');
     }
