@@ -1,9 +1,14 @@
 const { validationResult } = require('express-validator')
+
 const bcrypt = require('bcryptjs')
 const getViewPath = view => `user/${view}`
 const removeAvatar = require('../helpers/removeAvatar')
 const db = require('../database/models')
 const NOT_IMG = 'default-avatar.jpg';
+
+const userModel = require('../models/user')
+const removeAvatar = require('../helpers/removeAvatar')
+const db = require('../database/models')
 
 const userController = {
 
@@ -126,9 +131,40 @@ const userController = {
                 id: user.id
             }
         })
-
+        const response =db.User.destroy({
+            where: {id: user.id}
+        });
         return res.redirect('/user/logout');
+    },
+
+    adminDelete: (req, res) => {
+        console.log("IDDDDD: " + req.params.id)
+        const response = db.User.destroy({
+            where: {id:req.params.id}
+        });
+        if (!response.error) {
+            const successMessage = 'El usuario ha sido eliminado.'
+            const encodedMsg = encodeURIComponent(successMessage)
+            res.redirect(`/user?successMsg=${encodedMsg}`)
+        } else {
+            console.log('Todo salio bien')
+            res.redirect('/user/list')
+        }
+        return res.redirect('/user/list');
+    },
+
+    findAll: (req,res) => {
+        db.User.findAll()
+        .then((usuarios) => {
+            const locals = {usuarios}
+            return res.render(getViewPath('list'), locals)
+        });
+
     }
+
 }
+
+
+
 
 module.exports = userController

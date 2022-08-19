@@ -4,7 +4,7 @@ DELETE FROM CATEGORY WHERE ID > 0;
 DELETE FROM PRODUCT WHERE ID > 0;
 -- ---------------------------------USER----------------------------------------------
 insert into user (id, name, surname, email, birth_date, password, role, avatar, created_at,updated_at)
-values (null, "Alejandro", "Soares", "alesoares@gmail.com","1994-12-01","$2a$10$Wt.H2RIwWKjL1tpYw/IMAuUsVwQ08//4m.5ZtMJWgFerEHwqvKsDW",2,"1658877602493.jpg",NOW(),null);
+values (null, "Alejandro", "Soares", "alesoares@gmail.com","1994-12-01","$2a$10$Wt.H2RIwWKjL1tpYw/IMAuUsVwQ08//4m.5ZtMJWgFerEHwqvKsDW",2,"1658443651118.jpg",NOW(),null);
 
 -- ------------------------------CATEGORY---------------------------------------------
 insert into category (id, title, img, created_at,updated_at)
