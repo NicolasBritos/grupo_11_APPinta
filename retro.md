@@ -105,3 +105,20 @@ Hacer menos:
 
 Dejar de hacer:
 
+
+Sprint 6
+
+Comenzar a hacer:
+
+Hacer más:
+
+*Mejorar la interfaz grafica
+
+Continuar haciendo:
+
+*Mejorar la interfaz grafica
+
+Hacer menos:
+
+Dejar de hacer:
+
