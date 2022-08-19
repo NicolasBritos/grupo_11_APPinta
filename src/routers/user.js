@@ -25,7 +25,8 @@ routers.get('/logout', authMiddleware, userController.logout)
 
 routers.delete('/delete', authMiddleware, userController.delete)
 
-routers.delete('/admin-delete', authMiddleware, userController.adminDelete)
+routers.delete('/:id/admin-delete', authMiddleware, userController.adminDelete)
+
 
 /* FORGOT PASSWORD */
 routers.use('/forgot-password', require('./forgotPassword'))

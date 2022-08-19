@@ -16,5 +16,14 @@
     "password": "$2a$10$AVPBKFuhHm2T6BdFoayXTeAlmMR.nKf54aKWY3kpb5nrkX2MWQ3OC",
     "avatar": "1660515547653.jpg",
     "role": 2
+  },
+  {
+    "id": 10,
+    "name": "Nicolas",
+    "surname": "Britos",
+    "email": "nico.britos.gonza@gmail.com",
+    "password": "$2a$10$AqZo/q.VMP19WAvJbzno8OZB46vBnm3Lg.BpWpCS4ingFMCE.6SKm",
+    "avatar": "default-avatar.jpg",
+    "role": 2
   }
 ]

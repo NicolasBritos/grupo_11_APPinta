@@ -106,16 +106,25 @@ const userController = {
 
     delete: (req, res) => {
         const user = req.session.userLogged
-        const response =db.Usuario.destroy({
+        const response =db.User.destroy({
             where: {id: user.id}
         });
         return res.redirect('/user/logout');
     },
 
     adminDelete: (req, res) => {
-        const response =db.Usuario.destroy({
-            where: {id: req}
+        console.log("IDDDDD: " + req.params.id)
+        const response = db.User.destroy({
+            where: {id:req.params.id}
         });
+        if (!response.error) {
+            const successMessage = 'El usuario ha sido eliminado.'
+            const encodedMsg = encodeURIComponent(successMessage)
+            res.redirect(`/user?successMsg=${encodedMsg}`)
+        } else {
+            console.log('Todo salio bien')
+            res.redirect('/user/list')
+        }
         return res.redirect('/user/list');
     },
 
