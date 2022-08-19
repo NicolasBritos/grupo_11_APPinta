@@ -27,7 +27,7 @@ create table PRODUCT (
     id INT AUTO_INCREMENT,
     category_id INT,
     name VARCHAR(50) NOT NULL,
-    descriptions VARCHAR (255),
+    description VARCHAR (255),
     price DECIMAL (7,2) NOT NULL,
     stock SMALLINT NOT NULL,
     qr_code VARCHAR(500),

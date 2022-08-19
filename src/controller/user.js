@@ -1,7 +1,9 @@
-const { validationResult } = require('express-validator');
-const userModel = require('../models/user')
+const { validationResult } = require('express-validator')
+const bcrypt = require('bcryptjs')
 const getViewPath = view => `user/${view}`
 const removeAvatar = require('../helpers/removeAvatar')
+const db = require('../database/models')
+const NOT_IMG = 'default-avatar.jpg';
 
 const userController = {
 
@@ -13,20 +15,12 @@ const userController = {
         const resultValidation = validationResult(req)
     
         if (resultValidation.errors.length === 0) {
-            const response = userModel.register(req.body, req.file)
+            const user = {...req.body}
+            user.avatar = req.file? req.file.filename: NOT_IMG
+            user.password = bcrypt.hashSync(user.password, 10)
+            db.User.create(user)
 
-            if (response.error) {
-        
-                if(req.file) removeAvatar(req.file.filename)
-                
-                return res.render((getViewPath('register')), {
-                    errors : resultValidation.mapped(),
-                    oldData : req.body,
-                    errorForm: response.error.message
-                });
-            }
-
-            return res.redirect('/user/login');
+            return res.redirect('/user/login')
         }
 
         if(req.file) removeAvatar(req.file.filename)
@@ -34,44 +28,54 @@ const userController = {
         return res.render((getViewPath('register')), {
             errors : resultValidation.mapped(),
             oldData : req.body,
-            errorForm: null
         });
     },
 
     getLogin: (req, res) => {
         const nextUrl = req.query.next
 
-        const context = {
+        const locals = {
             nextUrl: nextUrl ? nextUrl : null
         }
-        res.render(getViewPath('login'), context)
+        res.render(getViewPath('login'), locals)
     },
 
-    postLogin: (req, res) => {
-        const body = req.body
-        const response = userModel.login(body.email, body.password)
+    postLogin: async (req, res) => {
         const resultValidation = validationResult(req)
-        
-        if (resultValidation.errors.length > 0 || response.error) {
-            return res.render((getViewPath('login')), {
-                errors: resultValidation.mapped(),
-                oldData: req.body,
-                errorForm: response.error ? response.error.message : null
-            });
-        } else {
-            const nextUrl = req.query.next
-            // redireccion next page
-            req.session.userLogged = response.user
-            console.log(body)
-            
-            if (body.remember === 'on') {
-                res.cookie('email', response.user.email, {maxAge: 60 * 60 * 1000})
-            }
-            
-            if (nextUrl) return res.redirect(nextUrl)
 
-            return res.redirect('/') 
-        } 
+        if (resultValidation.errors.length === 0) {
+            await db.User.findOne({
+                where: {
+                    email: req.body.email
+                }
+            })
+            .then(user => {
+                const rawPassword = req.body.password
+
+                if (user && bcrypt.compareSync(rawPassword, user.password)) {
+                    req.session.userLogged = user
+
+                    if (req.body.remember === 'on') {
+                        res.cookie('email', user.email, {maxAge: 60 * 60 * 1000})
+                    }
+                    if (req.query.next) return res.redirect(req.query.next)
+
+                    return res.redirect('/') 
+                } 
+
+                return res.render((getViewPath('login')), {
+                    errors: null,
+                    oldData: req.body,
+                    errorForm: 'Email o contraseña incorrecto. Verificalos y vuelvé a intentar.'
+                })
+            })
+        }
+
+        return res.render((getViewPath('login')), {
+            errors: resultValidation.mapped(),
+            oldData: req.body,
+            errorForm: null
+        })
     },   
           
 
@@ -86,13 +90,25 @@ const userController = {
         res.render(getViewPath('edit'), {user})
     },
 
-    postEdit: (req, res) => {
+    putEdit: async (req, res) => {
         const resultValidation = validationResult(req)
         const user = req.session.userLogged
 
         if (resultValidation.errors.length === 0) {
-            const response = userModel.update(user.id, req.body, req.file)
-            req.session.userLogged = response.user
+            await db.User.update({
+                name: req.body.name,
+                surname: req.body.surname,
+                avatar: req.file? req.file.filename: user.avatar 
+            }, {
+                where: {
+                    id: user.id
+                }
+            })
+
+            await db.User.findByPk(user.id)
+                .then(user => {
+                    req.session.userLogged = user
+                })
             return res.redirect('/user/edit')
         }
 
@@ -105,11 +121,11 @@ const userController = {
 
     delete: (req, res) => {
         const user = req.session.userLogged
-        const response = userModel.remove(user.id);
-
-        if (response.error) {
-            return res.redirect('/user/edit')
-        }
+        db.User.destroy({
+            where: {
+                id: user.id
+            }
+        })
 
         return res.redirect('/user/logout');
     }

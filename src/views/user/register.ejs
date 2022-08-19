@@ -79,6 +79,14 @@
                     </p>
                 <% } %>
 
+                <input class="controls <%= locals.errors && errors.birthDate ? 'is-invalid': null %>" type="date" name="birthDate" placeholder="Ingrese fecha nacimiento"  
+                value="<%= locals.oldData ? oldData.birthDate : null %>">
+                <% if(locals.errors && errors.birthDate){ %>
+                    <p class="form__error-msg">
+                        <%= errors.birthDate.msg %>
+                    </p>
+                <% } %>
+
                 <input class="controls <%= locals.errors && errors.password ? 'is-invalid': null %>" type="password" name="password" id="password" placeholder="Ingrese su Contraseña"
                 value =""><br>
                 <% if(locals.errors && errors.password){ %>

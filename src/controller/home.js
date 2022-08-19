@@ -1,10 +1,15 @@
-const categoryModel = require('../models/category')
+const db = require('../database/models')
 
 const homeController = {
     
-    home: (req, res) => {
-        const categories = categoryModel.getAll()
+    home: async (req, res) => {
         const locals = {}
+
+        await db.Category.findAll()
+            .then(categories => {
+                locals.categories = categories
+            })
+
         if (req.session.userLogged) {
             locals.userLogged = req.session.userLogged
             locals.isLogged = true
@@ -13,7 +18,6 @@ const homeController = {
             locals.isLogged = false
         }
 
-        locals.categories = categories
         res.render('home', locals)
     }
 }
