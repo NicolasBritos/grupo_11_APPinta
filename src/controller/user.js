@@ -6,10 +6,6 @@ const removeAvatar = require('../helpers/removeAvatar')
 const db = require('../database/models')
 const NOT_IMG = 'default-avatar.jpg';
 
-const userModel = require('../models/user')
-const removeAvatar = require('../helpers/removeAvatar')
-const db = require('../database/models')
-
 const userController = {
 
     getRegister: (req, res) => {
