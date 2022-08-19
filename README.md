@@ -44,4 +44,6 @@ npm install
 npm start
 ```
 
+# Planificación
 
+https://appinta.atlassian.net/jira/software/projects/AP/boards/1/backlog
