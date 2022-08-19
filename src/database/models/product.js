@@ -27,7 +27,6 @@ module.exports = (sequelize) => {
       },
       qrCode: {
         type: DataTypes.STRING(255),
-        allowNull: false,
         field: "qr_code",
       },
       discount: {
@@ -39,6 +38,10 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         defaultValue: "img-not-found.jpg",
       },
+      categoryId: {
+        type: DataTypes.INTEGER,
+        field: "category_id",
+      }
     },
     {
       tableName: "PRODUCT",

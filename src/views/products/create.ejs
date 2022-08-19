@@ -22,9 +22,12 @@
         <form class="Login" method="POST" action="/products/create" enctype="multipart/form-data">
             <input class="controls" type="text" placeholder="Tituto" name="name"  
             value="<%= locals.body? locals.body.name: '' %>" required>
-            
+            <input class="controls" type="number" placeholder="Stock" name="stock" 
+            value="<%= locals.body? locals.body.stock: '' %>" required>
             <input class="controls" type="number" placeholder="Precio" name="price" 
             value="<%= locals.body? locals.body.name: '' %>" required>
+            <input class="controls" type="number" placeholder="Descuento" name="discount" 
+            value="<%= locals.body? locals.body.discount: '' %>" required>
             <textarea class="controls" name="description" id="" cols="30" rows="10" placeholder="Descripción" ></textarea>
             <div class="product__img">
                 <label for="product-img">Imagen:</label>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <%- include('../partials/head') %>
+
+        <link rel="stylesheet" href="/css/components/items-list.css">
+        <title>
+            Usuarios | APPinta
+        </title>
+</head>
+
+<body>
+
+    <%- include('../partials/header') %>
+
+        <main class="main">
+            <!--Inicio Main-->
+            <section class="section-selected">
+                <div class="section-title">
+                    <div class="title">
+                        <h2>Usuarios</h2>
+                    </div>
+                    <span class="title-icon"><button><i class="bi bi-arrow-left-circle"></i></button></span>
+                </div>
+                <%for (let user of usuarios) { %>
+                <article class="article-selected">
+                    <img src="/img/users/<%= user.avatar %>">
+                    <div class="article-description">
+                        <h4>nombre: <%= user.name %> apellido: <%= user.surname %> </h4>
+                        <h5>Id: <%= user.id %></h5>
+                    </div>
+                    <div class="buttons-carry">
+                        <form action="/user/<%= user.id %>/admin-delete?_method=DELETE" method="POST">
+                            <div class="delete-button"><button><i class="bi bi-trash3-fill"></i></button></div>
+                        </form>
+                    </div>
+                </article>
+                <% } %>
+            </section>
+        </main>
+
+        <%- include('../partials/footer') %>
+            <% if (locals.isLogged) { %>
+                <%- include('../partials/scriptsLogged') %>
+                    <% } %>
+
+</body>
+
+</html>

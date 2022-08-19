@@ -3,8 +3,8 @@
         <a href="/products">Nuestros productos</a>
     </div>
     <% categories.forEach( category => { %>
-    <a href="products?category=<%= category.slugTitle %>" class="categories__item">
-        <img src="<%= category.image %>" alt="Imagen categoria">
+    <a href="products?category=<%= category.title %>" class="categories__item">
+        <img src="<%= category.img %>" alt="Imagen categoria">
         <p><%= category.title %></p>
     </a>
     <% }) %>

@@ -15,7 +15,7 @@ routers.get('/:id', productController.getById)
 
 routers.get('/:id/update', authMiddleware, productController.getUpdate)
 
-routers.put('/:id/update', authMiddleware, uploadImgMiddleware.single('image'), productController.postUpdate)
+routers.put('/:id/update', authMiddleware, uploadImgMiddleware.single('image'), productController.putUpdate)
 
 routers.delete('/:id/delete', authMiddleware, productController.remove)
 
