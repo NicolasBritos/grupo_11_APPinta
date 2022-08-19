@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <%- include('../partials/head') %>
+    
+    <link rel="stylesheet" href="../css/components/promotions.css">
+    <link rel="stylesheet" href="../css/components/categories.css">
+    <link rel="stylesheet" href="../css/components/product.css">
+    <title>
+        Cerveza 437 ml | PintaBar
+    </title>
+</head>
+<body>
+
+    <%- include('../partials/header') %>
+
+    <main>
+        <section class="product">
+            <div class="product__img">
+                <img src="/img/products/<%= product.image %>" alt="Imagen categoria">
+            </div>
+            <div class="product__detail">
+                <p class="name"><%= product.name %></p>
+                <p class="description"><%= product.description %></p>
+                <p class="price">$ <%= product.price %><span>00</span></p>
+                <button class="detail__buy">Comprar</button>
+                <button class="detail__add">Agregar al carrito</button>
+                <% if (locals.isLogged) { %>
+                <div class="detail__ops"> 
+                    <a href="/products/create">Nuevo</a>
+                    <a href="/products/<%= product.id %>/update">Modificar</a>
+                    <form action="/products/<%= product.id %>/delete?_method=DELETE" method="POST">
+                        <button type="submit" class="btn-delete">Eliminar</button>
+                    </form>
+                </div>
+                <% } %>
+            </div>
+        </section>
+    </main>
+
+    <%- include('../partials/footer') %>
+    <% if (locals.isLogged) { %>
+        <%- include('../partials/scriptsLogged') %>
+    <% } %> 
+    
+</body>
+</html>
