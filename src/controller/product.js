@@ -141,7 +141,7 @@ const productController = {
             })
     },
 
-    postUpdate: async (req, res) => {
+    putUpdate: async (req, res) => {
 
         await db.Product.update({
             name: req.body.name,
