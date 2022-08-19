@@ -1,6 +1,5 @@
 const { validationResult } = require('express-validator')
 const bcrypt = require('bcryptjs')
-const userModel = require('../models/user')
 const getViewPath = view => `user/${view}`
 const removeAvatar = require('../helpers/removeAvatar')
 const db = require('../database/models')

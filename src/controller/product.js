@@ -1,7 +1,5 @@
-const productModel = require('../models/product')
 const { validationResult } = require('express-validator')
 const getViewPath = view => `products/${view}`
-const categoryModel = require('../models/category')
 const db = require('../database/models')
 const removeAvatar = require('../helpers/removeAvatar')
 const NOT_IMG = 'img-not-found.jpg'

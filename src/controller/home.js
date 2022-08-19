@@ -1,5 +1,4 @@
 const db = require('../database/models')
-const categoryModel = require('../models/category')
 
 const homeController = {
     
