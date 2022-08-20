@@ -10,12 +10,12 @@
   text-align: center;
 }
 
-.product__img img {
+.form__img img {
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
 }
 
-.product__fields {
+.form__fields {
   padding: 25px;
 }
 

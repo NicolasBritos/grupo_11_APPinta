@@ -20,7 +20,7 @@
             <h4>Complete los siguientes campos</h4>
         </section>
         <form class="form" method="POST" action="/products/create" enctype="multipart/form-data">
-            <div class="product__fields">
+            <div class="form__fields">
                 <input class="controls" type="text" placeholder="Tituto" name="name"  
                 value="<%= locals.body? locals.body.name: '' %>" required>
                 <input class="controls" type="number" placeholder="Stock" name="stock" 
