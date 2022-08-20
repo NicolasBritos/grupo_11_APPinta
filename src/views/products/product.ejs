@@ -3,9 +3,7 @@
 <head>
     
     <%- include('../partials/head') %>
-    
-    <link rel="stylesheet" href="../css/components/promotions.css">
-    <link rel="stylesheet" href="../css/components/categories.css">
+    <link rel="stylesheet" href="../css/components/form.css">
     <link rel="stylesheet" href="../css/components/product.css">
     <title>
         Cerveza 437 ml | PintaBar
@@ -20,7 +18,7 @@
             <div class="product__img">
                 <img src="/img/products/<%= product.img %>" alt="Imagen categoria">
             </div>
-            <div class="product__detail">
+            <div class="product__fields">
                 <p class="name"><%= product.name %></p>
                 <p class="description"><%= product.description %></p>
                 <p class="price">$ <%= product.price %><span>00</span></p>

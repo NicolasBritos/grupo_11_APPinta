@@ -1,7 +1,6 @@
 .form {
   max-width: 400px;
   background: var(--green);
-  padding: 25px;
   margin: auto;
   margin-top: 10px;
   border-radius: var(--border-radius);
@@ -9,6 +8,15 @@
   color: var(--black);
   box-shadow: 7px 13px 37px #000;
   text-align: center;
+}
+
+.product__img img {
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+}
+
+.product__fields {
+  padding: 25px;
 }
 
 .controls {
