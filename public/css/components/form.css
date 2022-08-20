@@ -11,6 +11,7 @@
 }
 
 .form__img img {
+  max-width: 400px;
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
 }
