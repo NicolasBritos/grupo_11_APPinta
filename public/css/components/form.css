@@ -1,4 +1,4 @@
-.Login {
+.form {
   max-width: 400px;
   background: var(--green);
   padding: 25px;
@@ -23,7 +23,7 @@
   color: var(--black);
 }
 
-.Login .botons {
+.form .botons {
   font-size:20px;
   width: 100%;
   padding: 16px;
@@ -59,7 +59,7 @@
   margin-bottom: 7px;
 }
 
-.Login a {
+.form a {
   display: inline-flex;
   font-family: calibri;
   font-size: 14px;
@@ -70,7 +70,7 @@
   color: blue;
 }
 
-.Login a:hover {
+.form a:hover {
   color: black;
 }
 

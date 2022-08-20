@@ -4,7 +4,7 @@
     
     <%- include('../partials/head') %>
 
-    <link rel="stylesheet" href="/css/components/login.css">
+    <link rel="stylesheet" href="/css/components/form.css">
     <link rel="stylesheet" href="/css/components/formProduct.css">
     <title>
         Home | PintaBar 
@@ -19,7 +19,7 @@
             <h2>Crear producto</h2>
             <h4>Complete los siguientes campos</h4>
         </section>
-        <form class="Login" method="POST" action="/products/create" enctype="multipart/form-data">
+        <form class="form" method="POST" action="/products/create" enctype="multipart/form-data">
             <input class="controls" type="text" placeholder="Tituto" name="name"  
             value="<%= locals.body? locals.body.name: '' %>" required>
             <input class="controls" type="number" placeholder="Stock" name="stock" 
