@@ -43,7 +43,7 @@ create table USER (
     id INT AUTO_INCREMENT,
     name VARCHAR (50) NOT NULL,
     surname VARCHAR (50) NOT NULL,
-    email VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL UNIQUE,
     birth_date DATE NOT NULL,
     password VARCHAR (255),
     role TINYINT UNSIGNED,

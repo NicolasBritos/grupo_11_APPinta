@@ -94,22 +94,7 @@
                 <button type="submit">Eliminar mi cuenta</button>
             </form>
         </main>
-        <script>
-            const deleteForm = document.getElementById('form-delete');
-
-            function deleteAccount(e) {
-                const confirmMessage =  '¿Desea eliminar su cuenta en APPINTA?';
-                const res = confirm(confirmMessage);
-                if (res) {
-                    return true;
-                }
-
-                e.preventDefault();
-                return false;
-            }
-
-            deleteForm.addEventListener('submit', deleteAccount)
-        </script>
+        <script src="/js/deleteForm.js"></script>
         <%- include('../partials/footer') %>
         <script src="/js/imageField.js"></script>
         <script src="/js/editUser.js"></script>

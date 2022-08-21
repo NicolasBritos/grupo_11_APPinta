@@ -1,10 +1,12 @@
+require('dotenv').config();
+
 module.exports = {
   "development": {
-    "username": "root",
-    "password": "admin123",
+    "username": process.env.DB_USERNAME,
+    "password": process.env.DB_PASSWORD,
     "database": "appinta_db",
-    "host": "127.0.0.1",
-    "port": 3306,
+    "host": process.env.DB_URL,
+    "port": process.env.DB_PORT,
     "dialect": "mysql"
   },
   "test": {

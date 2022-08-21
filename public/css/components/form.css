@@ -1,7 +1,6 @@
-.Login {
+.form {
   max-width: 400px;
   background: var(--green);
-  padding: 25px;
   margin: auto;
   margin-top: 10px;
   border-radius: var(--border-radius);
@@ -9,6 +8,16 @@
   color: var(--black);
   box-shadow: 7px 13px 37px #000;
   text-align: center;
+}
+
+.form__img img {
+  max-width: 400px;
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+}
+
+.form__fields {
+  padding: 25px;
 }
 
 .controls {
@@ -23,7 +32,7 @@
   color: var(--black);
 }
 
-.Login .botons {
+.form .botons {
   font-size:20px;
   width: 100%;
   padding: 16px;
@@ -59,7 +68,7 @@
   margin-bottom: 7px;
 }
 
-.Login a {
+.form a {
   display: inline-flex;
   font-family: calibri;
   font-size: 14px;
@@ -70,7 +79,7 @@
   color: blue;
 }
 
-.Login a:hover {
+.form a:hover {
   color: black;
 }
 
