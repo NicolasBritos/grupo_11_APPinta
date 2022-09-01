@@ -39,19 +39,30 @@
                     && locals.error !== null) { %>
                 <p class="form__error-msg"><%= locals.error.message %></p>
             <% }%>
-            <input class="controls <%= locals.errors && errors.email ? 'is-invalid': null %>" type="email" name="email" placeholder="Ingrese su Correo"  
-            value="<%= locals.oldData ? oldData.email : null %>">
-            <% if(locals.errors && errors.email){ %>
-                <p class="form__error-msg">
-                    <%= errors.email.msg %>
-                </p>
-            <% } %>
-            <input class="controls <%= locals.errors && errors.password ? 'is-invalid': null %>" type="password" name="password" placeholder="Ingrese su Contraseña" >
-            <% if(locals.errors && errors.password){ %>
-                <p class="form__error-msg">
-                    <%= errors.password.msg %>
-                </p>
-            <% } %>
+            <div class="form__field">
+                <input class="controls <%= locals.errors && errors.email ? 'is-invalid': null %>" id="email" type="email" name="email" placeholder="Ingrese su Correo"  
+                value="<%= locals.oldData ? oldData.email : null %>">
+                <% if(locals.errors && errors.email){ %>
+                    <p class="form__error-msg">
+                        <%= errors.email.msg %>
+                    </p>
+                <% } %>
+            </div>
+            
+            <div class="form__field">
+                <input class="controls <%= locals.errors && errors.password ? 'is-invalid': null %>" id="password" type="password" name="password" placeholder="Ingrese su Contraseña" >
+                <% if(locals.errors && errors.password){ %>
+                    <p class="form__error-msg">
+                        <%= errors.password.msg %>
+                    </p>
+                <% } %>
+                <ul class="password-help d-none">
+                    <li>Debe tener al menos 8 caracteres.</li>
+                    <li>Debe tener al menos un caracter.</li>
+                    <li>Debe tener al menos un número.</li>
+                </ul>
+            </div>
+
             <a href="/user/forgot-password">¿Olvidaste tu contraseña?</a>
             <a>|</a>
             <a href="/user/register">Crear una cuenta</a>
@@ -64,6 +75,7 @@
     </form>
 
     <%- include('../partials/footer') %>
+    <script src="/js/login.js"></script>
 
 </body>
 </html>
