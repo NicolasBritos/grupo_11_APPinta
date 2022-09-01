@@ -94,6 +94,15 @@
                         <%= errors.password.msg %>
                     </p>
                 <% } %>
+
+                <input class="controls <%= locals.errors && errors.rpassword ? 'is-invalid': null %>" type="password" name="rpassword" id="rpassword" placeholder="Repita su Contraseña"
+                value =""><br>
+                <% if(locals.errors && errors.rpassword){ %>
+                    <p class="form__error-msg">
+                        <%= errors.rpassword.msg %>
+                    </p>
+                <% } %>
+
                 
                 <input class="checkbox" type="checkbox" required> Mayor de 18 años<br>
                 <a href="/user/login" class="Login">Ingresar</a>
