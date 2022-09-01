@@ -19,7 +19,6 @@ create table CATEGORY (
     img VARCHAR(255),
     created_at DATETIME,
     updated_at DATETIME,
-    img VARCHAR(255),
     PRIMARY KEY (id)
 );
 

@@ -4,7 +4,7 @@ module.exports = {
   "development": {
     "username": process.env.DB_USERNAME,
     "password": process.env.DB_PASSWORD,
-    "database": "appintadb",
+    "database": "appinta_db",
     "host": process.env.DB_URL,
     "port": process.env.DB_PORT,
     "dialect": "mysql"
