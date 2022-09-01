@@ -12,23 +12,31 @@ const userController = {
         res.render(getViewPath('register'))
     },
 
-    postRegister: (req, res) => {
+    postRegister: async (req, res) => {
         const resultValidation = validationResult(req)
-    
+        
         if (resultValidation.errors.length === 0) {
-            const user = {...req.body}
-            user.avatar = req.file? req.file.filename: NOT_IMG
-            user.password = bcrypt.hashSync(user.password, 10)
-            db.User.create(user)
+            //DESDE ACA- Validar mail
+            const user = { ...req.body }
+            const existente = await db.User.findOne({ where: { email: user.email } });
+            if (existente === null) {
+                user.avatar = req.file ? req.file.filename : NOT_IMG
+                user.password = bcrypt.hashSync(user.password, 10)
+                db.User.create(user)
 
-            return res.redirect('/user/login')
+                return res.redirect('/user/login')
+            } else {
+                return res.render((getViewPath('register')), {
+                    errorForm: 'El email ingresado ya se encuentra registrado.',
+                    oldData: req.body,
+                });
+                           }
         }
 
-        if(req.file) removeAvatar(req.file.filename)
-
+        if (req.file) removeAvatar(req.file.filename)
         return res.render((getViewPath('register')), {
-            errors : resultValidation.mapped(),
-            oldData : req.body,
+            errors: resultValidation.mapped(),
+            oldData: req.body,
         });
     },
 
