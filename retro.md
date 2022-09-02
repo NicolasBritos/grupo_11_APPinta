@@ -122,3 +122,21 @@ Hacer menos:
 
 Dejar de hacer:
 
+Sprint 7
+
+Comenzar a hacer:
+
+Hacer más:
+
+*Mejoras visuales.
+
+*Dedicar tiempo en común para revisar el estado del sprint.
+
+Continuar haciendo:
+
+*Mejorar la interfaz grafica
+
+Hacer menos:
+
+Dejar de hacer:
+

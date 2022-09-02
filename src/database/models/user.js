@@ -20,6 +20,7 @@ module.exports = (sequelize) => {
       email: {
         type: DataTypes.STRING(50),
         allowNull: false,
+        unique: true
       },
       birthDate: {
         type: DataTypes.DATE,

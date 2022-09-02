@@ -9,7 +9,8 @@
         <link rel="stylesheet" href="../css/components/promotions.css">
         <link rel="stylesheet" href="../css/components/categories.css">
         <link rel="stylesheet" href="../css/components/register.css">
-        <link rel="stylesheet" href="../css/components/imageField.css">
+        <link rel="stylesheet" href="../css/components/imageField.css">}
+        <link rel="stylesheet" href="../css/components/form.css">
         <title>
             Registro | PintaBar
         </title>
@@ -28,7 +29,7 @@
                 </h4>
             </section>
           
-            <form class="form-register" method="POST" action="/user/register" enctype="multipart/form-data">
+            <form class="form-register form" method="POST" action="/user/register" enctype="multipart/form-data">
 
                 <% if(locals.errorForm){ %>
                     <p class="form__error-msg">
@@ -54,46 +55,68 @@
                     <% } %>
                 </div>
               
-                <input class="controls <%= locals.errors && errors.name ? 'is-invalid': null %>" type="text" name="name" id="name" placeholder="Ingrese su Nombre"
-                value ="<%= locals.oldData ? oldData.name : null %>">
-                        
-                <% if(locals.errors && errors.name){ %>
-                    <p class="form__error-msg">
-                        <%= errors.name.msg %>
-                    </p>
-                <% } %>
+                <div class="form__field">
+                    <input class="controls <%= locals.errors && errors.name ? 'is-invalid': null %>" type="text" name="name" id="name" placeholder="Ingrese su Nombre"
+                    value ="<%= locals.oldData ? oldData.name : null %>">
+                            
+                    <% if(locals.errors && errors.name){ %>
+                        <p class="form__error-msg">
+                            <%= errors.name.msg %>
+                        </p>
+                    <% } %>
+                </div>
 
-                <input class="controls <%= locals.errors && errors.surname ? 'is-invalid': null %>" type="text" name="surname" id="surname"
-                    placeholder="Ingrese su Apellido" minlength="2" value ="<%= locals.oldData ? oldData.surname : null %>">
-                <% if(locals.errors && errors.surname){ %>
-                    <p class="form__error-msg">
-                        <%= errors.surname.msg %>
-                    </p>
-                <% } %>
+                <div class="form__field">
+                    <input class="controls <%= locals.errors && errors.surname ? 'is-invalid': null %>" type="text" name="surname" id="surname"
+                        placeholder="Ingrese su Apellido" minlength="2" value ="<%= locals.oldData ? oldData.surname : null %>">
+                    <% if(locals.errors && errors.surname){ %>
+                        <p class="form__error-msg">
+                            <%= errors.surname.msg %>
+                        </p>
+                    <% } %>
+                </div>
 
-                <input class="controls <%= locals.errors && errors.email ? 'is-invalid': null %>" type="email" name="email" id="email" placeholder="Ingrese su Correo" 
-                value ="<%= locals.oldData ? oldData.email : null %>">
-                <% if(locals.errors && errors.email){ %>
-                    <p class="form__error-msg">
-                        <%= errors.email.msg %>
-                    </p>
-                <% } %>
+                <div class="form__field">
+                    <input class="controls <%= locals.errors && errors.email ? 'is-invalid': null %>" type="email" name="email" id="email" placeholder="Ingrese su Correo" 
+                    value ="<%= locals.oldData ? oldData.email : null %>">
+                    <% if(locals.errors && errors.email){ %>
+                        <p class="form__error-msg">
+                            <%= errors.email.msg %>
+                        </p>
+                    <% } %>
+                </div>
 
-                <input class="controls <%= locals.errors && errors.birthDate ? 'is-invalid': null %>" type="date" name="birthDate" placeholder="Ingrese fecha nacimiento"  
-                value="<%= locals.oldData ? oldData.birthDate : null %>">
-                <% if(locals.errors && errors.birthDate){ %>
-                    <p class="form__error-msg">
-                        <%= errors.birthDate.msg %>
-                    </p>
-                <% } %>
-
-                <input class="controls <%= locals.errors && errors.password ? 'is-invalid': null %>" type="password" name="password" id="password" placeholder="Ingrese su Contraseña"
-                value =""><br>
-                <% if(locals.errors && errors.password){ %>
-                    <p class="form__error-msg">
-                        <%= errors.password.msg %>
-                    </p>
-                <% } %>
+                <div class="form__field">
+                    <input class="controls <%= locals.errors && errors.birthDate ? 'is-invalid': null %>" type="date" name="birthDate" placeholder="Ingrese fecha nacimiento"  
+                    value="<%= locals.oldData ? oldData.birthDate : null %>">
+                    <% if(locals.errors && errors.birthDate){ %>
+                        <p class="form__error-msg">
+                            <%= errors.birthDate.msg %>
+                        </p>
+                    <% } %>
+                </div>
+                
+                <div class="form__field">
+                    <input class="controls <%= locals.errors && errors.password ? 'is-invalid': null %>" type="password" name="password" id="password" placeholder="Ingrese su Contraseña"
+                    value =""><br>
+                    <% if(locals.errors && errors.password){ %>
+                        <p class="form__error-msg">
+                            <%= errors.password.msg %>
+                        </p>
+                    <% } %>
+                    <ul class="password-help d-none">
+                        <li>Debe tener al menos 8 caracteres.</li>
+                        <li>Debe tener al menos un caracter.</li>
+                        <li>Debe tener al menos un número.</li>
+                    </ul>
+                    <input class="controls <%= locals.errors && errors.rpassword ? 'is-invalid': null %>" type="password" name="rpassword" id="rpassword" placeholder="Repita su Contraseña"
+                    value =""><br>
+                    <% if(locals.errors && errors.rpassword){ %>
+                        <p class="form__error-msg">
+                            <%= errors.rpassword.msg %>
+                        </p>
+                    <% } %>
+                </div>
                 
                 <input class="checkbox" type="checkbox" required> Mayor de 18 años<br>
                 <a href="/user/login" class="Login">Ingresar</a>
@@ -103,6 +126,7 @@
 
         <%- include('../partials/footer') %>
         <script src="/js/imageField.js"></script>
+        <script src="/js/register.js"></script>
 </body>
 
 </html>

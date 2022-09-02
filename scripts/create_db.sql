@@ -19,7 +19,6 @@ create table CATEGORY (
     img VARCHAR(255),
     created_at DATETIME,
     updated_at DATETIME,
-    img VARCHAR(255),
     PRIMARY KEY (id)
 );
 
@@ -43,7 +42,7 @@ create table USER (
     id INT AUTO_INCREMENT,
     name VARCHAR (50) NOT NULL,
     surname VARCHAR (50) NOT NULL,
-    email VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL UNIQUE,
     birth_date DATE NOT NULL,
     password VARCHAR (255),
     role TINYINT UNSIGNED,
