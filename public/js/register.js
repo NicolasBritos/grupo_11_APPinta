@@ -119,7 +119,7 @@ function sendForm(e) {
     }
 
     e.preventDefault();
-    return true;
+    return false;
 }
 
 function loadRegister() {

@@ -75,12 +75,15 @@ function validatePassword() {
 
 function sendForm(e) {
 
-    if (validateEmail() && validatePassword()) {
+    const emailValid=validateEmail();
+    const passwordValid = validatePassword();
+
+    if ( emailValid && passwordValid) {
         return true;
     }
 
     e.preventDefault();
-    return true;
+    return false;
 }
 
 function loadLogin() {
