@@ -1,62 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    
+
     <%- include('../partials/head') %>
 
-    <link rel="stylesheet" href="/css/components/form.css">
-    <link rel="stylesheet" href="/css/components/formProduct.css">
-    <title>
-        Home | PintaBar 
-    </title>
+        <link rel="stylesheet" href="/css/components/form.css">
+        <link rel="stylesheet" href="/css/components/formProduct.css">
+        <title>
+            Home | PintaBar
+        </title>
 </head>
+
 <body>
 
     <%- include('../partials/header') %>
 
-    <main>
-        <section class="header-user2">
-            <h2>Crear producto</h2>
-            <h4>Complete los siguientes campos</h4>
-        </section>
-        <form class="form" method="POST" action="/products/create" enctype="multipart/form-data">
-            <div class="form__fields">
-                <input class="controls" type="text" placeholder="Tituto" name="name"  
-                value="<%= locals.body? locals.body.name: '' %>" required>
-                <input class="controls" type="number" placeholder="Stock" name="stock" 
-                value="<%= locals.body? locals.body.stock: '' %>" required>
-                <input class="controls" type="number" placeholder="Precio" name="price" 
-                value="<%= locals.body? locals.body.name: '' %>" required>
-                <input class="controls" type="number" placeholder="Descuento" name="discount" 
-                value="<%= locals.body? locals.body.discount: '' %>" required>
-                <textarea class="controls" name="description" id="" cols="30" rows="10" placeholder="Descripción" ></textarea>
-                <div class="product__img">
-                    <label for="product-img">Imagen:</label>
-                    <input type="file" name="image" id="product-img">
-                </div>
-                <div class="product__categories">
-                    <p>Categorias:</p>
-                    <%for(let category of categories){ %>
-                            <div class="categories__item">
-                            <label for=""> <% if (locals.body) { %>
-                                <% if (locals.body.category === category.slugTitle) { %>
-                                <input type="radio" name="category"  value="<%= category.slugTitle %>" checked> <%= category.title %>
-                                <% } %>
-                            <% } %>
-                            <input type="radio" name="category" value="<%= category.slugTitle %>"> <%= category.title %>
-                            </label>
+        <main>
+            <section class="header-user2">
+                <h2>Crear producto</h2>
+                <h4>Complete los siguientes campos</h4>
+            </section>
+            <form class="form" method="POST" action="/products/create" enctype="multipart/form-data">
+                <div class="form__fields">
+                    <div class="form__field">
+                        <input class="controls" type="text" placeholder="Nombre" id="name" name="name"
+                            value="<%= locals.body? locals.body.name: '' %>" required>
+                    </div>
+                    <div class="form__field">
+                        <input class="controls" type="number" placeholder="Stock" id="stock" name="stock"
+                            value="<%= locals.body? locals.body.stock: '' %>" required>
+                    </div>
+                    <div class="form__field">
+                        <input class="controls" type="number" placeholder="Precio" id="price" name="price"
+                            value="<%= locals.body? locals.body.name: '' %>" required>
+                    </div>
+                    <div class="form__field">
+                        <input class="controls" type="number" placeholder="Descuento" id="discount" name="discount"
+                            value="<%= locals.body? locals.body.discount: '' %>" required>
+                    </div>
+                    <div class="form__field">
+                        <textarea class="controls" name="description" id="description" cols="30" rows="10"
+                            placeholder="Descripción"></textarea>
+                    </div>
+                    <div class="product__img">
+                        <label for="product-img">Imagen:</label>
+                        <div class="form__field">
+                            <input type="file" name="image" id="product-img">
                         </div>
-                    <% } %>
-                </div>
+                    </div>
+                    <div class="form__field">
+                        <div class="product__categories">
+                            <p>Categorias:</p>
+                            <%for(let category of categories){ %>
+                                <div class="categories__item">
+                                    <label for="">
+                                        <% if (locals.body) { %>
+                                            <% if (locals.body.category===category.slugTitle) { %>
+                                                <input type="radio" name="category" value="<%= category.slugTitle %>"
+                                                    checked>
+                                                <%= category.title %>
+                                                    <% } %>
+                                                        <% } %>
+                                                            <input type="radio" name="category"
+                                                                value="<%= category.slugTitle %>">
+                                                            <%= category.title %>
+                                    </label>
+                                </div>
+
+                                <% } %>
+                        </div>
+                    </div>
+                
                 <input class="botons" type="submit" value="Crear producto">
             </div>
-        </form>
-    </main>
-    
-    <%- include('../partials/footer') %>
-    <% if (locals.isLogged) { %>
-        <%- include('../partials/scriptsLogged') %>
-    <% } %> 
 
+                </div>
+            </form>
+        </main>
+
+        <%- include('../partials/footer') %>
+            <% if (locals.isLogged) { %>
+                <%- include('../partials/scriptsLogged') %>
+                    <% } %>
+                    <script src="/js/createProduct.js"></script>
 </body>
+
 </html>
