@@ -3,6 +3,6 @@ const routers = express.Router()
 
 routers.use('/user', require('./userAPI'))
 
-routers.use('/product', require('./productAPI'))
+routers.use('/products', require('./productAPI'))
 
 module.exports = routers
