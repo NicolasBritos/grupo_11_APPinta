@@ -9,7 +9,7 @@ routers.use('/cart', require('./cart'))
 
 routers.use('/user', require('./user'))
 
-routers.use('/api', require('./api'))
+routers.use('/api', require('./api/index'))
 
 module.exports = routers
 
