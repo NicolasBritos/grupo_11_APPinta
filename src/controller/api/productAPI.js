@@ -1,15 +1,11 @@
 const db = require('../../database/models')
+const productService = require('../../service/productService')
 
 const productAPIController = {
 
-    getAll: async(req, res) => {
-        let productList;
-
-        await db.Product.findAll()
-            .then(products => {
-                productList = products
-            })
-        res.send(productList);
+    async getAll(req, res) {
+        const products = await productService.getAll();
+        res.send(products);
     },
 
     getById: async(req, res) => {
