@@ -17,6 +17,11 @@ module.exports = (sequelize) => {
       total: {
         type: DataTypes.DECIMAL(7, 2),
         allowNull: false,
+        defaultValue: 0
+      },
+      userId: {
+        type: DataTypes.INTEGER,
+        field: 'user_id'
       }
     }, {
       tableName: "CART",

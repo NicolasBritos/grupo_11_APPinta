@@ -1,6 +1,6 @@
 const express = require('express')
 const routers = express.Router()
-const productAPIController = require('../controller/productAPI')
+const productAPIController = require('../../controller/api/productAPI')
 
 routers.get('/', productAPIController.getAll)
 

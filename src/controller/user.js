@@ -4,6 +4,8 @@ const bcrypt = require('bcryptjs')
 const getViewPath = view => `user/${view}`
 const removeAvatar = require('../helpers/removeAvatar')
 const db = require('../database/models')
+const userService = require('../service/userService')
+const registerService = require('../service/registerService')
 const NOT_IMG = 'default-avatar.jpg';
 
 const userController = {
@@ -15,12 +17,10 @@ const userController = {
     postRegister: async (req, res) => {
         const resultValidation = validationResult(req)
         if (resultValidation.errors.length === 0) {
-            const user = { ...req.body }
-            const existente = await db.User.findOne({ where: { email: user.email } });
-            if (existente === null) {
-                user.avatar = req.file ? req.file.filename : NOT_IMG
-                user.password = bcrypt.hashSync(user.password, 10)
-                db.User.create(user)
+            const newUser = await userService.createUser({ ...req.body })
+
+            if (newUser !== null) {
+                registerService.postActions(newUser.email)
                 return res.redirect('/user/login')
             } else {
                 return res.render((getViewPath('register')), {
