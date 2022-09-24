@@ -21,18 +21,18 @@ const productService = {
         
     },
 
-    postActionsCreate(id) {
-        this.updateNumberProductsField(true, id)
+    async postActionsCreate(id) {
+        await this.updateNumberProductsField(true, id)
     },
 
-    preActionsDelete(id) {        
-        this.updateNumberProductsField(false, id)
+    async preActionsDelete(id) {        
+        await this.updateNumberProductsField(false, id)
     },
 
     async updateNumberProductsField(increase, productId) {
         const product = await this.getById(productId)
         const category = await product.getCategory()
-        categoryService.increaseNumberProduct(increase, category.id)
+        await categoryService.increaseNumberProduct(increase, category.id)
     }
 }
 

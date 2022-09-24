@@ -100,8 +100,6 @@ const productController = {
         const resultValidation = validationResult(req)
 
         if (resultValidation.errors.length === 0) {
-            console.log('\n\n POST CREATE PRODUCT')
-            console.log(req.body)
             const product = await db.Product.create({
                 name: req.body.name,
                 description: req.body.description,
