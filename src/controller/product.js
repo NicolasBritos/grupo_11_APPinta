@@ -3,6 +3,7 @@ const getViewPath = view => `products/${view}`
 const db = require('../database/models')
 const removeAvatar = require('../helpers/removeAvatar')
 const NOT_IMG = 'img-not-found.jpg'
+const productService = require('../service/productService')
 
 /** Setea los mensaje de exito o error que vienen desde los parametros 
  * GET para mostrar en las vistas
@@ -74,17 +75,13 @@ const productController = {
             .then(productsAndCategory => {
                 locals = {...getMsg(req.query), ...productsAndCategory}
             })
-        res.render(getViewPath('productView'), locals)
+        return res.render(getViewPath('productView'), locals)
     },
 
     getById: async (req, res) => {
-        let locals = {};
-
-        await db.Product.findByPk(req.params.id)
-            .then(product => {
-                locals.product = product
-            })
-        
+        let locals = {
+            product: await productService.getById(req.params.id)
+        };
         res.render(getViewPath('product'), locals)
     },
 
@@ -103,16 +100,18 @@ const productController = {
         const resultValidation = validationResult(req)
 
         if (resultValidation.errors.length === 0) {
-            await db.Product.create({
+            const product = await db.Product.create({
                 name: req.body.name,
                 description: req.body.description,
-                price: req.body.price,
-                stock: req.body.stock,
-                discount: req.body.discount,
+                price: parseFloat(req.body.price),
+                stock: parseInt(req.body.stock),
+                discount: parseInt(req.body.discount),
                 img: req.file? req.file.filename: NOT_IMG,
-                categoryId: req.body.categoryId
+                categoryId: parseInt(req.body.category)
             })
-            
+
+            await productService.postActionsCreate(product.id)
+
             return res.redirect('/products')
         }
 
@@ -165,14 +164,7 @@ const productController = {
     },
 
     remove: (req, res) => {
-        const productId = req.params.id
-
-        db.Product.destroy({
-            where: {
-                id: productId
-            }
-        })
-
+        productService.delete(req.params.id)
         return res.redirect('/products')
     }
 }

@@ -7,6 +7,7 @@ const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware')
 const methodOverride = require('method-override')
 const session = require('express-session')
 const cookies = require('cookie-parser')
+const cors = require('cors')
 const app = express()
 //const cookies = require('cookie-parser')
 
@@ -19,7 +20,7 @@ app.use(session({
 }))
 
 app.use(cookies())
-
+app.use(cors())
 
 /* MIDDLEWARE */
 app.use(express.urlencoded({extended: false}))

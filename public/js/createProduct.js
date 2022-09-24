@@ -81,12 +81,13 @@ function validatePrice() {
 function validateDiscount() {
     const discount = discountInput.value;
     const invalidMessage = "Ingrese un descuento válido.";
-    if (discount > 0 && discount < 40) {
+    if (discount > -1 && discount < 40) {
         addInvalidStyle(discountInput, false);
         addMsgOfInvalidField(discountInput, false);
         
         return true;
     }
+    discountInput.value = 0;
     addInvalidStyle(discountInput, true);
     addMsgOfInvalidField(discountInput, true, invalidMessage);
     

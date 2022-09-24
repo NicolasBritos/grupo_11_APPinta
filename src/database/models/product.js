@@ -31,8 +31,7 @@ module.exports = (sequelize) => {
       },
       discount: {
         type: DataTypes.TINYINT,
-        allowNull: false,
-        defaultValue: 0,
+        defaultValue: 0
       },
       img: {
         type: DataTypes.STRING,

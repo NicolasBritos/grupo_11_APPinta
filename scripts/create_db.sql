@@ -17,6 +17,7 @@ create table CATEGORY (
     id INT AUTO_INCREMENT,
     title VARCHAR (50),
     img VARCHAR(255),
+    number_products INT DEFAULT 0 NOT NULL,
     created_at DATETIME,
     updated_at DATETIME,
     PRIMARY KEY (id)
