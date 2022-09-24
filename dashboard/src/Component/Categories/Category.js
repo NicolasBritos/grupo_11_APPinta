@@ -12,7 +12,7 @@ function Category(props) {
                 </div>
                 <div className="category-item-body">
                     <p className="title">{props.category.title}</p>
-                    <p className="products">{props.category.title}</p>
+                    <p className="products">{props.category.numberProducts} Productos</p>
                 </div>
             </div>
         </div>
