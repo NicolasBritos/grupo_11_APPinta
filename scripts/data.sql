@@ -7,27 +7,28 @@ insert into user (id, name, surname, email, birth_date, password, role, avatar, 
 values (null, "Alejandro", "Soares", "alesoares@gmail.com","1994-12-01","$2a$10$Wt.H2RIwWKjL1tpYw/IMAuUsVwQ08//4m.5ZtMJWgFerEHwqvKsDW",2,"1658443651118.jpg",NOW(),null);
 
 -- ------------------------------CATEGORY---------------------------------------------
-insert into category (id, title, img, created_at,updated_at)
-values (null, "Cervezas","/img/categories/cervezas.jpg",NOW(),null);
+insert into category (id, title, img, number_products, created_at, updated_at)
+values (null, "Cervezas","/img/categories/cervezas.jpg", 5, NOW(),null);
 
-insert into category (id, title, img, created_at,updated_at)
-values (null, "Pizzas","/img/categories/pizzas.jpeg", NOW(),null);
+insert into category (id, title, img, number_products, created_at, updated_at)
+values (null, "Pizzas","/img/categories/pizzas.jpeg", 3, NOW(),null);
 
-insert into category (id, title, img, created_at,updated_at)
-values (null, "Picadas","/img/categories/picadas.webp", NOW(),null);
+insert into category (id, title, img, number_products, created_at, updated_at)
+values (null, "Picadas","/img/categories/picadas.webp", 2, NOW(),null);
 
-insert into category (id, title, img, created_at,updated_at)
-values (null, "Vinos","/img/categories/vinos.jpg", NOW(),null);
+insert into category (id, title, img, number_products, created_at, updated_at)
+values (null, "Vinos","/img/categories/vinos.jpg", 2, NOW(),null);
 
-insert into category (id, title, img, created_at,updated_at)
-values (null, "Jugos", "/img/categories/jugos.webp",NOW(),null);
+insert into category (id, title, img, number_products, created_at,updated_at)
+values (null, "Jugos", "/img/categories/jugos.webp", 5, NOW(),null);
 
-insert into category (id, title, img, created_at,updated_at)
-values (null, "Pollos","/img/categories/pollo.jpg", NOW(),null);
+insert into category (id, title, img, number_products, created_at,updated_at)
+values (null, "Pollos","/img/categories/pollo.jpg", 1, NOW(),null);
 
 ----------------------------PRODUCT----------------------------------------------
 insert into product (id, category_id, name, description, price, stock, qr_code, discount, img, created_at, updated_at)
 values (null, 1,"Cerveza Patagonia","Cerveza ISIDRA",430,50,null,null,"PackIsidrax24Latas473ml.webp",NOW(),null);
+
 insert into product (id, category_id, name, description, price, stock, qr_code, discount, img, created_at, updated_at)
 values (null, 1,"Cerveza Patagonia","Cerveza abrazo de oso",450,50,null,null,"CervezaPatagoniaAbrazodeOsoLata473ml.webp",NOW(),null);
 
