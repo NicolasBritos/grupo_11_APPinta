@@ -37,7 +37,7 @@
                     </div>
                     <div class="form__field">
                         <input class="controls" type="number" placeholder="Descuento" id="discount" name="discount"
-                            value="<%= locals.body? locals.body.discount: '' %>" required>
+                            value="<%= locals.body? locals.body.discount: '' %>">
                     </div>
                     <div class="form__field">
                         <textarea class="controls" name="description" id="description" cols="30" rows="10"
@@ -57,14 +57,12 @@
                                     <label for="">
                                         <% if (locals.body) { %>
                                             <% if (locals.body.category===category.slugTitle) { %>
-                                                <input type="radio" name="category" value="<%= category.slugTitle %>"
-                                                    checked>
+                                                <input type="radio" name="category" value="<%= category.id %>" checked>
                                                 <%= category.title %>
-                                                    <% } %>
-                                                        <% } %>
-                                                            <input type="radio" name="category"
-                                                                value="<%= category.slugTitle %>">
-                                                            <%= category.title %>
+                                            <% } %>
+                                        <% } %>
+                                        
+                                        <input type="radio" name="category" value="<%= category.id %>"> <%= category.title %>
                                     </label>
                                 </div>
 
