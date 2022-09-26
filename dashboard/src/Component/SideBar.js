@@ -20,19 +20,19 @@ function SideBar() {
             <li className="nav-item active"></li>
 
             <li className="nav-item active">
-            <Link className="nav-link custom-link" to="/detail">
+            <Link className="nav-link custom-link" to="/products">
                 <span>Productos</span>
             </Link>
             </li>
 
             <li className="nav-item">
-            <Link className="nav-link custom-link" to="/genres">
+            <Link className="nav-link custom-link" to="/categories">
                 <span>Categorias</span>
             </Link>
             </li>
 
             <li className="nav-item">
-            <Link className="nav-link custom-link" to="/last-movie">
+            <Link className="nav-link custom-link" to="/users">
                 <span>Usuarios</span>
             </Link>
             </li>

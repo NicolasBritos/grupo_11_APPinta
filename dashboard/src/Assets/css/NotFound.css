@@ -1,0 +1,10 @@
+.NotFound img {
+    display: block;
+}
+
+.NotFound a {
+    display: block;
+    width: 100%;
+    margin-top: 12px;
+    text-align: center;
+}

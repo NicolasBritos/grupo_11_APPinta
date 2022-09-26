@@ -2,9 +2,10 @@ import { useEffect, useState } from 'react';
 import '../../Assets/css/Categories.css';
 import Category from './Category.js';
 import Request from '../../Utils/Request.js';
+import { CORE_URL } from '../../Constants/Urls.js';
 
-function Categories() { 
-    const url = 'http://localhost:3000/api/categories';
+function Categories() {
+    const url = CORE_URL + '/api/categories';
     let [stateCategories, setCategories] = useState([]);
 
     const loadCategories = async () => {
