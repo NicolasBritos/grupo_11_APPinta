@@ -29,6 +29,11 @@
     color: rgba(0,0,0,0.7);
 }
 
+.Header-account p {
+    margin-bottom: 0;
+    
+}
+
 .Header-account p:hover {
     color: rgba(0,0,0,1);
 }
