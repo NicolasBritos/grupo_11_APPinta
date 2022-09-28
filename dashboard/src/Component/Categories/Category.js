@@ -14,6 +14,10 @@ function Category(props) {
                     <p className="title">{props.category.title}</p>
                     <p className="products">{props.category.numberProducts} Productos</p>
                 </div>
+                <div className="options">
+                    <i class="bi bi-pencil-square edit-icon"></i>
+                    <i class="bi bi-trash3 delete-icon"></i>
+                </div>
             </div>
         </div>
     )

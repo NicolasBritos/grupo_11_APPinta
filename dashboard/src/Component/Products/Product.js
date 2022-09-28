@@ -15,6 +15,10 @@ function Product(props) {
                     <p className="name">Precio: {props.product.price}</p>
                     <p className="name">Stock: {props.product.stock}</p>
                 </div>
+                <div className="options">
+                    <i class="bi bi-pencil-square edit-icon"></i>
+                    <i class="bi bi-trash3 delete-icon"></i>
+                </div>
             </div>
         </div>
     )
