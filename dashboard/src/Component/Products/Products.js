@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import '../../Assets/css/Products.css';
 import Product from './Product.js';
 import Request from '../../Utils/Request.js';
-import Categories from '../Categories/Categories';
 
 function Products() { 
     const url = 'http://localhost:3000/api/products';
