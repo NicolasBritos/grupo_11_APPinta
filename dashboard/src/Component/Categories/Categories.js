@@ -6,7 +6,7 @@ import { CORE_URL } from '../../Constants/Urls.js';
 
 function Categories() {
     const url = CORE_URL + '/api/categories';
-    let [stateCategories, setCategories] = useState([]);
+    const [stateCategories, setCategories] = useState([]);
 
     const loadCategories = async () => {
         Request(url, setCategories);

@@ -1,7 +1,9 @@
 import '../Assets/css/Home.css';
 import { Link } from 'react-router-dom';
+import Payments from './Payments/Payments';
 
 function Home() {
+
     return (
       <div className="Home row">
             <div className="Home-header col-12 d-flex justify-content-start">
@@ -15,71 +17,7 @@ function Home() {
                                 <h4>Pagos</h4>
                             </div>
                         </div>
-                        <div className="row card-body">
-                            <div className="col-12">
-
-                                <div className="row item">
-                                    <div className="item-icon col-5 name">
-                                        <span className="text-muted">Carla Diaz</span>
-                                    </div>
-                                    <div className="item-title col-5 date">
-                                        <span className="text-muted">Martes 30 18:50</span>
-                                    </div>
-                                    <div className="item-title col-2 price">
-                                        <span className="text-success">$ 3000</span>
-                                    </div>
-                                </div>
-
-                                <div className="row item">
-                                    <div className="item-icon col-5 name">
-                                        <span className="text-muted">Nicolas Britos</span>
-                                    </div>
-                                    <div className="item-title col-5 date">
-                                        <span className="text-muted">Martes 30 19:30</span>
-                                    </div>
-                                    <div className="item-title col-2 price">
-                                        <span className="text-success">$ 350</span>
-                                    </div>
-                                </div>
-
-                                <div className="row item">
-                                    <div className="item-icon col-5 name">
-                                        <span className="text-muted">Alejandro Soares</span>
-                                    </div>
-                                    <div className="item-title col-5 date">
-                                        <span className="text-muted">Miércoles 30 10:05</span>
-                                    </div>
-                                    <div className="item-title col-2 price">
-                                        <span className="text-success">$ 250</span>
-                                    </div>
-                                </div>
-
-                                <div className="row item">
-                                    <div className="item-icon col-5 name">
-                                        <span className="text-muted">Francisco Gianotti</span>
-                                    </div>
-                                    <div className="item-title col-5 date">
-                                        <span className="text-muted">Miércoles 30 11:25</span>
-                                    </div>
-                                    <div className="item-title col-2 price">
-                                        <span className="text-success">$ 3000</span>
-                                    </div>
-                                </div>
-
-                                <div className="row item">
-                                    <div className="item-icon col-5 name">
-                                        <span className="text-muted">John Doe</span>
-                                    </div>
-                                    <div className="item-title col-5 date">
-                                        <span className="text-muted">Miércoles 30 11:26</span>
-                                    </div>
-                                    <div className="item-title col-2 price">
-                                        <span className="text-success">$ 2950</span>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                        </div>
+                        <Payments />
                     </div>
 
                     <div className="col-12 col-md-4">
