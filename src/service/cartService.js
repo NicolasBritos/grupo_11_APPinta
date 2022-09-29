@@ -13,7 +13,12 @@ const cartService = {
 
     async getUserCart(userId) {
         const cart = await db.Cart.findOne({
-            where: { userId }
+            where: { userId },
+            include: {
+                model: db.Product,
+                as: 'products'
+            }
+
         })
         return cart;
     }

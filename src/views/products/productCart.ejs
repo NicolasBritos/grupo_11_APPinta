@@ -13,7 +13,7 @@
 <body>
 
     <%- include('../partials/header') %>
-    
+
     <main class="main">
         <!--Inicio Main-->
         <section class="section-selected">
@@ -24,76 +24,25 @@
                 <span class="title-icon"><button><i class="bi bi-trash3-fill"></i></button></span>
                 <span class="title-icon"><button><i class="bi bi-arrow-left-circle"></i></button></span>
             </div>
-            <article class="article-selected">
-                <img src="/img/products/pizza-huevo.jpg">
-                <div class="article-description">
-                    <h4>Pizza con huevo (8 porciones)</h4>
-                    <h5>$1100.00</h5>
-                </div>
-                <div class="buttons-carry">
-                    <button><i class="bi bi-plus-square-fill"></i></button>
-                    <input readonly="readonly" value="1">
-                    <button><i class="bi bi-dash-square-fill"></i></button>
-                    <div class="delete-button"><button><i class="bi bi-trash3-fill"></i></button></div>
-                </div>
 
-            </article>
-            <article class="article-selected">
-                <img src="/img/products/papa-classic.jpg">
-                <div class="article-description">
-                    <h4>Papas clásicas (Salsa de ajo)</h4>
-                    <h5>$550.00</h5>
-                </div>
-                <div class="buttons-carry">
-                    <button><i class="bi bi-plus-square-fill"></i></button>
-                    <input readonly="readonly" value="1">
-                    <button><i class="bi bi-dash-square-fill"></i></button>
-                    <div class="delete-button"><button><i class="bi bi-trash3-fill"></i></button></div>
-                </div>
-
-            </article>
-            <article class="article-selected">
-                <img src="/img/products/24CervezasPatagoniaWeisseLta410ml.webp">
-                <div class="article-description">
-                    <h4>Cerveza Patagonia Weisse</h4>
-                    <h5>$240.00</h5>
-                </div>
-                <div class="buttons-carry">
-                    <button><i class="bi bi-plus-square-fill"></i></button>
-                    <input readonly="readonly" value="2">
-                    <button><i class="bi bi-dash-square-fill"></i></button>
-                    <div class="delete-button"><button><i class="bi bi-trash3-fill"></i></button></div>
-                </div>
-            </article>
-            <article class="article-selected">
-                <img src="/img/products/CervezaPatagoniaAbrazodeOsoLata473ml.webp">
-                <div class="article-description">
-                    <h4>Cerveza Abrazo de Oso</h4>
-                    <h5>$290.00</h5>
-                </div>
-                <div class="buttons-carry">
-                    <button><i class="bi bi-plus-square-fill"></i></button>
-                    <input readonly="readonly" value="2">
-                    <button><i class="bi bi-dash-square-fill"></i></button>
-                    <div class="delete-button"><button><i class="bi bi-trash3-fill"></i></button></div>
-                </div>
-            </article>
-            <article class="article-selected">
-                <img src="/img/products/pizza-rucula.jpg">
-                <div class="article-description">
-                    <h4>Pizza con rúcula (4 porciones)</h4>
-                    <h5>$650.00</h5>
-                </div>
-                <div class="buttons-carry">
-                    <button><i class="bi bi-plus-square-fill"></i></button>
-                    <input readonly="readonly" value="1">
-                    <button><i class="bi bi-dash-square-fill"></i></button>
-                    <div class="delete-button"><button><i class="bi bi-trash3-fill"></i></button></div>
-                </div>
-            </article>
+            <% for(product of cart.products) { %>
+                <article class="article-selected">
+                    <img src="/img/products/<%= product.img %>">
+                    <div class="article-description">
+                        <h4><%= product.name %></h4>
+                        <h5>$ <%= product.price %></h5>
+                    </div>
+                    <div class="buttons-carry">
+                        <button><i class="bi bi-plus-square-fill"></i></button>
+                        <input readonly="readonly" value="1">
+                        <button><i class="bi bi-dash-square-fill"></i></button>
+                        <div class="delete-button"><button><i class="bi bi-trash3-fill"></i></button></div>
+                    </div>
+                </article>
+            <% } %>
 
             <div class="div-payment">
-                <h4>Total: $2.830.00</h4>
+                <h4>Total: $ <%= cart.total %></h4>
             </div>
         </section>
     </main>
