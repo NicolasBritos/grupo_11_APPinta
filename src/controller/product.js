@@ -159,12 +159,10 @@ const productController = {
         const successMessage = 'El producto ha sido actualizado.'
         const encodedMsg = encodeURIComponent(successMessage)
         res.redirect(`/products?successMsg=${encodedMsg}`)
-        
-
     },
 
-    remove: (req, res) => {
-        productService.delete(req.params.id)
+    remove: async (req, res) => {
+        await productService.delete(req.params.id)
         return res.redirect('/products')
     }
 }
