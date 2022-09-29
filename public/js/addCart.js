@@ -1,0 +1,5 @@
+
+agregarAlCarrito (idProduct){
+
+
+};
