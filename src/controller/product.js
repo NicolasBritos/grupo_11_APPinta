@@ -159,8 +159,6 @@ const productController = {
         const successMessage = 'El producto ha sido actualizado.'
         const encodedMsg = encodeURIComponent(successMessage)
         res.redirect(`/products?successMsg=${encodedMsg}`)
-        
-
     },
 
     remove: (req, res) => {
