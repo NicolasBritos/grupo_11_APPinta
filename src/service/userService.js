@@ -1,5 +1,6 @@
 const db = require('../database/models')
-const bcrypt = require('bcryptjs')
+const bcrypt = require('bcryptjs');
+const cartService = require('./cartService');
 const NOT_IMG = 'default-avatar.jpg';
 
 const userService = {
@@ -32,7 +33,22 @@ const userService = {
             order: [ [ 'created_at', 'DESC' ] ]
         });
         return { last }
+    },
+
+    async delete(id) {
+        await this.preActionDelete(id);
+        await db.User.destroy({
+            where: { id }
+        })
+    },
+
+    async preActionDelete(id){
+        const cart = await  cartService.getUserCart(id);
+       if (cart) {
+        await cartService.deleteCart(cart.id);
     }
+}
+
 
 }
 

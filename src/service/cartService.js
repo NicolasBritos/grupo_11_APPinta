@@ -16,7 +16,14 @@ const cartService = {
             where: { userId }
         })
         return cart;
+    },
+
+    async deleteCart(id) {
+        await db.Cart.destroy({
+            where: { id }
+        });
     }
+
 }
 
 module.exports = cartService;

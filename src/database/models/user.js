@@ -52,8 +52,8 @@ module.exports = (sequelize) => {
     model.hasOne(models.Cart, {
       as: "cart",
       foreignKey: "user_id",
-      onDelete: 'CASCADE',
-      onUpdate: 'CASCADE' // Que vendria a ser onUpdate
+      onDelete: 'cascade',
+      onUpdate: 'cascade' // Que vendria a ser onUpdate
     })
 
     model.hasMany(models.Purchase, {

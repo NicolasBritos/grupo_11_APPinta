@@ -23,7 +23,7 @@ routers.put('/edit', authMiddleware, uploadAvatarMiddleware.single('avatar'), va
 
 routers.get('/logout', authMiddleware, userController.logout)
 
-routers.delete('/delete', authMiddleware, userController.delete)
+routers.delete('/:id/delete', authMiddleware, userController.delete)
 
 routers.delete('/:id/admin-delete', authMiddleware, userController.adminDelete)
 

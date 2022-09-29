@@ -163,3 +163,8 @@
     color: var(--green-action);
 }
 
+.beer {
+    width:25px;
+    height:25px;
+}
+
