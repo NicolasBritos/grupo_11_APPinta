@@ -32,7 +32,7 @@ module.exports = (sequelize) => {
   model.associate = (models) => {
     model.belongsTo(models.User, {
       as: "user",
-      foreignKey: 'user_id'
+      foreignKey: 'user_id',
     })
 
     model.belongsToMany(models.Product, {

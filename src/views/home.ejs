@@ -16,6 +16,11 @@
     <%- include('./partials/header') %>
 
     <main>
+        <% if (locals.msg) { %>
+            <section class="messages msg-<%= msg.type %>">
+                <p><%= msg.message %></p>
+            </section>
+        <% } %> 
         <section class="header-user">
                 <% if (locals.isLogged) { %>
                     <h2>Hola <%= locals.userLogged.name %></h2>

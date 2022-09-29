@@ -165,7 +165,11 @@ const productController = {
 
     remove: (req, res) => {
         productService.delete(req.params.id)
-        return res.redirect('/products')
+
+        const successMessage = 'El producto ha sido eliminado.'
+        const encodedMsg = encodeURIComponent(successMessage)
+        res.redirect(`/products?successMsg=${encodedMsg}`)
+       
     }
 }
 
