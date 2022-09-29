@@ -75,7 +75,9 @@ const productController = {
             .then(productsAndCategory => {
                 locals = {...getMsg(req.query), ...productsAndCategory}
             })
+        locals.productsAll = await db.Product.findAll()
         return res.render(getViewPath('productView'), locals)
+        
     },
 
     getById: async (req, res) => {
