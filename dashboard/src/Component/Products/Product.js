@@ -21,7 +21,7 @@ function Product(props) {
                     <i className="bi bi-trash3 delete-icon"></i>
                 </div>
                 <div className="category">
-                    <span className="bage-category">{props.product.category.title}</span>
+                        <span className="bage-category" data-category-id={props.product.category.id}>{props.product.category.title}</span>
                 </div>
             </div>
         </div>
