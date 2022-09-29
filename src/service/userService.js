@@ -20,6 +20,18 @@ const userService = {
     async getByEmail(email) {
         const user = await db.User.findOne({ where: { email } });
         return user;
+    },
+
+    async getCount() {
+        const count = await db.User.count();
+        return { count }
+    },
+
+    async getLastCreated() {
+        const last = await db.User.findOne({
+            order: [ [ 'created_at', 'DESC' ] ]
+        });
+        return { last }
     }
 
 }

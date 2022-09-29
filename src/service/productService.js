@@ -47,6 +47,18 @@ const productService = {
         const product = await this.getById(productId)
         const category = await product.getCategory()
         await categoryService.increaseNumberProduct(increase, category.id)
+    },
+
+    async getCount() {
+        const count = await db.Product.count();
+        return { count }
+    },
+
+    async getLastCreated() {
+        const last = await db.Product.findOne({
+            order: [ [ 'created_at', 'DESC' ] ]
+        });
+        return { last }
     }
 }
 
