@@ -15,8 +15,8 @@ function User(props) {
                     <p className="products">    {props.user.email}</p>
                 </div>
                 <div className="options">
-                    <i class="bi bi-pencil-square edit-icon"></i>
-                    <i class="bi bi-trash3 delete-icon"></i>
+                    <i className="bi bi-pencil-square edit-icon"></i>
+                    <i className="bi bi-trash3 delete-icon"></i>
                 </div>
             </div>
         </div>

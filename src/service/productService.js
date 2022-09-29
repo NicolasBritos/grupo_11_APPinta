@@ -4,7 +4,21 @@ const categoryService = require('./categoryService')
 const productService = {
 
     async getAll() {
-        const products = await db.Product.findAll()
+        const products = await db.Product.findAll({
+            include: db.Category
+        })
+        return products
+    },
+
+    async getAllByPagination(start, size) {
+        const products = await db.Product.findAll({
+            offset: start,
+            limit: size,
+            include: {
+                model: db.Category,
+                as: 'category'
+            }
+        })
         return products
     },
 

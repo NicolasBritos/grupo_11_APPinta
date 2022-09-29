@@ -14,10 +14,14 @@ function Product(props) {
                     <p className="name">Nombre: {props.product.name}</p>
                     <p className="name">Precio: {props.product.price}</p>
                     <p className="name">Stock: {props.product.stock}</p>
+                    
                 </div>
                 <div className="options">
-                    <i class="bi bi-pencil-square edit-icon"></i>
-                    <i class="bi bi-trash3 delete-icon"></i>
+                    <i className="bi bi-pencil-square edit-icon"></i>
+                    <i className="bi bi-trash3 delete-icon"></i>
+                </div>
+                <div className="category">
+                    <span className="bage-category">{props.product.category.title}</span>
                 </div>
             </div>
         </div>
