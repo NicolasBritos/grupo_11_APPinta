@@ -1,7 +1,47 @@
 .App {
   background-color: #e7e7e7;
-  height: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: row;
 }
 
+*:focus {
+  border: none;
+  outline: none;
+}
+
+/* Items de la lista */
+.item-wrapper {
+  background-color: white;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin: 2px;
+  display: flex;
+  position: relative;
+}
+
+.options {
+  position: absolute;
+  right: -2px;
+  top: 2px;
+  width: 32px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.options i {
+  display: inline-block;
+  font-size: 18px;
+  color: #6c757d !important;
+}
+
+.edit-icon:hover {
+  color: #007bff !important;
+}
+
+.delete-icon:hover {
+  color:   #dc3545 !important;
+}

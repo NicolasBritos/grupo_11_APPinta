@@ -57,6 +57,21 @@
     margin-left: 5px;
 }
 
-.opt:hover span {
+.opt:hover div.opt-title span {
     font-weight: bold;
+}
+
+.opt-info {
+    line-height: 16px;
+}
+.last-created {
+    font-size: 14px;
+    color: #6c757d !important;
+}
+
+.title-count {
+    font-size: 14px;
+    color: #6c757d !important;
+    display: inline-block;
+    margin-left: 4px ;  
 }

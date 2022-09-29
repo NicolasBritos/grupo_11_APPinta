@@ -18,6 +18,18 @@ const categoryService = {
             { numberProducts: increase? 1: -1 },
             { where : { id }}
         )
+    },
+
+    async getCount() {
+        const count = await db.Category.count();
+        return { count }
+    },
+
+    async getLastCreated() {
+        const last = await db.Category.findOne({
+            order: [ [ 'created_at', 'DESC' ] ]
+        });
+        return { last }
     }
 }
 

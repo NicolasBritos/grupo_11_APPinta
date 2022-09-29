@@ -17,6 +17,7 @@
     border: 1px solid rgba(0, 0, 0, 0.1);
     margin: 2px;
     display: flex;
+    height: 58px;
 }
 
 .user-item-img {
