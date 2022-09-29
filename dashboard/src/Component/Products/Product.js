@@ -1,40 +1,11 @@
 import  { CORE_URL }  from '../../Constants/Urls.js';
-import { STATUS } from '../../Constants/Status.js';
-import Request from '../../Utils/Request.js';
 
 function Product(props) {
 
     const urlImg = CORE_URL + "/img/products/" + props.product.img;
     
-    const cbDelete = (data) => {
- 
-        if (data.status === STATUS.SUCCESS) {
-            const id = data.object.id;
-            const divItem = document.querySelector('[data-id="' + id + '"]');
-            divItem.setAttribute('style', 'display: none;');
-
-        }
-    }
-
     const deleteItem = (e) => {
-        const confirmation = window.confirm('Are you sure you want to delete this product?');
-
-        if (confirmation) {
-            const divItem = e.target.closest('.product-item');
-            const idItem = divItem.getAttribute('data-id');
-            const urlDelete = CORE_URL + '/api/products/' + idItem;
-            const options = {
-                method: 'DELETE',
-                mode: 'cors',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                    'Access-Control-Request-Method': 'DELETE'
-                }
-            }
-
-            Request(urlDelete, cbDelete, options);
-        }
+        alert('Funcionalidad a implementar');
     }
 
     const editItem = (e) => { 
