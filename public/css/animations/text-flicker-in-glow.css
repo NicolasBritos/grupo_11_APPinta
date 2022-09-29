@@ -184,14 +184,7 @@
       opacity: 0;
       text-shadow: none;
     }
-    45% {
-      opacity: 0;
-      text-shadow: none;
-    }
-    45.1% {
-      opacity: 1;
-      text-shadow: 0 0 30px rgba(255, 255, 255, 0.45), 0 0 60px rgba(255, 255, 255, 0.25);
-    }
+    
     50% {
       opacity: 1;
       text-shadow: 0 0 30px rgba(255, 255, 255, 0.45), 0 0 60px rgba(255, 255, 255, 0.25);
@@ -232,37 +225,13 @@
       opacity: 1;
       text-shadow: 0 0 30px rgba(255, 255, 255, 0.55), 0 0 60px rgba(255, 255, 255, 0.35), 0 0 100px rgba(255, 255, 255, 0.1);
     }
-    75.1% {
-      opacity: 0;
-      text-shadow: none;
-    }
-    77% {
-      opacity: 0;
-      text-shadow: none;
-    }
-    77.1% {
+       85% {
       opacity: 1;
       text-shadow: 0 0 30px rgba(255, 255, 255, 0.55), 0 0 60px rgba(255, 255, 255, 0.4), 0 0 110px rgba(255, 255, 255, 0.2), 0 0 100px rgba(255, 255, 255, 0.1);
     }
-    85% {
+      100% {
       opacity: 1;
-      text-shadow: 0 0 30px rgba(255, 255, 255, 0.55), 0 0 60px rgba(255, 255, 255, 0.4), 0 0 110px rgba(255, 255, 255, 0.2), 0 0 100px rgba(255, 255, 255, 0.1);
-    }
-    85.1% {
-      opacity: 0;
-      text-shadow: none;
-    }
-    86% {
-      opacity: 0;
-      text-shadow: none;
-    }
-    86.1% {
-      opacity: 1;
-      text-shadow: 0 0 30px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 255, 255, 0.45), 0 0 110px rgba(255, 255, 255, 0.25), 0 0 100px rgba(255, 255, 255, 0.1);
-    }
-    100% {
-      opacity: 1;
-      text-shadow: 0 0 30px rgba(202, 12, 12, 0.6), 0 0 60px rgba(221, 21, 21, 0.45), 0 0 110px rgba(33, 228, 49, 0.25), 0 0 100px rgba(98, 230, 36, 0.1);
+      text-shadow: 0 0 30px rgba(247, 247, 34, 0.8), 0 0 60px rgba(247, 247, 34, 0.8), 0 0 110px rgba(33, 228, 49, 0.25), 0 0 100px rgba(98, 230, 36, 0.1);
     }
   }
   

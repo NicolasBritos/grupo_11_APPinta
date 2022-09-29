@@ -90,7 +90,7 @@
                 <input class="botons" type="submit" value="Actualizar">
             </form><nav></nav>
 
-            <form action="/user/delete?_method=DELETE" method="POST" class="form-delete-account" id="form-delete">
+            <form action="/user/<%= user.id %>/delete?_method=DELETE" method="POST" class="form-delete-account" id="form-delete">
                 <button type="submit">Eliminar mi cuenta</button>
             </form>
         </main>

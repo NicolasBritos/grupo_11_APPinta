@@ -161,9 +161,13 @@ const productController = {
         res.redirect(`/products?successMsg=${encodedMsg}`)
     },
 
-    remove: async (req, res) => {
-        await productService.delete(req.params.id)
-        return res.redirect('/products')
+    remove: (req, res) => {
+        productService.delete(req.params.id)
+
+        const successMessage = 'El producto ha sido eliminado.'
+        const encodedMsg = encodeURIComponent(successMessage)
+        res.redirect(`/products?successMsg=${encodedMsg}`)
+       
     }
 }
 

@@ -124,17 +124,13 @@ const userController = {
         });
     },
 
-    delete: (req, res) => {
-        const user = req.session.userLogged
-        db.User.destroy({
-            where: {
-                id: user.id
-            }
-        })
-        const response =db.User.destroy({
-            where: {id: user.id}
-        });
-        return res.redirect('/user/logout');
+    delete: async (req, res) => {
+       await userService.delete(req.params.id)
+       await req.session.destroy()
+        const successMessage = 'El usuario ha sido eliminado.'
+        const encodedMsg = encodeURIComponent(successMessage)
+        return res.redirect(`/?successMsg=${encodedMsg}`)
+       
     },
 
     adminDelete: (req, res) => {

@@ -1,7 +1,29 @@
 const db = require('../database/models')
 
+const getMsg = (query) => {
+    const errMsg = query.errorMsg;
+    const succesMsg = query.successMsg;
+    let msg = null 
+
+    if (errMsg) {
+        msg = {
+            message: decodeURIComponent(errMsg),
+            type: 'error'
+        }
+    } 
+
+    if (succesMsg) {
+        msg = {
+            message: decodeURIComponent(succesMsg),
+            type: 'success'
+        }
+    }
+
+    return {msg}
+}
+
 const homeController = {
-    
+        
     home: async (req, res) => {
         const locals = {}
 
@@ -17,8 +39,8 @@ const homeController = {
             locals.userLogged = null
             locals.isLogged = false
         }
-
-        res.render('home', locals)
+       Object.assign(locals, {...getMsg(req.query)});
+       return res.render('home', locals)
     }
 }
 

@@ -6,6 +6,19 @@ DELETE FROM PRODUCT WHERE ID > 0;
 insert into user (id, name, surname, email, birth_date, password, role, avatar, created_at,updated_at)
 values (null, "Alejandro", "Soares", "alesoares@gmail.com","1994-12-01","$2a$10$Wt.H2RIwWKjL1tpYw/IMAuUsVwQ08//4m.5ZtMJWgFerEHwqvKsDW",2,"1660861274305.jpg",NOW(),null);
 
+insert into user (id, name, surname, email, birth_date, password, role, avatar, created_at,updated_at)
+values (null, "Jackie", "Chan", "jackie@gmail.com","1972-10-04","$2a$10$4/G3PmmKgGLNVGJFQKo.g.2s35PDGoDLz5kD5xXwCLkVSiNTf32Fy",2,"1664462124371.png",NOW(),null);
+
+insert into user (id, name, surname, email, birth_date, password, role, avatar, created_at,updated_at)
+values (null, "Nicolas", "Britos", "nico@gmail.com","1996-03-01","$2a$10$KXFClATBgvDii.nzjsYgJ.UY3VqQgA2sHW4u.n3UphcTeZyPJuTFS",2,".jpg",NOW(),null);
+
+insert into user (id, name, surname, email, birth_date, password, role, avatar, created_at,updated_at)
+values (null, "Shrek", "Tercero", "shrek@gmail.com","1984-05-03","$2a$10$e11SFBq6//M.pRkz5M1EZO5ViIn8g7KOuRc5ItaCRYpnTGee3z9qq",2,"1664458411170.jpg",NOW(),null);
+
+insert into user (id, name, surname, email, birth_date, password, role, avatar, created_at,updated_at)
+values (null, "Maestro", "Roshi", "roshi@gmail.com","1900-01-01","$10$qrdkkROVuEm.k4tXAXZwduwYB.YZYb3dDqCZciNIrbTZVSgT0lgeK",2,"48155.jpg",NOW(),null);
+
+
 -- ------------------------------CATEGORY---------------------------------------------
 insert into category (id, title, img, number_products, created_at, updated_at)
 values (null, "Cervezas","/img/categories/cervezas.jpg", 5, NOW(),null);
