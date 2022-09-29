@@ -1,8 +1,8 @@
-const Request = async (url, cbSuccess, cbError = null) => {
-    await fetch(url)
+const Request = async (url, cb, opt = {}) => {
+    await fetch(url, opt)
       .then(response => response.json())
       .then(data => {
-        cbSuccess(data);
+        cb(data);
       });
 }
 

@@ -9,7 +9,6 @@ const session = require('express-session')
 const cookies = require('cookie-parser')
 const cors = require('cors')
 const app = express()
-//const cookies = require('cookie-parser')
 
 
 /* SESSION AND COOKIES */
@@ -20,7 +19,13 @@ app.use(session({
 }))
 
 app.use(cookies())
-app.use(cors())
+
+
+/* CORS */
+const corsOptions = {
+    allowedHeaders: ['Content-Type', 'Authorization', 'Access-Control-Request-Method']
+  };
+app.use(cors(corsOptions))
 
 /* MIDDLEWARE */
 app.use(express.urlencoded({extended: false}))

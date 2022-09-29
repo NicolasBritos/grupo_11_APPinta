@@ -1,3 +1,4 @@
+const { response } = require('express');
 const db = require('../../database/models');
 const { getAllByPagination } = require('../../service/productService');
 const productService = require('../../service/productService')
@@ -18,9 +19,19 @@ const productAPIController = {
         res.send(products)
     },
 
-    getById: async(req, res) => {
+    async getById(req, res) {
         let productDetail = await productService.getById(req.params.id)
         res.send(productDetail)
+    },
+
+    async delete(req, res) {
+        const id = req.params.id
+        console.log(id)
+        const response = {
+            status: 'OK',
+            object: { id }
+        }
+        res.send(response)
     }
 }
 

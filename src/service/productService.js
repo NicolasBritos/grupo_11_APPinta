@@ -32,7 +32,6 @@ const productService = {
         await db.Product.destroy({
             where: { id }
         })
-        
     },
 
     async postActionsCreate(id) {
