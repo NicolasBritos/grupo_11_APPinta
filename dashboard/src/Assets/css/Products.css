@@ -141,3 +141,14 @@ span[data-category-id="5"] {
     background-color: #d6d8d9;
     border-color: #c6c8ca;
 }
+
+
+.price {
+    color: #155724;
+    font-size: 14;
+}
+
+.stock {
+    font-size: 14;
+    color: #6c757d !important; 
+}

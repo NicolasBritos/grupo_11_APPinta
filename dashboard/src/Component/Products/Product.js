@@ -11,9 +11,9 @@ function Product(props) {
                     <img src={urlImg} />
                 </div>
                 <div className="product-item-body">
-                    <p className="name">Nombre: {props.product.name}</p>
-                    <p className="name">Precio: {props.product.price}</p>
-                    <p className="name">Stock: {props.product.stock}</p>
+                    <p className="name">{props.product.name}</p>
+                    <p className="price">$ {props.product.price}</p>
+                    <p className="stock">Stock: {props.product.stock}</p>
                     
                 </div>
                 <div className="options">
