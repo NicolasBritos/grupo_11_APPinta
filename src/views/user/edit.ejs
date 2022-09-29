@@ -86,9 +86,9 @@
                 <input class="controls field-disabled" type="email" name="email" id="email" placeholder="Ingrese su Correo" 
                 value ="<%= user.email %>" readonly disabled>
                 
-                <a class="Login" href="">Cambiar contraseña</a>
+                <a class="Login" href="" onclick=funcionalidadAImplementar()>Cambiar contraseña</a>
                 <input class="botons" type="submit" value="Actualizar">
-            </form>
+            </form><nav></nav>
 
             <form action="/user/delete?_method=DELETE" method="POST" class="form-delete-account" id="form-delete">
                 <button type="submit">Eliminar mi cuenta</button>
@@ -98,6 +98,12 @@
         <%- include('../partials/footer') %>
         <script src="/js/imageField.js"></script>
         <script src="/js/editUser.js"></script>
+
+        <script>
+            function funcionalidadAImplementar() {
+                confirm('Funcionalidad a implementar')
+            }
+        </script>
         <%- include('../partials/scriptsLogged') %>
 </body>
 

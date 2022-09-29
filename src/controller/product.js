@@ -141,14 +141,14 @@ const productController = {
     },
 
     putUpdate: async (req, res) => {
-
+        let oldImg= req.body.file;
         await db.Product.update({
             name: req.body.name,
             description: req.body.description,
             price: req.body.price,
             stock: req.body.stock,
             discount: req.body.discount,
-            img: req.file? req.file.filename: NOT_IMG,
+            img: req.file? req.file.filename: oldImg,
             categoryId: req.body.categoryId
         }, {
             where: {

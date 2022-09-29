@@ -110,11 +110,15 @@ const userController = {
                 }
             })
 
-            await db.User.findByPk(user.id)
-                .then(user => {
-                    req.session.userLogged = user
-                })
-            return res.redirect('/user/edit')
+            const successMessage = 'El producto ha sido actualizado.'
+        const encodedMsg = encodeURIComponent(successMessage)
+        res.redirect(`/user/edit?successMsg=${encodedMsg}`)
+        
+     //       await db.User.findByPk(user.id)
+     //           .then(user => {
+     //               req.session.userLogged = user
+     //           })
+     //       return res.redirect('/user/edit')
         }
 
         return res.render((getViewPath('edit')), {
